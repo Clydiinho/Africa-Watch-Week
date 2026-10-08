@@ -1,0 +1,5181 @@
+{
+  "sourceBlend": "/Users/user/Documents/Projects/k3-3d-atlas/attempts/omega-321-b3d/checkpoints/checkpoint_212_hero.blend",
+  "sourceGLBSHA256": "4fd53749b9c66390cfc44c49de37349c44080b2a23629878b3cd068b5811749f",
+  "sourceUnmodified": true,
+  "method": "Unlinked sockets use exact original Principled values. Linked fields use Cycles emission evaluation at 1024 deterministic area-weighted samples on the largest actual exported source object carrying that material. The donor retains its source object matrix, preserving object and world coordinate fields. All sampled colors are linear.",
+  "limitations": [
+    "Surface-sampled means restore a plausible source-backed uniform PBR response; procedural texture variation and bump are not restored by this table.",
+    "Single-source-object representative means are not whole-scene averages. Sampled object, standard deviation, range, and standard error are recorded.",
+    "The three full-texture restorations are excluded so this table cannot overwrite them."
+  ],
+  "materials": [
+    {
+      "name": "M_Blued180",
+      "override": {},
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 0.7200000286102295,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.07999999821186066,
+            0.12999999523162842,
+            0.5,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "exact_source_constant",
+          "value": 0.23999999463558197,
+          "node": "Principled BSDF",
+          "socket": "Roughness"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.0,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.7200000286102295,
+          "explicit": true,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.07999999821186066,
+            0.12999999523162842,
+            0.5,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.23999999463558197,
+          "explicit": true,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 0,
+          "explicit": false,
+          "hasTexture": false
+        }
+      },
+      "apply": false
+    },
+    {
+      "name": "M_R35_HairspringBlueSteel",
+      "override": {},
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 1.0,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.003000000026077032,
+            0.004999999888241291,
+            0.012000000104308128,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "exact_source_constant",
+          "value": 0.4000000059604645,
+          "node": "Principled BSDF",
+          "socket": "Roughness"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.0,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.003000000026077032,
+            0.004999999888241291,
+            0.012000000104308128,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.4000000059604645,
+          "explicit": true,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 0,
+          "explicit": false,
+          "hasTexture": false
+        }
+      },
+      "apply": false
+    },
+    {
+      "name": "M_SednaPVD_B0",
+      "override": {
+        "roughness": 0.25199314671044704
+      },
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 1.0,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.7200000286102295,
+            0.550000011920929,
+            0.3799999952316284,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "source_surface_sampled_mean",
+          "value": 0.25199314671044704,
+          "sourceObject": "321.1000_mainplate",
+          "sampleCount": 1024,
+          "seed": 321,
+          "meanRGB": [
+            0.25199314671044704,
+            0.25199314671044704,
+            0.25199314671044704
+          ],
+          "stdRGB": [
+            0.08770352648695366,
+            0.08770352648695366,
+            0.08770352648695366
+          ],
+          "standardErrorRGB": [
+            0.002740735202717302,
+            0.002740735202717302,
+            0.002740735202717302
+          ],
+          "minRGB": [
+            0.1599999964237213,
+            0.1599999964237213,
+            0.1599999964237213
+          ],
+          "maxRGB": [
+            0.3400000035762787,
+            0.3400000035762787,
+            0.3400000035762787
+          ],
+          "inputNode": "Map Range.001",
+          "inputSocket": "Result"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.6000000238418579,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.7200000286102295,
+            0.550000011920929,
+            0.3799999952316284,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "linked_network_missing_export_uses_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.6000000238418579,
+          "explicit": true,
+          "hasTexture": false
+        }
+      },
+      "apply": true
+    },
+    {
+      "name": "M_SednaChamfer",
+      "override": {},
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 1.0,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.6720000505447388,
+            0.3808000087738037,
+            0.20160001516342163,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "exact_source_constant",
+          "value": 0.05000000074505806,
+          "node": "Principled BSDF",
+          "socket": "Roughness"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.0,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.6720000505447388,
+            0.3808000087738037,
+            0.20160001516342163,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.05000000074505806,
+          "explicit": true,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 0,
+          "explicit": false,
+          "hasTexture": false
+        }
+      },
+      "apply": false
+    },
+    {
+      "name": "M_SednaWall",
+      "override": {},
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 1.0,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.36000001430511475,
+            0.17000000178813934,
+            0.08500000089406967,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "exact_source_constant",
+          "value": 0.4000000059604645,
+          "node": "Principled BSDF",
+          "socket": "Roughness"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.0,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.36000001430511475,
+            0.17000000178813934,
+            0.08500000089406967,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.4000000059604645,
+          "explicit": true,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 0,
+          "explicit": false,
+          "hasTexture": false
+        }
+      },
+      "apply": false
+    },
+    {
+      "name": "M_Ruby",
+      "override": {},
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 0.0,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.2800000011920929,
+            0.006000000052154064,
+            0.054999999701976776,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "exact_source_constant",
+          "value": 0.019999999552965164,
+          "node": "Principled BSDF",
+          "socket": "Roughness"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.0,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0,
+          "explicit": true,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.2800000011920929,
+            0.006000000052154064,
+            0.054999999701976776,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.019999999552965164,
+          "explicit": true,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 0,
+          "explicit": false,
+          "hasTexture": false
+        }
+      },
+      "apply": false
+    },
+    {
+      "name": "R41_PolishedSteel_head",
+      "override": {},
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 1.0,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.3799999952316284,
+            0.4300000071525574,
+            0.49000000953674316,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "exact_source_constant",
+          "value": 0.20000000298023224,
+          "node": "Principled BSDF",
+          "socket": "Roughness"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.0,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.3799999952316284,
+            0.4300000071525574,
+            0.49000000953674316,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.20000000298023224,
+          "explicit": true,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 0,
+          "explicit": false,
+          "hasTexture": false
+        }
+      },
+      "apply": false
+    },
+    {
+      "name": "R41_PolishedSteel_edge",
+      "override": {},
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 1.0,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.46000000834465027,
+            0.49000000953674316,
+            0.5299999713897705,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "exact_source_constant",
+          "value": 0.1599999964237213,
+          "node": "Principled BSDF",
+          "socket": "Roughness"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.0,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.46000000834465027,
+            0.49000000953674316,
+            0.5299999713897705,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.1599999964237213,
+          "explicit": true,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 0,
+          "explicit": false,
+          "hasTexture": false
+        }
+      },
+      "apply": false
+    },
+    {
+      "name": "R41_PolishedSteel_slot",
+      "override": {},
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 1.0,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.33000001311302185,
+            0.36000001430511475,
+            0.4000000059604645,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "exact_source_constant",
+          "value": 0.2800000011920929,
+          "node": "Principled BSDF",
+          "socket": "Roughness"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.0,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.33000001311302185,
+            0.36000001430511475,
+            0.4000000059604645,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.2800000011920929,
+          "explicit": true,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 0,
+          "explicit": false,
+          "hasTexture": false
+        }
+      },
+      "apply": false
+    },
+    {
+      "name": "M_SteelBrush",
+      "override": {
+        "roughness": 0.24177160172257572
+      },
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 1.0,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.6000000238418579,
+            0.6299999952316284,
+            0.6800000071525574,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "source_surface_sampled_mean",
+          "value": 0.24177160172257572,
+          "sourceObject": "321.1200_barrel_drum",
+          "sampleCount": 1024,
+          "seed": 321,
+          "meanRGB": [
+            0.24177160172257572,
+            0.24177160172257572,
+            0.24177160172257572
+          ],
+          "stdRGB": [
+            0.07148770416716148,
+            0.07148770416716148,
+            0.07148770416716148
+          ],
+          "standardErrorRGB": [
+            0.002233990755223796,
+            0.002233990755223796,
+            0.002233990755223796
+          ],
+          "minRGB": [
+            0.1400001496076584,
+            0.1400001496076584,
+            0.1400001496076584
+          ],
+          "maxRGB": [
+            0.3399999439716339,
+            0.3399999439716339,
+            0.3399999439716339
+          ],
+          "inputNode": "Map Range",
+          "inputSocket": "Result"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.75,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.6000000238418579,
+            0.6299999952316284,
+            0.6800000071525574,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "linked_network_missing_export_uses_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.75,
+          "explicit": true,
+          "hasTexture": false
+        }
+      },
+      "apply": true
+    },
+    {
+      "name": "M_SteelPolished",
+      "override": {},
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 1.0,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.550000011920929,
+            0.5799999833106995,
+            0.6200000047683716,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "exact_source_constant",
+          "value": 0.05000000074505806,
+          "node": "Principled BSDF",
+          "socket": "Roughness"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.0,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.550000011920929,
+            0.5799999833106995,
+            0.6200000047683716,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.05000000074505806,
+          "explicit": true,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 0,
+          "explicit": false,
+          "hasTexture": false
+        }
+      },
+      "apply": false
+    },
+    {
+      "name": "M_SteelRatchet",
+      "override": {},
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 0.949999988079071,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.30000001192092896,
+            0.33000001311302185,
+            0.3799999952316284,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "exact_source_constant",
+          "value": 0.3199999928474426,
+          "node": "Principled BSDF",
+          "socket": "Roughness"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.5,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.949999988079071,
+          "explicit": true,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.30000001192092896,
+            0.33000001311302185,
+            0.3799999952316284,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.3199999928474426,
+          "explicit": true,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.5,
+          "explicit": true,
+          "hasTexture": false
+        }
+      },
+      "apply": false
+    },
+    {
+      "name": "M_BrassDark",
+      "override": {},
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 1.0,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.41999998688697815,
+            0.2800000011920929,
+            0.10000000149011612,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "exact_source_constant",
+          "value": 0.2800000011920929,
+          "node": "Principled BSDF",
+          "socket": "Roughness"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.0,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.41999998688697815,
+            0.2800000011920929,
+            0.10000000149011612,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.2800000011920929,
+          "explicit": true,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 0,
+          "explicit": false,
+          "hasTexture": false
+        }
+      },
+      "apply": false
+    },
+    {
+      "name": "R43_BlueGray_head",
+      "override": {},
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 1.0,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.06499999761581421,
+            0.10000000149011612,
+            0.15800000727176666,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "exact_source_constant",
+          "value": 0.23000000417232513,
+          "node": "Principled BSDF",
+          "socket": "Roughness"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.0,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.06499999761581421,
+            0.10000000149011612,
+            0.15800000727176666,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.23000000417232513,
+          "explicit": true,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 0,
+          "explicit": false,
+          "hasTexture": false
+        }
+      },
+      "apply": false
+    },
+    {
+      "name": "R43_BlueGray_edge",
+      "override": {},
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 1.0,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.0949999988079071,
+            0.13500000536441803,
+            0.1899999976158142,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "exact_source_constant",
+          "value": 0.1899999976158142,
+          "node": "Principled BSDF",
+          "socket": "Roughness"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.0,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.0949999988079071,
+            0.13500000536441803,
+            0.1899999976158142,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.1899999976158142,
+          "explicit": true,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 0,
+          "explicit": false,
+          "hasTexture": false
+        }
+      },
+      "apply": false
+    },
+    {
+      "name": "M_SlotDark",
+      "override": {},
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 0.15000000596046448,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.014999999664723873,
+            0.009999999776482582,
+            0.00800000037997961,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "exact_source_constant",
+          "value": 0.6499999761581421,
+          "node": "Principled BSDF",
+          "socket": "Roughness"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.0,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.15000000596046448,
+          "explicit": true,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.014999999664723873,
+            0.009999999776482582,
+            0.00800000037997961,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.6499999761581421,
+          "explicit": true,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 0,
+          "explicit": false,
+          "hasTexture": false
+        }
+      },
+      "apply": false
+    },
+    {
+      "name": "M_Brass3135",
+      "override": {},
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 1.0,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.6399999856948853,
+            0.46000000834465027,
+            0.15000000596046448,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "exact_source_constant",
+          "value": 0.30000001192092896,
+          "node": "Principled BSDF",
+          "socket": "Roughness"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.0,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.6399999856948853,
+            0.46000000834465027,
+            0.15000000596046448,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.30000001192092896,
+          "explicit": true,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 0,
+          "explicit": false,
+          "hasTexture": false
+        }
+      },
+      "apply": false
+    },
+    {
+      "name": "M_Lever_pallet_fork",
+      "override": {
+        "roughness": 0.2498573463963112
+      },
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 0.949999988079071,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.4399999976158142,
+            0.4699999988079071,
+            0.5199999809265137,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "source_surface_sampled_mean",
+          "value": 0.2498573463963112,
+          "sourceObject": "pallet_fork",
+          "sampleCount": 1024,
+          "seed": 321,
+          "meanRGB": [
+            0.2498573463963112,
+            0.2498573463963112,
+            0.2498573463963112
+          ],
+          "stdRGB": [
+            0.016044838888182842,
+            0.016044838888182842,
+            0.016044838888182842
+          ],
+          "standardErrorRGB": [
+            0.0005014012152557138,
+            0.0005014012152557138,
+            0.0005014012152557138
+          ],
+          "minRGB": [
+            0.20796729624271393,
+            0.20796729624271393,
+            0.20796729624271393
+          ],
+          "maxRGB": [
+            0.29419517517089844,
+            0.29419517517089844,
+            0.29419517517089844
+          ],
+          "inputNode": "Map Range",
+          "inputSocket": "Result"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.0,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.949999988079071,
+          "explicit": true,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.4399999976158142,
+            0.4699999988079071,
+            0.5199999809265137,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "linked_network_missing_export_uses_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 0,
+          "explicit": false,
+          "hasTexture": false
+        }
+      },
+      "apply": true
+    },
+    {
+      "name": "M_SteelDarkWall",
+      "override": {},
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 0.949999988079071,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.36000001430511475,
+            0.3799999952316284,
+            0.4300000071525574,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "exact_source_constant",
+          "value": 0.3199999928474426,
+          "node": "Principled BSDF",
+          "socket": "Roughness"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.0,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.949999988079071,
+          "explicit": true,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.36000001430511475,
+            0.3799999952316284,
+            0.4300000071525574,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.3199999928474426,
+          "explicit": true,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 0,
+          "explicit": false,
+          "hasTexture": false
+        }
+      },
+      "apply": false
+    },
+    {
+      "name": "M_SteelChamfer",
+      "override": {},
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 1.0,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.7599999904632568,
+            0.7900000214576721,
+            0.8299999833106995,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "exact_source_constant",
+          "value": 0.029999999329447746,
+          "node": "Principled BSDF",
+          "socket": "Roughness"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.0,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.7599999904632568,
+            0.7900000214576721,
+            0.8299999833106995,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.029999999329447746,
+          "explicit": true,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 0,
+          "explicit": false,
+          "hasTexture": false
+        }
+      },
+      "apply": false
+    },
+    {
+      "name": "R44_Point_balance_rim",
+      "override": {
+        "roughness": 0.1400568047829438
+      },
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 1.0,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.800000011920929,
+            0.5799999833106995,
+            0.2199999988079071,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "source_surface_sampled_mean",
+          "value": 0.1400568047829438,
+          "sourceObject": "balance_rim",
+          "sampleCount": 1024,
+          "seed": 321,
+          "meanRGB": [
+            0.1400568047829438,
+            0.1400568047829438,
+            0.1400568047829438
+          ],
+          "stdRGB": [
+            0.0010265534906755956,
+            0.0010265534906755956,
+            0.0010265534906755956
+          ],
+          "standardErrorRGB": [
+            3.207979658361236e-05,
+            3.207979658361236e-05,
+            3.207979658361236e-05
+          ],
+          "minRGB": [
+            0.14000000059604645,
+            0.14000000059604645,
+            0.14000000059604645
+          ],
+          "maxRGB": [
+            0.1599999964237213,
+            0.1599999964237213,
+            0.1599999964237213
+          ],
+          "inputNode": "R44_Local_Roughness_Add",
+          "inputSocket": "Value"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.0,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.800000011920929,
+            0.5799999833106995,
+            0.2199999988079071,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "linked_network_missing_export_uses_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 0,
+          "explicit": false,
+          "hasTexture": false
+        }
+      },
+      "apply": true
+    },
+    {
+      "name": "R44_Point_balance_staff",
+      "override": {
+        "roughness": 0.19000848857103847
+      },
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 1.0,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.550000011920929,
+            0.5799999833106995,
+            0.6200000047683716,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "source_surface_sampled_mean",
+          "value": 0.19000848857103847,
+          "sourceObject": "balance_staff",
+          "sampleCount": 1024,
+          "seed": 321,
+          "meanRGB": [
+            0.19000848857103847,
+            0.19000848857103847,
+            0.19000848857103847
+          ],
+          "stdRGB": [
+            0.00023436734826733245,
+            0.00023436734826733245,
+            0.00023436734826733245
+          ],
+          "standardErrorRGB": [
+            7.323979633354139e-06,
+            7.323979633354139e-06,
+            7.323979633354139e-06
+          ],
+          "minRGB": [
+            0.1899999976158142,
+            0.1899999976158142,
+            0.1899999976158142
+          ],
+          "maxRGB": [
+            0.19739046692848206,
+            0.19739046692848206,
+            0.19739046692848206
+          ],
+          "inputNode": "R44_Local_Roughness_Add",
+          "inputSocket": "Value"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.0,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.550000011920929,
+            0.5799999833106995,
+            0.6200000047683716,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "linked_network_missing_export_uses_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 0,
+          "explicit": false,
+          "hasTexture": false
+        }
+      },
+      "apply": true
+    },
+    {
+      "name": "R43_BalanceSteel",
+      "override": {},
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 1.0,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.550000011920929,
+            0.5799999833106995,
+            0.6200000047683716,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "exact_source_constant",
+          "value": 0.1899999976158142,
+          "node": "Principled BSDF",
+          "socket": "Roughness"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.0,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.550000011920929,
+            0.5799999833106995,
+            0.6200000047683716,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.1899999976158142,
+          "explicit": true,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 0,
+          "explicit": false,
+          "hasTexture": false
+        }
+      },
+      "apply": false
+    },
+    {
+      "name": "R43_BalanceGold",
+      "override": {},
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 1.0,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.800000011920929,
+            0.5799999833106995,
+            0.2199999988079071,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "exact_source_constant",
+          "value": 0.14000000059604645,
+          "node": "Principled BSDF",
+          "socket": "Roughness"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.0,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.800000011920929,
+            0.5799999833106995,
+            0.2199999988079071,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.14000000059604645,
+          "explicit": true,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 0,
+          "explicit": false,
+          "hasTexture": false
+        }
+      },
+      "apply": false
+    },
+    {
+      "name": "M_BalScrewGold",
+      "override": {},
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 1.0,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.8999999761581421,
+            0.7200000286102295,
+            0.3400000035762787,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "exact_source_constant",
+          "value": 0.05999999865889549,
+          "node": "Principled BSDF",
+          "socket": "Roughness"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.0,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.8999999761581421,
+            0.7200000286102295,
+            0.3400000035762787,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.05999999865889549,
+          "explicit": true,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 0,
+          "explicit": false,
+          "hasTexture": false
+        }
+      },
+      "apply": false
+    },
+    {
+      "name": "M_Lever_operating_hook",
+      "override": {
+        "roughness": 0.25040408526547253
+      },
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 0.949999988079071,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.4399999976158142,
+            0.4699999988079071,
+            0.5199999809265137,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "source_surface_sampled_mean",
+          "value": 0.25040408526547253,
+          "sourceObject": "operating_hook",
+          "sampleCount": 1024,
+          "seed": 321,
+          "meanRGB": [
+            0.25040408526547253,
+            0.25040408526547253,
+            0.25040408526547253
+          ],
+          "stdRGB": [
+            0.015948432999446687,
+            0.015948432999446687,
+            0.015948432999446687
+          ],
+          "standardErrorRGB": [
+            0.000498388531232709,
+            0.000498388531232709,
+            0.000498388531232709
+          ],
+          "minRGB": [
+            0.20015685260295868,
+            0.20015685260295868,
+            0.20015685260295868
+          ],
+          "maxRGB": [
+            0.29577597975730896,
+            0.29577597975730896,
+            0.29577597975730896
+          ],
+          "inputNode": "Map Range",
+          "inputSocket": "Result"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.0,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.949999988079071,
+          "explicit": true,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.4399999976158142,
+            0.4699999988079071,
+            0.5199999809265137,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "linked_network_missing_export_uses_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 0,
+          "explicit": false,
+          "hasTexture": false
+        }
+      },
+      "apply": true
+    },
+    {
+      "name": "M_Lever_blocking_lever",
+      "override": {
+        "roughness": 0.2417891591321677
+      },
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 1.0,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.6000000238418579,
+            0.6299999952316284,
+            0.6800000071525574,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "source_surface_sampled_mean",
+          "value": 0.2417891591321677,
+          "sourceObject": "blocking_lever",
+          "sampleCount": 1024,
+          "seed": 321,
+          "meanRGB": [
+            0.2417891591321677,
+            0.2417891591321677,
+            0.2417891591321677
+          ],
+          "stdRGB": [
+            0.07244175490524746,
+            0.07244175490524746,
+            0.07244175490524746
+          ],
+          "standardErrorRGB": [
+            0.002263804840788983,
+            0.002263804840788983,
+            0.002263804840788983
+          ],
+          "minRGB": [
+            0.14000017940998077,
+            0.14000017940998077,
+            0.14000017940998077
+          ],
+          "maxRGB": [
+            0.3399997055530548,
+            0.3399997055530548,
+            0.3399997055530548
+          ],
+          "inputNode": "Map Range",
+          "inputSocket": "Result"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.5,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.6000000238418579,
+            0.6299999952316284,
+            0.6800000071525574,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "linked_network_missing_export_uses_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.5,
+          "explicit": true,
+          "hasTexture": false
+        }
+      },
+      "apply": true
+    },
+    {
+      "name": "M_Lever_reset_lever",
+      "override": {
+        "roughness": 0.2403214815130923
+      },
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 1.0,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.6000000238418579,
+            0.6299999952316284,
+            0.6800000071525574,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "source_surface_sampled_mean",
+          "value": 0.2403214815130923,
+          "sourceObject": "reset_lever",
+          "sampleCount": 1024,
+          "seed": 321,
+          "meanRGB": [
+            0.2403214815130923,
+            0.2403214815130923,
+            0.2403214815130923
+          ],
+          "stdRGB": [
+            0.07010979825425495,
+            0.07010979825425495,
+            0.07010979825425495
+          ],
+          "standardErrorRGB": [
+            0.0021909311954454672,
+            0.0021909311954454672,
+            0.0021909311954454672
+          ],
+          "minRGB": [
+            0.14000000059604645,
+            0.14000000059604645,
+            0.14000000059604645
+          ],
+          "maxRGB": [
+            0.33998289704322815,
+            0.33998289704322815,
+            0.33998289704322815
+          ],
+          "inputNode": "Map Range",
+          "inputSocket": "Result"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.5,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.6000000238418579,
+            0.6299999952316284,
+            0.6800000071525574,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "linked_network_missing_export_uses_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.5,
+          "explicit": true,
+          "hasTexture": false
+        }
+      },
+      "apply": true
+    },
+    {
+      "name": "M_Lever_clutch_rocker",
+      "override": {
+        "roughness": 0.2408412978402339
+      },
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 1.0,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.6000000238418579,
+            0.6299999952316284,
+            0.6800000071525574,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "source_surface_sampled_mean",
+          "value": 0.2408412978402339,
+          "sourceObject": "clutch_rocker",
+          "sampleCount": 1024,
+          "seed": 321,
+          "meanRGB": [
+            0.2408412978402339,
+            0.2408412978402339,
+            0.2408412978402339
+          ],
+          "stdRGB": [
+            0.07147700154376489,
+            0.07147700154376489,
+            0.07147700154376489
+          ],
+          "standardErrorRGB": [
+            0.002233656298242653,
+            0.002233656298242653,
+            0.002233656298242653
+          ],
+          "minRGB": [
+            0.1400001496076584,
+            0.1400001496076584,
+            0.1400001496076584
+          ],
+          "maxRGB": [
+            0.3399992883205414,
+            0.3399992883205414,
+            0.3399992883205414
+          ],
+          "inputNode": "Map Range",
+          "inputSocket": "Result"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.5,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.6000000238418579,
+            0.6299999952316284,
+            0.6800000071525574,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "linked_network_missing_export_uses_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.5,
+          "explicit": true,
+          "hasTexture": false
+        }
+      },
+      "apply": true
+    },
+    {
+      "name": "M_Lever_hammer_seconds",
+      "override": {
+        "roughness": 0.23927219495817553
+      },
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 1.0,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.6000000238418579,
+            0.6299999952316284,
+            0.6800000071525574,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "source_surface_sampled_mean",
+          "value": 0.23927219495817553,
+          "sourceObject": "hammer_seconds",
+          "sampleCount": 1024,
+          "seed": 321,
+          "meanRGB": [
+            0.23927219495817553,
+            0.23927219495817553,
+            0.23927219495817553
+          ],
+          "stdRGB": [
+            0.0700421192135198,
+            0.0700421192135198,
+            0.0700421192135198
+          ],
+          "standardErrorRGB": [
+            0.0021888162254224937,
+            0.0021888162254224937,
+            0.0021888162254224937
+          ],
+          "minRGB": [
+            0.140000119805336,
+            0.140000119805336,
+            0.140000119805336
+          ],
+          "maxRGB": [
+            0.33999982476234436,
+            0.33999982476234436,
+            0.33999982476234436
+          ],
+          "inputNode": "Map Range",
+          "inputSocket": "Result"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.5,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.6000000238418579,
+            0.6299999952316284,
+            0.6800000071525574,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "linked_network_missing_export_uses_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.5,
+          "explicit": true,
+          "hasTexture": false
+        }
+      },
+      "apply": true
+    },
+    {
+      "name": "M_Lever_hammer_minutes",
+      "override": {
+        "roughness": 0.24087700773088727
+      },
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 1.0,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.6000000238418579,
+            0.6299999952316284,
+            0.6800000071525574,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "source_surface_sampled_mean",
+          "value": 0.24087700773088727,
+          "sourceObject": "hammer_minutes",
+          "sampleCount": 1024,
+          "seed": 321,
+          "meanRGB": [
+            0.24087700773088727,
+            0.24087700773088727,
+            0.24087700773088727
+          ],
+          "stdRGB": [
+            0.07066383209763069,
+            0.07066383209763069,
+            0.07066383209763069
+          ],
+          "standardErrorRGB": [
+            0.002208244753050959,
+            0.002208244753050959,
+            0.002208244753050959
+          ],
+          "minRGB": [
+            0.14000160992145538,
+            0.14000160992145538,
+            0.14000160992145538
+          ],
+          "maxRGB": [
+            0.3399997055530548,
+            0.3399997055530548,
+            0.3399997055530548
+          ],
+          "inputNode": "Map Range",
+          "inputSocket": "Result"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.5,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.6000000238418579,
+            0.6299999952316284,
+            0.6800000071525574,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "linked_network_missing_export_uses_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.5,
+          "explicit": true,
+          "hasTexture": false
+        }
+      },
+      "apply": true
+    },
+    {
+      "name": "M_Lever_minute_jumper",
+      "override": {
+        "roughness": 0.25001037782931235
+      },
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 0.949999988079071,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.4399999976158142,
+            0.4699999988079071,
+            0.5199999809265137,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "source_surface_sampled_mean",
+          "value": 0.25001037782931235,
+          "sourceObject": "minute_jumper",
+          "sampleCount": 1024,
+          "seed": 321,
+          "meanRGB": [
+            0.25001037782931235,
+            0.25001037782931235,
+            0.25001037782931235
+          ],
+          "stdRGB": [
+            0.015633056825327257,
+            0.015633056825327257,
+            0.015633056825327257
+          ],
+          "standardErrorRGB": [
+            0.0004885330257914768,
+            0.0004885330257914768,
+            0.0004885330257914768
+          ],
+          "minRGB": [
+            0.20327705144882202,
+            0.20327705144882202,
+            0.20327705144882202
+          ],
+          "maxRGB": [
+            0.29315081238746643,
+            0.29315081238746643,
+            0.29315081238746643
+          ],
+          "inputNode": "Map Range",
+          "inputSocket": "Result"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.0,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.949999988079071,
+          "explicit": true,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.4399999976158142,
+            0.4699999988079071,
+            0.5199999809265137,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "linked_network_missing_export_uses_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 0,
+          "explicit": false,
+          "hasTexture": false
+        }
+      },
+      "apply": true
+    },
+    {
+      "name": "M_Lever_double_spring",
+      "override": {
+        "roughness": 0.24908848517225124
+      },
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 0.949999988079071,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.4399999976158142,
+            0.4699999988079071,
+            0.5199999809265137,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "source_surface_sampled_mean",
+          "value": 0.24908848517225124,
+          "sourceObject": "double_spring",
+          "sampleCount": 1024,
+          "seed": 321,
+          "meanRGB": [
+            0.24908848517225124,
+            0.24908848517225124,
+            0.24908848517225124
+          ],
+          "stdRGB": [
+            0.01576451511115307,
+            0.01576451511115307,
+            0.01576451511115307
+          ],
+          "standardErrorRGB": [
+            0.0004926410972235334,
+            0.0004926410972235334,
+            0.0004926410972235334
+          ],
+          "minRGB": [
+            0.2049344778060913,
+            0.2049344778060913,
+            0.2049344778060913
+          ],
+          "maxRGB": [
+            0.301553875207901,
+            0.301553875207901,
+            0.301553875207901
+          ],
+          "inputNode": "Map Range",
+          "inputSocket": "Result"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.0,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.949999988079071,
+          "explicit": true,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.4399999976158142,
+            0.4699999988079071,
+            0.5199999809265137,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "linked_network_missing_export_uses_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 0,
+          "explicit": false,
+          "hasTexture": false
+        }
+      },
+      "apply": true
+    },
+    {
+      "name": "M_Lever_321.1730_operating_l",
+      "override": {
+        "roughness": 0.242038639538805
+      },
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 1.0,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.6000000238418579,
+            0.6299999952316284,
+            0.6800000071525574,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "source_surface_sampled_mean",
+          "value": 0.242038639538805,
+          "sourceObject": "321.1730_operating_lever_spring",
+          "sampleCount": 1024,
+          "seed": 321,
+          "meanRGB": [
+            0.242038639538805,
+            0.242038639538805,
+            0.242038639538805
+          ],
+          "stdRGB": [
+            0.07067419362443003,
+            0.07067419362443003,
+            0.07067419362443003
+          ],
+          "standardErrorRGB": [
+            0.0022085685507634385,
+            0.0022085685507634385,
+            0.0022085685507634385
+          ],
+          "minRGB": [
+            0.14000004529953003,
+            0.14000004529953003,
+            0.14000004529953003
+          ],
+          "maxRGB": [
+            0.33999958634376526,
+            0.33999958634376526,
+            0.33999958634376526
+          ],
+          "inputNode": "Map Range",
+          "inputSocket": "Result"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.5,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.6000000238418579,
+            0.6299999952316284,
+            0.6800000071525574,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "linked_network_missing_export_uses_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.5,
+          "explicit": true,
+          "hasTexture": false
+        }
+      },
+      "apply": true
+    },
+    {
+      "name": "M_Lever_operating_lever",
+      "override": {
+        "roughness": 0.24022354492626619
+      },
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 1.0,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.6000000238418579,
+            0.6299999952316284,
+            0.6800000071525574,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "source_surface_sampled_mean",
+          "value": 0.24022354492626619,
+          "sourceObject": "operating_lever",
+          "sampleCount": 1024,
+          "seed": 321,
+          "meanRGB": [
+            0.24022354492626619,
+            0.24022354492626619,
+            0.24022354492626619
+          ],
+          "stdRGB": [
+            0.07066567667265479,
+            0.07066567667265479,
+            0.07066567667265479
+          ],
+          "standardErrorRGB": [
+            0.002208302396020462,
+            0.002208302396020462,
+            0.002208302396020462
+          ],
+          "minRGB": [
+            0.14000056684017181,
+            0.14000056684017181,
+            0.14000056684017181
+          ],
+          "maxRGB": [
+            0.3399936556816101,
+            0.3399936556816101,
+            0.3399936556816101
+          ],
+          "inputNode": "Map Range",
+          "inputSocket": "Result"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.5,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.6000000238418579,
+            0.6299999952316284,
+            0.6800000071525574,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "linked_network_missing_export_uses_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.5,
+          "explicit": true,
+          "hasTexture": false
+        }
+      },
+      "apply": true
+    },
+    {
+      "name": "R43_BankingPinSteel",
+      "override": {},
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 1.0,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.2800000011920929,
+            0.3100000023841858,
+            0.3499999940395355,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "exact_source_constant",
+          "value": 0.20000000298023224,
+          "node": "Principled BSDF",
+          "socket": "Roughness"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.0,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.2800000011920929,
+            0.3100000023841858,
+            0.3499999940395355,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.20000000298023224,
+          "explicit": true,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 0,
+          "explicit": false,
+          "hasTexture": false
+        }
+      },
+      "apply": false
+    },
+    {
+      "name": "M_BluedSteel",
+      "override": {},
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 0.7200000286102295,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.09000000357627869,
+            0.12999999523162842,
+            0.3799999952316284,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "exact_source_constant",
+          "value": 0.25999999046325684,
+          "node": "Principled BSDF",
+          "socket": "Roughness"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.0,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.7200000286102295,
+          "explicit": true,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.09000000357627869,
+            0.12999999523162842,
+            0.3799999952316284,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.25999999046325684,
+          "explicit": true,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 0,
+          "explicit": false,
+          "hasTexture": false
+        }
+      },
+      "apply": false
+    },
+    {
+      "name": "M_ColwSteel",
+      "override": {
+        "roughness": 0.3400000035762787
+      },
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 1.0,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.30000001192092896,
+            0.33000001311302185,
+            0.3799999952316284,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "source_surface_sampled_mean",
+          "value": 0.3400000035762787,
+          "sourceObject": "columnwheel_base",
+          "sampleCount": 1024,
+          "seed": 321,
+          "meanRGB": [
+            0.3400000035762787,
+            0.3400000035762787,
+            0.3400000035762787
+          ],
+          "stdRGB": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "standardErrorRGB": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "minRGB": [
+            0.3400000035762787,
+            0.3400000035762787,
+            0.3400000035762787
+          ],
+          "maxRGB": [
+            0.3400000035762787,
+            0.3400000035762787,
+            0.3400000035762787
+          ],
+          "inputNode": "Map Range",
+          "inputSocket": "Result"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.0,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.30000001192092896,
+            0.33000001311302185,
+            0.3799999952316284,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "linked_network_missing_export_uses_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 0,
+          "explicit": false,
+          "hasTexture": false
+        }
+      },
+      "apply": true
+    },
+    {
+      "name": "M_ColwTop",
+      "override": {},
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 0.8999999761581421,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.47999998927116394,
+            0.5099999904632568,
+            0.5600000023841858,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "exact_source_constant",
+          "value": 0.1599999964237213,
+          "node": "Principled BSDF",
+          "socket": "Roughness"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.0,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.8999999761581421,
+          "explicit": true,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.47999998927116394,
+            0.5099999904632568,
+            0.5600000023841858,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.1599999964237213,
+          "explicit": true,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 0,
+          "explicit": false,
+          "hasTexture": false
+        }
+      },
+      "apply": false
+    },
+    {
+      "name": "R44_Point_scr_b34_0_csk",
+      "override": {
+        "roughness": 0.052463173738942714
+      },
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 1.0,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.550000011920929,
+            0.5799999833106995,
+            0.6200000047683716,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "source_surface_sampled_mean",
+          "value": 0.052463173738942714,
+          "sourceObject": "scr_b34_0_csk",
+          "sampleCount": 1024,
+          "seed": 321,
+          "meanRGB": [
+            0.052463173738942714,
+            0.052463173738942714,
+            0.052463173738942714
+          ],
+          "stdRGB": [
+            0.010555576292366945,
+            0.010555576292366945,
+            0.010555576292366945
+          ],
+          "standardErrorRGB": [
+            0.00032986175913646704,
+            0.00032986175913646704,
+            0.00032986175913646704
+          ],
+          "minRGB": [
+            0.05000000074505806,
+            0.05000000074505806,
+            0.05000000074505806
+          ],
+          "maxRGB": [
+            0.10500000417232513,
+            0.10500000417232513,
+            0.10500000417232513
+          ],
+          "inputNode": "R44_Local_Roughness_Add",
+          "inputSocket": "Value"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.0,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.550000011920929,
+            0.5799999833106995,
+            0.6200000047683716,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "linked_network_missing_export_uses_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 0,
+          "explicit": false,
+          "hasTexture": false
+        }
+      },
+      "apply": true
+    },
+    {
+      "name": "R43_BlueGray_lift",
+      "override": {},
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 1.0,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.14499999582767487,
+            0.19499999284744263,
+            0.25999999046325684,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "exact_source_constant",
+          "value": 0.3199999928474426,
+          "node": "Principled BSDF",
+          "socket": "Roughness"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.0,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.14499999582767487,
+            0.19499999284744263,
+            0.25999999046325684,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.3199999928474426,
+          "explicit": true,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 0,
+          "explicit": false,
+          "hasTexture": false
+        }
+      },
+      "apply": false
+    },
+    {
+      "name": "M_SlotFloor",
+      "override": {},
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 1.0,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.14000000059604645,
+            0.15000000596046448,
+            0.17000000178813934,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "exact_source_constant",
+          "value": 0.20000000298023224,
+          "node": "Principled BSDF",
+          "socket": "Roughness"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.0,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.14000000059604645,
+            0.15000000596046448,
+            0.17000000178813934,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.20000000298023224,
+          "explicit": true,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 0,
+          "explicit": false,
+          "hasTexture": false
+        }
+      },
+      "apply": false
+    },
+    {
+      "name": "M_Gold",
+      "override": {},
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 1.0,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.800000011920929,
+            0.5799999833106995,
+            0.2199999988079071,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "exact_source_constant",
+          "value": 0.029999999329447746,
+          "node": "Principled BSDF",
+          "socket": "Roughness"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.0,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.800000011920929,
+            0.5799999833106995,
+            0.2199999988079071,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.029999999329447746,
+          "explicit": true,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 0,
+          "explicit": false,
+          "hasTexture": false
+        }
+      },
+      "apply": false
+    },
+    {
+      "name": "M_Lever_r45_hammer_spring",
+      "override": {
+        "roughness": 0.2503094501880696
+      },
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 0.949999988079071,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.4399999976158142,
+            0.4699999988079071,
+            0.5199999809265137,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "source_surface_sampled_mean",
+          "value": 0.2503094501880696,
+          "sourceObject": "r45_hammer_spring",
+          "sampleCount": 1024,
+          "seed": 321,
+          "meanRGB": [
+            0.2503094501880696,
+            0.2503094501880696,
+            0.2503094501880696
+          ],
+          "stdRGB": [
+            0.015829875773149486,
+            0.015829875773149486,
+            0.015829875773149486
+          ],
+          "standardErrorRGB": [
+            0.0004946836179109214,
+            0.0004946836179109214,
+            0.0004946836179109214
+          ],
+          "minRGB": [
+            0.20511983335018158,
+            0.20511983335018158,
+            0.20511983335018158
+          ],
+          "maxRGB": [
+            0.29228100180625916,
+            0.29228100180625916,
+            0.29228100180625916
+          ],
+          "inputNode": "Map Range",
+          "inputSocket": "Result"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.0,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.949999988079071,
+          "explicit": true,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.4399999976158142,
+            0.4699999988079071,
+            0.5199999809265137,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "linked_network_missing_export_uses_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 0,
+          "explicit": false,
+          "hasTexture": false
+        }
+      },
+      "apply": true
+    },
+    {
+      "name": "R36_RecessMetal",
+      "override": {},
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 0.3499999940395355,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.03500000014901161,
+            0.02199999988079071,
+            0.013000000268220901,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "exact_source_constant",
+          "value": 0.47999998927116394,
+          "node": "Principled BSDF",
+          "socket": "Roughness"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.0,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.3499999940395355,
+          "explicit": true,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.03500000014901161,
+            0.02199999988079071,
+            0.013000000268220901,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.47999998927116394,
+          "explicit": true,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 0,
+          "explicit": false,
+          "hasTexture": false
+        }
+      },
+      "apply": false
+    },
+    {
+      "name": "R38_MirrorAnglage",
+      "override": {},
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 1.0,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.5400000214576721,
+            0.5249999761581421,
+            0.49000000953674316,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "exact_source_constant",
+          "value": 0.0949999988079071,
+          "node": "Principled BSDF",
+          "socket": "Roughness"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.0,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.5400000214576721,
+            0.5249999761581421,
+            0.49000000953674316,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.0949999988079071,
+          "explicit": true,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 0,
+          "explicit": false,
+          "hasTexture": false
+        }
+      },
+      "apply": false
+    },
+    {
+      "name": "R38_DressedWall",
+      "override": {},
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 1.0,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.5400000214576721,
+            0.5249999761581421,
+            0.49000000953674316,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "exact_source_constant",
+          "value": 0.23999999463558197,
+          "node": "Principled BSDF",
+          "socket": "Roughness"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.15000000596046448,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.5400000214576721,
+            0.5249999761581421,
+            0.49000000953674316,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.23999999463558197,
+          "explicit": true,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.15000000596046448,
+          "explicit": true,
+          "hasTexture": false
+        }
+      },
+      "apply": false
+    },
+    {
+      "name": "M_SteelWallD",
+      "override": {},
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 0.949999988079071,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.3799999952316284,
+            0.4000000059604645,
+            0.44999998807907104,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "exact_source_constant",
+          "value": 0.30000001192092896,
+          "node": "Principled BSDF",
+          "socket": "Roughness"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.0,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.949999988079071,
+          "explicit": true,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.3799999952316284,
+            0.4000000059604645,
+            0.44999998807907104,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.30000001192092896,
+          "explicit": true,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 0,
+          "explicit": false,
+          "hasTexture": false
+        }
+      },
+      "apply": false
+    },
+    {
+      "name": "M_Blued190",
+      "override": {},
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 0.7200000286102295,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.07999999821186066,
+            0.12999999523162842,
+            0.5,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "exact_source_constant",
+          "value": 0.23999999463558197,
+          "node": "Principled BSDF",
+          "socket": "Roughness"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.0,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.7200000286102295,
+          "explicit": true,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.07999999821186066,
+            0.12999999523162842,
+            0.5,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.23999999463558197,
+          "explicit": true,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 0,
+          "explicit": false,
+          "hasTexture": false
+        }
+      },
+      "apply": false
+    },
+    {
+      "name": "M_Blued200",
+      "override": {},
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 0.7200000286102295,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.07999999821186066,
+            0.12999999523162842,
+            0.5,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "exact_source_constant",
+          "value": 0.23999999463558197,
+          "node": "Principled BSDF",
+          "socket": "Roughness"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.0,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.7200000286102295,
+          "explicit": true,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.07999999821186066,
+            0.12999999523162842,
+            0.5,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.23999999463558197,
+          "explicit": true,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 0,
+          "explicit": false,
+          "hasTexture": false
+        }
+      },
+      "apply": false
+    },
+    {
+      "name": "M_BlackPolish",
+      "override": {},
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 1.0,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.054999999701976776,
+            0.06499999761581421,
+            0.08500000089406967,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "exact_source_constant",
+          "value": 0.014999999664723873,
+          "node": "Principled BSDF",
+          "socket": "Roughness"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.0,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.054999999701976776,
+            0.06499999761581421,
+            0.08500000089406967,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.014999999664723873,
+          "explicit": true,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 0,
+          "explicit": false,
+          "hasTexture": false
+        }
+      },
+      "apply": false
+    },
+    {
+      "name": "M_TableDark",
+      "override": {},
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 0.0,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.03200000151991844,
+            0.029999999329447746,
+            0.02800000086426735,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "exact_source_constant",
+          "value": 0.8799999952316284,
+          "node": "Principled BSDF",
+          "socket": "Roughness"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.0,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0,
+          "explicit": true,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.03200000151991844,
+            0.029999999329447746,
+            0.02800000086426735,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.8799999952316284,
+          "explicit": true,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 0,
+          "explicit": false,
+          "hasTexture": false
+        }
+      },
+      "apply": false
+    },
+    {
+      "name": "M_HolderSteel",
+      "override": {},
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 1.0,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.1599999964237213,
+            0.17000000178813934,
+            0.1899999976158142,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "exact_source_constant",
+          "value": 0.41999998688697815,
+          "node": "Principled BSDF",
+          "socket": "Roughness"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.0,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.1599999964237213,
+            0.17000000178813934,
+            0.1899999976158142,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.41999998688697815,
+          "explicit": true,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 0,
+          "explicit": false,
+          "hasTexture": false
+        }
+      },
+      "apply": false
+    },
+    {
+      "name": "M_Brass",
+      "override": {
+        "roughness": 0.29786248596792575
+      },
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 1.0,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.6399999856948853,
+            0.46000000834465027,
+            0.15000000596046448,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "source_surface_sampled_mean",
+          "value": 0.29786248596792575,
+          "sourceObject": "321.1200_barrel_teeth",
+          "sampleCount": 1024,
+          "seed": 321,
+          "meanRGB": [
+            0.29786248596792575,
+            0.29786248596792575,
+            0.29786248596792575
+          ],
+          "stdRGB": [
+            0.04197839436452713,
+            0.04197839436452713,
+            0.04197839436452713
+          ],
+          "standardErrorRGB": [
+            0.001311824823891473,
+            0.001311824823891473,
+            0.001311824823891473
+          ],
+          "minRGB": [
+            0.2400001883506775,
+            0.2400001883506775,
+            0.2400001883506775
+          ],
+          "maxRGB": [
+            0.36000001430511475,
+            0.36000001430511475,
+            0.36000001430511475
+          ],
+          "inputNode": "Color Ramp",
+          "inputSocket": "Color"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.0,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.6399999856948853,
+            0.46000000834465027,
+            0.15000000596046448,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "linked_network_missing_export_uses_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 0,
+          "explicit": false,
+          "hasTexture": false
+        }
+      },
+      "apply": true
+    },
+    {
+      "name": "R39_BrassResponse",
+      "override": {
+        "roughness": 0.3593979424040299
+      },
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 1.0,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.36000001430511475,
+            0.20499999821186066,
+            0.06499999761581421,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "source_surface_sampled_mean",
+          "value": 0.3593979424040299,
+          "sourceObject": "t35_automatic_bridge_wheel_004",
+          "sampleCount": 1024,
+          "seed": 321,
+          "meanRGB": [
+            0.3593979424040299,
+            0.3593979424040299,
+            0.3593979424040299
+          ],
+          "stdRGB": [
+            0.018033413287741773,
+            0.018033413287741773,
+            0.018033413287741773
+          ],
+          "standardErrorRGB": [
+            0.0005635441652419304,
+            0.0005635441652419304,
+            0.0005635441652419304
+          ],
+          "minRGB": [
+            0.33500024676322937,
+            0.33500024676322937,
+            0.33500024676322937
+          ],
+          "maxRGB": [
+            0.3849998116493225,
+            0.3849998116493225,
+            0.3849998116493225
+          ],
+          "inputNode": "Math.003",
+          "inputSocket": "Value"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.25,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.36000001430511475,
+            0.20499999821186066,
+            0.06499999761581421,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "linked_network_missing_export_uses_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.25,
+          "explicit": true,
+          "hasTexture": false
+        }
+      },
+      "apply": true
+    },
+    {
+      "name": "M_SteelDark",
+      "override": {
+        "roughness": 0.29986327193910256
+      },
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 0.949999988079071,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.3400000035762787,
+            0.3700000047683716,
+            0.41999998688697815,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "source_surface_sampled_mean",
+          "value": 0.29986327193910256,
+          "sourceObject": "inca_housing",
+          "sampleCount": 1024,
+          "seed": 321,
+          "meanRGB": [
+            0.29986327193910256,
+            0.29986327193910256,
+            0.29986327193910256
+          ],
+          "stdRGB": [
+            0.042109901348958076,
+            0.042109901348958076,
+            0.042109901348958076
+          ],
+          "standardErrorRGB": [
+            0.0013159344171549399,
+            0.0013159344171549399,
+            0.0013159344171549399
+          ],
+          "minRGB": [
+            0.24000176787376404,
+            0.24000176787376404,
+            0.24000176787376404
+          ],
+          "maxRGB": [
+            0.3599992096424103,
+            0.3599992096424103,
+            0.3599992096424103
+          ],
+          "inputNode": "Color Ramp",
+          "inputSocket": "Color"
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.0,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": 0.949999988079071,
+          "explicit": true,
+          "hasTexture": false
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.3400000035762787,
+            0.3700000047683716,
+            0.41999998688697815,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "roughness": {
+          "status": "linked_network_missing_export_uses_default",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 0,
+          "explicit": false,
+          "hasTexture": false
+        }
+      },
+      "apply": true
+    },
+    {
+      "name": "M_SednaPerlage",
+      "override": {},
+      "source": {
+        "metalness": {
+          "kind": "exact_source_constant",
+          "value": 1.0,
+          "node": "Principled BSDF",
+          "socket": "Metallic"
+        },
+        "baseColorLinear": {
+          "kind": "exact_source_constant",
+          "value": [
+            0.5199999809265137,
+            0.25999999046325684,
+            0.13500000536441803,
+            1.0
+          ],
+          "node": "Principled BSDF",
+          "socket": "Base Color"
+        },
+        "roughness": {
+          "kind": "linked_unmeasured",
+          "reason": "No actual exported source object."
+        },
+        "anisotropy": {
+          "kind": "exact_source_constant",
+          "value": 0.0,
+          "node": "Principled BSDF",
+          "socket": "Anisotropic"
+        }
+      },
+      "exportStatus": {
+        "metalness": {
+          "status": "texture_already_exported_preserve",
+          "exportedEffectiveValue": 1,
+          "explicit": false,
+          "hasTexture": true
+        },
+        "baseColorLinear": {
+          "status": "explicit_value_matches_source",
+          "exportedEffectiveValue": [
+            0.5199999809265137,
+            0.25999999046325684,
+            0.13500000536441803,
+            1
+          ],
+          "explicit": true,
+          "hasTexture": false
+        },
+        "anisotropy": {
+          "status": "omitted_because_source_equals_gltf_default",
+          "exportedEffectiveValue": 0,
+          "explicit": false,
+          "hasTexture": false
+        }
+      },
+      "apply": false
+    }
+  ],
+  "skipped": [
+    {
+      "name": "R43_SednaPerlage",
+      "reason": "Full source-texture restoration already supplied."
+    },
+    {
+      "name": "R43_SednaCutGrain",
+      "reason": "Full source-texture restoration already supplied."
+    },
+    {
+      "name": "R46_HandEngraved_Silver",
+      "reason": "Full source-texture restoration already supplied."
+    }
+  ],
+  "complete": true,
+  "overridesByMaterial": {
+    "M_SednaPVD_B0": {
+      "roughness": 0.25199314671044704
+    },
+    "M_SteelBrush": {
+      "roughness": 0.24177160172257572
+    },
+    "M_Lever_pallet_fork": {
+      "roughness": 0.2498573463963112
+    },
+    "R44_Point_balance_rim": {
+      "roughness": 0.1400568047829438
+    },
+    "R44_Point_balance_staff": {
+      "roughness": 0.19000848857103847
+    },
+    "M_Lever_operating_hook": {
+      "roughness": 0.25040408526547253
+    },
+    "M_Lever_blocking_lever": {
+      "roughness": 0.2417891591321677
+    },
+    "M_Lever_reset_lever": {
+      "roughness": 0.2403214815130923
+    },
+    "M_Lever_clutch_rocker": {
+      "roughness": 0.2408412978402339
+    },
+    "M_Lever_hammer_seconds": {
+      "roughness": 0.23927219495817553
+    },
+    "M_Lever_hammer_minutes": {
+      "roughness": 0.24087700773088727
+    },
+    "M_Lever_minute_jumper": {
+      "roughness": 0.25001037782931235
+    },
+    "M_Lever_double_spring": {
+      "roughness": 0.24908848517225124
+    },
+    "M_Lever_321.1730_operating_l": {
+      "roughness": 0.242038639538805
+    },
+    "M_Lever_operating_lever": {
+      "roughness": 0.24022354492626619
+    },
+    "M_ColwSteel": {
+      "roughness": 0.3400000035762787
+    },
+    "R44_Point_scr_b34_0_csk": {
+      "roughness": 0.052463173738942714
+    },
+    "M_Lever_r45_hammer_spring": {
+      "roughness": 0.2503094501880696
+    },
+    "M_Brass": {
+      "roughness": 0.29786248596792575
+    },
+    "R39_BrassResponse": {
+      "roughness": 0.3593979424040299
+    },
+    "M_SteelDark": {
+      "roughness": 0.29986327193910256
+    }
+  },
+  "sourcePBRByMaterial": {
+    "M_Blued180": {
+      "metalness": 0.7200000286102295,
+      "baseColorLinear": [
+        0.07999999821186066,
+        0.12999999523162842,
+        0.5,
+        1.0
+      ],
+      "roughness": 0.23999999463558197,
+      "anisotropy": 0.0
+    },
+    "M_R35_HairspringBlueSteel": {
+      "metalness": 1.0,
+      "baseColorLinear": [
+        0.003000000026077032,
+        0.004999999888241291,
+        0.012000000104308128,
+        1.0
+      ],
+      "roughness": 0.4000000059604645,
+      "anisotropy": 0.0
+    },
+    "M_SednaPVD_B0": {
+      "metalness": 1.0,
+      "baseColorLinear": [
+        0.7200000286102295,
+        0.550000011920929,
+        0.3799999952316284,
+        1.0
+      ],
+      "roughness": 0.25199314671044704,
+      "anisotropy": 0.6000000238418579
+    },
+    "M_SednaChamfer": {
+      "metalness": 1.0,
+      "baseColorLinear": [
+        0.6720000505447388,
+        0.3808000087738037,
+        0.20160001516342163,
+        1.0
+      ],
+      "roughness": 0.05000000074505806,
+      "anisotropy": 0.0
+    },
+    "M_SednaWall": {
+      "metalness": 1.0,
+      "baseColorLinear": [
+        0.36000001430511475,
+        0.17000000178813934,
+        0.08500000089406967,
+        1.0
+      ],
+      "roughness": 0.4000000059604645,
+      "anisotropy": 0.0
+    },
+    "M_Ruby": {
+      "metalness": 0.0,
+      "baseColorLinear": [
+        0.2800000011920929,
+        0.006000000052154064,
+        0.054999999701976776,
+        1.0
+      ],
+      "roughness": 0.019999999552965164,
+      "anisotropy": 0.0
+    },
+    "R41_PolishedSteel_head": {
+      "metalness": 1.0,
+      "baseColorLinear": [
+        0.3799999952316284,
+        0.4300000071525574,
+        0.49000000953674316,
+        1.0
+      ],
+      "roughness": 0.20000000298023224,
+      "anisotropy": 0.0
+    },
+    "R41_PolishedSteel_edge": {
+      "metalness": 1.0,
+      "baseColorLinear": [
+        0.46000000834465027,
+        0.49000000953674316,
+        0.5299999713897705,
+        1.0
+      ],
+      "roughness": 0.1599999964237213,
+      "anisotropy": 0.0
+    },
+    "R41_PolishedSteel_slot": {
+      "metalness": 1.0,
+      "baseColorLinear": [
+        0.33000001311302185,
+        0.36000001430511475,
+        0.4000000059604645,
+        1.0
+      ],
+      "roughness": 0.2800000011920929,
+      "anisotropy": 0.0
+    },
+    "M_SteelBrush": {
+      "metalness": 1.0,
+      "baseColorLinear": [
+        0.6000000238418579,
+        0.6299999952316284,
+        0.6800000071525574,
+        1.0
+      ],
+      "roughness": 0.24177160172257572,
+      "anisotropy": 0.75
+    },
+    "M_SteelPolished": {
+      "metalness": 1.0,
+      "baseColorLinear": [
+        0.550000011920929,
+        0.5799999833106995,
+        0.6200000047683716,
+        1.0
+      ],
+      "roughness": 0.05000000074505806,
+      "anisotropy": 0.0
+    },
+    "M_SteelRatchet": {
+      "metalness": 0.949999988079071,
+      "baseColorLinear": [
+        0.30000001192092896,
+        0.33000001311302185,
+        0.3799999952316284,
+        1.0
+      ],
+      "roughness": 0.3199999928474426,
+      "anisotropy": 0.5
+    },
+    "M_BrassDark": {
+      "metalness": 1.0,
+      "baseColorLinear": [
+        0.41999998688697815,
+        0.2800000011920929,
+        0.10000000149011612,
+        1.0
+      ],
+      "roughness": 0.2800000011920929,
+      "anisotropy": 0.0
+    },
+    "R43_BlueGray_head": {
+      "metalness": 1.0,
+      "baseColorLinear": [
+        0.06499999761581421,
+        0.10000000149011612,
+        0.15800000727176666,
+        1.0
+      ],
+      "roughness": 0.23000000417232513,
+      "anisotropy": 0.0
+    },
+    "R43_BlueGray_edge": {
+      "metalness": 1.0,
+      "baseColorLinear": [
+        0.0949999988079071,
+        0.13500000536441803,
+        0.1899999976158142,
+        1.0
+      ],
+      "roughness": 0.1899999976158142,
+      "anisotropy": 0.0
+    },
+    "M_SlotDark": {
+      "metalness": 0.15000000596046448,
+      "baseColorLinear": [
+        0.014999999664723873,
+        0.009999999776482582,
+        0.00800000037997961,
+        1.0
+      ],
+      "roughness": 0.6499999761581421,
+      "anisotropy": 0.0
+    },
+    "M_Brass3135": {
+      "metalness": 1.0,
+      "baseColorLinear": [
+        0.6399999856948853,
+        0.46000000834465027,
+        0.15000000596046448,
+        1.0
+      ],
+      "roughness": 0.30000001192092896,
+      "anisotropy": 0.0
+    },
+    "M_Lever_pallet_fork": {
+      "metalness": 0.949999988079071,
+      "baseColorLinear": [
+        0.4399999976158142,
+        0.4699999988079071,
+        0.5199999809265137,
+        1.0
+      ],
+      "roughness": 0.2498573463963112,
+      "anisotropy": 0.0
+    },
+    "M_SteelDarkWall": {
+      "metalness": 0.949999988079071,
+      "baseColorLinear": [
+        0.36000001430511475,
+        0.3799999952316284,
+        0.4300000071525574,
+        1.0
+      ],
+      "roughness": 0.3199999928474426,
+      "anisotropy": 0.0
+    },
+    "M_SteelChamfer": {
+      "metalness": 1.0,
+      "baseColorLinear": [
+        0.7599999904632568,
+        0.7900000214576721,
+        0.8299999833106995,
+        1.0
+      ],
+      "roughness": 0.029999999329447746,
+      "anisotropy": 0.0
+    },
+    "R44_Point_balance_rim": {
+      "metalness": 1.0,
+      "baseColorLinear": [
+        0.800000011920929,
+        0.5799999833106995,
+        0.2199999988079071,
+        1.0
+      ],
+      "roughness": 0.1400568047829438,
+      "anisotropy": 0.0
+    },
+    "R44_Point_balance_staff": {
+      "metalness": 1.0,
+      "baseColorLinear": [
+        0.550000011920929,
+        0.5799999833106995,
+        0.6200000047683716,
+        1.0
+      ],
+      "roughness": 0.19000848857103847,
+      "anisotropy": 0.0
+    },
+    "R43_BalanceSteel": {
+      "metalness": 1.0,
+      "baseColorLinear": [
+        0.550000011920929,
+        0.5799999833106995,
+        0.6200000047683716,
+        1.0
+      ],
+      "roughness": 0.1899999976158142,
+      "anisotropy": 0.0
+    },
+    "R43_BalanceGold": {
+      "metalness": 1.0,
+      "baseColorLinear": [
+        0.800000011920929,
+        0.5799999833106995,
+        0.2199999988079071,
+        1.0
+      ],
+      "roughness": 0.14000000059604645,
+      "anisotropy": 0.0
+    },
+    "M_BalScrewGold": {
+      "metalness": 1.0,
+      "baseColorLinear": [
+        0.8999999761581421,
+        0.7200000286102295,
+        0.3400000035762787,
+        1.0
+      ],
+      "roughness": 0.05999999865889549,
+      "anisotropy": 0.0
+    },
+    "M_Lever_operating_hook": {
+      "metalness": 0.949999988079071,
+      "baseColorLinear": [
+        0.4399999976158142,
+        0.4699999988079071,
+        0.5199999809265137,
+        1.0
+      ],
+      "roughness": 0.25040408526547253,
+      "anisotropy": 0.0
+    },
+    "M_Lever_blocking_lever": {
+      "metalness": 1.0,
+      "baseColorLinear": [
+        0.6000000238418579,
+        0.6299999952316284,
+        0.6800000071525574,
+        1.0
+      ],
+      "roughness": 0.2417891591321677,
+      "anisotropy": 0.5
+    },
+    "M_Lever_reset_lever": {
+      "metalness": 1.0,
+      "baseColorLinear": [
+        0.6000000238418579,
+        0.6299999952316284,
+        0.6800000071525574,
+        1.0
+      ],
+      "roughness": 0.2403214815130923,
+      "anisotropy": 0.5
+    },
+    "M_Lever_clutch_rocker": {
+      "metalness": 1.0,
+      "baseColorLinear": [
+        0.6000000238418579,
+        0.6299999952316284,
+        0.6800000071525574,
+        1.0
+      ],
+      "roughness": 0.2408412978402339,
+      "anisotropy": 0.5
+    },
+    "M_Lever_hammer_seconds": {
+      "metalness": 1.0,
+      "baseColorLinear": [
+        0.6000000238418579,
+        0.6299999952316284,
+        0.6800000071525574,
+        1.0
+      ],
+      "roughness": 0.23927219495817553,
+      "anisotropy": 0.5
+    },
+    "M_Lever_hammer_minutes": {
+      "metalness": 1.0,
+      "baseColorLinear": [
+        0.6000000238418579,
+        0.6299999952316284,
+        0.6800000071525574,
+        1.0
+      ],
+      "roughness": 0.24087700773088727,
+      "anisotropy": 0.5
+    },
+    "M_Lever_minute_jumper": {
+      "metalness": 0.949999988079071,
+      "baseColorLinear": [
+        0.4399999976158142,
+        0.4699999988079071,
+        0.5199999809265137,
+        1.0
+      ],
+      "roughness": 0.25001037782931235,
+      "anisotropy": 0.0
+    },
+    "M_Lever_double_spring": {
+      "metalness": 0.949999988079071,
+      "baseColorLinear": [
+        0.4399999976158142,
+        0.4699999988079071,
+        0.5199999809265137,
+        1.0
+      ],
+      "roughness": 0.24908848517225124,
+      "anisotropy": 0.0
+    },
+    "M_Lever_321.1730_operating_l": {
+      "metalness": 1.0,
+      "baseColorLinear": [
+        0.6000000238418579,
+        0.6299999952316284,
+        0.6800000071525574,
+        1.0
+      ],
+      "roughness": 0.242038639538805,
+      "anisotropy": 0.5
+    },
+    "M_Lever_operating_lever": {
+      "metalness": 1.0,
+      "baseColorLinear": [
+        0.6000000238418579,
+        0.6299999952316284,
+        0.6800000071525574,
+        1.0
+      ],
+      "roughness": 0.24022354492626619,
+      "anisotropy": 0.5
+    },
+    "R43_BankingPinSteel": {
+      "metalness": 1.0,
+      "baseColorLinear": [
+        0.2800000011920929,
+        0.3100000023841858,
+        0.3499999940395355,
+        1.0
+      ],
+      "roughness": 0.20000000298023224,
+      "anisotropy": 0.0
+    },
+    "M_BluedSteel": {
+      "metalness": 0.7200000286102295,
+      "baseColorLinear": [
+        0.09000000357627869,
+        0.12999999523162842,
+        0.3799999952316284,
+        1.0
+      ],
+      "roughness": 0.25999999046325684,
+      "anisotropy": 0.0
+    },
+    "M_ColwSteel": {
+      "metalness": 1.0,
+      "baseColorLinear": [
+        0.30000001192092896,
+        0.33000001311302185,
+        0.3799999952316284,
+        1.0
+      ],
+      "roughness": 0.3400000035762787,
+      "anisotropy": 0.0
+    },
+    "M_ColwTop": {
+      "metalness": 0.8999999761581421,
+      "baseColorLinear": [
+        0.47999998927116394,
+        0.5099999904632568,
+        0.5600000023841858,
+        1.0
+      ],
+      "roughness": 0.1599999964237213,
+      "anisotropy": 0.0
+    },
+    "R44_Point_scr_b34_0_csk": {
+      "metalness": 1.0,
+      "baseColorLinear": [
+        0.550000011920929,
+        0.5799999833106995,
+        0.6200000047683716,
+        1.0
+      ],
+      "roughness": 0.052463173738942714,
+      "anisotropy": 0.0
+    },
+    "R43_BlueGray_lift": {
+      "metalness": 1.0,
+      "baseColorLinear": [
+        0.14499999582767487,
+        0.19499999284744263,
+        0.25999999046325684,
+        1.0
+      ],
+      "roughness": 0.3199999928474426,
+      "anisotropy": 0.0
+    },
+    "M_SlotFloor": {
+      "metalness": 1.0,
+      "baseColorLinear": [
+        0.14000000059604645,
+        0.15000000596046448,
+        0.17000000178813934,
+        1.0
+      ],
+      "roughness": 0.20000000298023224,
+      "anisotropy": 0.0
+    },
+    "M_Gold": {
+      "metalness": 1.0,
+      "baseColorLinear": [
+        0.800000011920929,
+        0.5799999833106995,
+        0.2199999988079071,
+        1.0
+      ],
+      "roughness": 0.029999999329447746,
+      "anisotropy": 0.0
+    },
+    "M_Lever_r45_hammer_spring": {
+      "metalness": 0.949999988079071,
+      "baseColorLinear": [
+        0.4399999976158142,
+        0.4699999988079071,
+        0.5199999809265137,
+        1.0
+      ],
+      "roughness": 0.2503094501880696,
+      "anisotropy": 0.0
+    },
+    "R36_RecessMetal": {
+      "metalness": 0.3499999940395355,
+      "baseColorLinear": [
+        0.03500000014901161,
+        0.02199999988079071,
+        0.013000000268220901,
+        1.0
+      ],
+      "roughness": 0.47999998927116394,
+      "anisotropy": 0.0
+    },
+    "R38_MirrorAnglage": {
+      "metalness": 1.0,
+      "baseColorLinear": [
+        0.5400000214576721,
+        0.5249999761581421,
+        0.49000000953674316,
+        1.0
+      ],
+      "roughness": 0.0949999988079071,
+      "anisotropy": 0.0
+    },
+    "R38_DressedWall": {
+      "metalness": 1.0,
+      "baseColorLinear": [
+        0.5400000214576721,
+        0.5249999761581421,
+        0.49000000953674316,
+        1.0
+      ],
+      "roughness": 0.23999999463558197,
+      "anisotropy": 0.15000000596046448
+    },
+    "M_SteelWallD": {
+      "metalness": 0.949999988079071,
+      "baseColorLinear": [
+        0.3799999952316284,
+        0.4000000059604645,
+        0.44999998807907104,
+        1.0
+      ],
+      "roughness": 0.30000001192092896,
+      "anisotropy": 0.0
+    },
+    "M_Blued190": {
+      "metalness": 0.7200000286102295,
+      "baseColorLinear": [
+        0.07999999821186066,
+        0.12999999523162842,
+        0.5,
+        1.0
+      ],
+      "roughness": 0.23999999463558197,
+      "anisotropy": 0.0
+    },
+    "M_Blued200": {
+      "metalness": 0.7200000286102295,
+      "baseColorLinear": [
+        0.07999999821186066,
+        0.12999999523162842,
+        0.5,
+        1.0
+      ],
+      "roughness": 0.23999999463558197,
+      "anisotropy": 0.0
+    },
+    "M_BlackPolish": {
+      "metalness": 1.0,
+      "baseColorLinear": [
+        0.054999999701976776,
+        0.06499999761581421,
+        0.08500000089406967,
+        1.0
+      ],
+      "roughness": 0.014999999664723873,
+      "anisotropy": 0.0
+    },
+    "M_TableDark": {
+      "metalness": 0.0,
+      "baseColorLinear": [
+        0.03200000151991844,
+        0.029999999329447746,
+        0.02800000086426735,
+        1.0
+      ],
+      "roughness": 0.8799999952316284,
+      "anisotropy": 0.0
+    },
+    "M_HolderSteel": {
+      "metalness": 1.0,
+      "baseColorLinear": [
+        0.1599999964237213,
+        0.17000000178813934,
+        0.1899999976158142,
+        1.0
+      ],
+      "roughness": 0.41999998688697815,
+      "anisotropy": 0.0
+    },
+    "M_Brass": {
+      "metalness": 1.0,
+      "baseColorLinear": [
+        0.6399999856948853,
+        0.46000000834465027,
+        0.15000000596046448,
+        1.0
+      ],
+      "roughness": 0.29786248596792575,
+      "anisotropy": 0.0
+    },
+    "R39_BrassResponse": {
+      "metalness": 1.0,
+      "baseColorLinear": [
+        0.36000001430511475,
+        0.20499999821186066,
+        0.06499999761581421,
+        1.0
+      ],
+      "roughness": 0.3593979424040299,
+      "anisotropy": 0.25
+    },
+    "M_SteelDark": {
+      "metalness": 0.949999988079071,
+      "baseColorLinear": [
+        0.3400000035762787,
+        0.3700000047683716,
+        0.41999998688697815,
+        1.0
+      ],
+      "roughness": 0.29986327193910256,
+      "anisotropy": 0.0
+    },
+    "M_SednaPerlage": {
+      "metalness": 1.0,
+      "baseColorLinear": [
+        0.5199999809265137,
+        0.25999999046325684,
+        0.13500000536441803,
+        1.0
+      ],
+      "anisotropy": 0.0
+    }
+  },
+  "summary": {
+    "exportedMaterialCount": 60,
+    "fullTextureMaterialsExcluded": 3,
+    "checkedRemainingMaterialCount": 57,
+    "materialsRequiringOverride": 21,
+    "channelsRequiringOverride": [
+      "roughness"
+    ],
+    "originalConstantRoughnessOne": [],
+    "baseColorMetalnessAnisotropy": "All checked single-Principled materials retain the source constants in the GLB; no overrides are needed for these channels.",
+    "roughnessCause": "All 21 recommended roughness overrides replace missing linked source networks whose exported effective fallback is 1. No source material has an intentional constant roughness of 1.",
+    "swatches": "Objects starting with sw are excluded from surface measurement. M_SednaPerlage occurs only on a hidden swatch and receives no override."
+  },
+  "validation": {
+    "allOverridesFromMeasuredSourceNetworks": true,
+    "noGuessedConstants": true,
+    "allPrimaryFinishMapHashesUnchanged": true,
+    "allSwatchSamplesExcluded": true
+  }
+}

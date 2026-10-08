@@ -1,0 +1,12 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs / temp
+*.log
+*.tmp
+
+# Deps / profiles
+node_modules/
+.chrome-profile*/

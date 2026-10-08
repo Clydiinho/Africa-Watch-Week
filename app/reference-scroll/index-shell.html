@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ebebeb">
+  <meta name="description" content="Kimi, a study in precision. Explore an open mechanical heart, its details and a selection of dial and metal finishes.">
+  <title>Kimi — Open Heart</title>
+  <link rel="stylesheet" href="reference-scroll/style.css">
+  <script type="importmap">{"imports":{"three":"../vendor/three/0.160.0/build/three.module.js","three/addons/":"../vendor/three/0.160.0/examples/jsm/"}}</script>
+</head>
+<body data-section="Intro" data-phase="0">
+  <header class="reference-header">
+    <a class="reference-brand" href="#section-intro" data-section-go="Intro" aria-label="Kimi, return to the beginning"><img class="kimi-signature" src="assets/branding/kimi-script-ink.png" alt="Kimi"><span>OPEN HEART</span></a>
+    <div class="header-actions">
+      <button id="reference-play" type="button" aria-label="Play the watch story" aria-pressed="false"><span class="play-mark" aria-hidden="true"></span><span class="play-label">Play</span></button>
+      <button id="reference-menu" type="button" aria-expanded="false" aria-controls="reference-navigation"><span>Index</span><span class="menu-mark" aria-hidden="true"><i></i><i></i></span></button>
+    </div>
+  </header>
+
+  <nav id="reference-navigation" aria-label="Story index" hidden>
+    <p class="index-caption">EXPLORE THE CALIBRE</p>
+    <a href="#section-intro" data-section-go="Intro"><span>01</span>Introduction</a>
+    <a href="#section-disassembly" data-section-go="Disassembly"><span>02</span>Inside the watch</a>
+    <a href="#section-particles" data-section-go="Particles"><span>03</span>Mechanical heart</a>
+    <a href="#section-presentation" data-section-go="Presentation"><span>04</span>Every detail</a>
+    <a href="#section-straps" data-section-go="Straps"><span>05</span>The bracelet</a>
+    <a href="#section-images" data-section-go="Images"><span>06</span>In perspective</a>
+    <a href="#section-colors" data-section-go="Colors"><span>07</span>Your composition</a>
+    <a href="#section-parts" data-section-go="Parts"><span>08</span>Coming together</a>
+    <a href="#section-footer" data-section-go="Footer"><span>09</span>A closer look</a>
+  </nav>
+
+  <main id="reference-story" aria-label="Kimi, a study in precision">
+    <section id="section-intro" data-webgl="Intro" aria-label="Introduction"></section>
+    <section id="section-disassembly" data-webgl="Disassembly" aria-label="Inside the watch"></section>
+    <section id="section-particles" data-webgl="Particles" aria-label="Mechanical heart"></section>
+    <section id="section-presentation" data-webgl="Presentation" aria-label="Every detail"></section>
+    <section id="section-straps" data-webgl="Straps" aria-label="The bracelet"></section>
+    <section id="section-images" data-webgl="Images" aria-label="In perspective"></section>
+    <section id="section-colors" data-webgl="Colors" aria-label="Your composition"></section>
+    <section id="section-parts" data-webgl="Parts" aria-label="Coming together"></section>
+    <div class="footer-spacer" aria-hidden="true"></div>
+    <section id="section-footer" data-webgl="Footer" aria-label="A closer look"></section>
+  </main>
+
+  <div class="overlay overlay-back intro-back" data-scene="Intro" aria-hidden="true">
+    <div class="hero-circle"></div>
+    <div class="hero-word"><img src="assets/branding/kimi-script-ink.png" alt="Kimi"></div>
+    <div class="scroll-manifesto"><span class="manifesto-signature"><img src="assets/branding/kimi-script-ink.png" alt="Kimi"></span><span>A</span><span>STUDY IN</span><span>PRECISION</span><span>EVERY</span><span>DETAIL</span></div>
+  </div>
+  <div class="overlay intro-overlay" data-scene="Intro">
+    <h1 class="sr-only">Kimi Open Heart</h1>
+    <div class="intro-color"><span class="micro-label">Color</span><p><i class="steel-dot" aria-hidden="true"></i>Stainless steel</p></div>
+    <div class="intro-model"><span class="micro-label">Model</span><p>39.7<span>MM</span></p></div>
+    <p class="intro-edition">KIMI<br>OPEN HEART</p>
+    <p class="intro-scroll"><span class="scroll-arrow" aria-hidden="true">↓</span>Scroll to discover</p>
+  </div>
+
+  <div class="overlay overlay-back disassembly-back" data-scene="Disassembly" aria-hidden="true"><div class="disassembly-word"><img src="assets/branding/kimi-script-ink.png" alt=""></div></div>
+  <div class="overlay disassembly-overlay" data-scene="Disassembly">
+    <p class="explore-instruction">Click to <span>explore</span></p>
+    <div id="layer-labels" aria-label="Watch components"></div>
+    <div id="component-detail" class="component-detail" hidden><button id="component-close" type="button" aria-label="Close component detail">Close <span aria-hidden="true">×</span></button><p class="micro-label">Component</p><h2 id="component-name"></h2><p id="component-description"></p></div>
+    <p class="disassembly-hold">HOLD TO<br>EXPLORE <span aria-hidden="true">+</span></p>
+  </div>
+
+  <div class="overlay mechanism-overlay" data-scene="Particles">
+    <div class="mechanism-heading"><p>Mechanical</p><h2>Heart</h2></div>
+    <div class="mechanism-note"><p class="micro-label">Hand-wound movement</p><p>A column-wheel chronograph.<br>A balance of force and finesse.</p></div>
+    <div class="mechanism-rate"><strong>18′000</strong><p>VIBRATIONS PER HOUR</p></div>
+  </div>
+
+  <div class="overlay presentation-overlay" data-scene="Presentation">
+    <div class="presentation-heading"><p class="micro-label">THE ART OF PRECISION</p><h2 id="presentation-title">Elegant<br>Contours</h2></div>
+    <p id="presentation-copy">Polished edges meet satin-brushed steel.<br>A familiar form, considered from every angle.</p>
+    <p class="presentation-caption">KIMI <span>—</span> OPEN HEART</p>
+  </div>
+
+  <div class="overlay overlay-back straps-back" data-scene="Straps" aria-hidden="true"><div class="strap-word">BRACELET</div></div>
+  <div class="overlay straps-overlay" data-scene="Straps"><h2 class="sr-only">The bracelet</h2><p class="strap-caption">The flat-link bracelet.<br><span>Individual elements. A continuous line.</span></p><p class="strap-detail">STAINLESS STEEL<br>19 MM AT THE LUGS</p></div>
+
+  <div class="overlay images-overlay" data-scene="Images">
+    <p class="editorial-title">In perspective.</p>
+    <figure id="editorial-one"><div class="editorial-viewport" data-live-watch="front" role="img" aria-label="A floating three-dimensional Kimi watch with an animated open-heart mechanism"></div><figcaption><span>01 / THE FACE</span><span>KIMI OPEN HEART</span></figcaption></figure>
+    <figure id="editorial-two"><div class="editorial-viewport" data-live-watch="rear" role="img" aria-label="A floating three-dimensional rear view, with the bracelet opened to reveal the movement"></div><figcaption><span>02 / THE MOVEMENT</span><span>HAND-WOUND CHRONOGRAPH</span></figcaption></figure>
+  </div>
+
+  <div class="overlay overlay-back colors-back" data-scene="Colors" aria-hidden="true"><span id="finish-number" class="finish-number">01</span></div>
+  <div class="overlay colors-overlay" data-scene="Colors">
+    <span id="finish-name" hidden>Stainless steel</span>
+    <div id="kimi-configurator" class="kimi-configurator" aria-busy="true">
+      <p class="micro-label">KIMI OPEN HEART</p><h2>Your <br>composition.</h2>
+      <fieldset class="kimi-options" role="radiogroup" aria-labelledby="kimi-dial-label"><legend id="kimi-dial-label">Dial</legend>
+        <button type="button" role="radio" data-kimi-category="dial" data-kimi-value="ink" aria-checked="true" disabled><i class="kimi-swatch kimi-dial-ink" aria-hidden="true"></i><span>Ink black</span></button>
+        <button type="button" role="radio" data-kimi-category="dial" data-kimi-value="blue" aria-checked="false" tabindex="-1" disabled><i class="kimi-swatch kimi-dial-blue" aria-hidden="true"></i><span>Midnight blue</span></button>
+        <button type="button" role="radio" data-kimi-category="dial" data-kimi-value="silver" aria-checked="false" tabindex="-1" disabled><i class="kimi-swatch kimi-dial-silver" aria-hidden="true"></i><span>Silver grey</span></button>
+      </fieldset>
+      <fieldset class="kimi-options" role="radiogroup" aria-labelledby="kimi-hardware-label"><legend id="kimi-hardware-label">Hardware</legend>
+        <button type="button" role="radio" data-kimi-category="hardware" data-kimi-value="silver" aria-checked="true" disabled><i class="kimi-swatch kimi-metal-silver" aria-hidden="true"></i><span>Silver</span></button>
+        <button type="button" role="radio" data-kimi-category="hardware" data-kimi-value="graphite" aria-checked="false" tabindex="-1" disabled><i class="kimi-swatch kimi-metal-graphite" aria-hidden="true"></i><span>Graphite</span></button>
+        <button type="button" role="radio" data-kimi-category="hardware" data-kimi-value="champagne" aria-checked="false" tabindex="-1" disabled><i class="kimi-swatch kimi-metal-champagne" aria-hidden="true"></i><span>Champagne</span></button>
+      </fieldset>
+      <fieldset class="kimi-options" role="radiogroup" aria-labelledby="kimi-bracelet-label"><legend id="kimi-bracelet-label">Steel bracelet</legend>
+        <button type="button" role="radio" data-kimi-category="bracelet" data-kimi-value="silver" aria-checked="true" disabled><i class="kimi-swatch kimi-metal-silver" aria-hidden="true"></i><span>Silver steel</span></button>
+        <button type="button" role="radio" data-kimi-category="bracelet" data-kimi-value="graphite" aria-checked="false" tabindex="-1" disabled><i class="kimi-swatch kimi-chain-graphite" aria-hidden="true"></i><span>Dark steel</span></button>
+      </fieldset>
+      <output id="kimi-config-summary" class="kimi-config-summary" aria-live="polite">Ink black · Silver hardware · Silver steel</output>
+    </div>
+    <p class="colors-caption">A considered detail.<br>A personal expression.</p>
+  </div>
+
+  <div class="overlay parts-overlay" data-scene="Parts">
+    <div class="parts-heading"><p class="micro-label">COMING TOGETHER</p><h2>Every part.<br>One watch.</h2></div>
+    <p class="reassembly-caption"><span id="reassembly-step">01 / THE INDIVIDUAL ELEMENTS</span><span id="reassembly-copy">Scroll to bring the watch together.</span></p>
+    <div class="reassembly-meter" aria-label="Assembly progress"><span id="reassembly-progress">0%</span><span class="reassembly-track" aria-hidden="true"><i id="reassembly-progress-bar"></i></span></div>
+  </div>
+
+  <div class="overlay overlay-back footer-back" data-scene="Footer" aria-hidden="true"><div class="footer-word"><img src="assets/branding/kimi-script-ink.png" alt="Kimi"></div></div>
+  <div class="overlay footer-overlay" data-scene="Footer">
+    <p class="footer-instruction">A closer look.</p>
+    <div class="footer-studies" aria-label="Explore the finish studies">
+      <button type="button" data-finish="steel" aria-label="Explore Ink steel"><img data-finish-image="steel" alt="Ink black dial with silver hardware and steel bracelet"><span>Ink steel</span></button>
+      <button type="button" data-finish="black" aria-label="Explore Midnight"><img data-finish-image="black" alt="Midnight blue dial with graphite hardware and dark steel bracelet"><span>Midnight</span></button>
+      <button type="button" data-finish="gold" aria-label="Explore Silver champagne"><img data-finish-image="gold" alt="Silver grey dial with champagne hardware and silver steel bracelet"><span>Silver champagne</span></button>
+      <button type="button" data-finish="rose" aria-label="Explore Ink champagne"><img data-finish-image="rose" alt="Ink black dial with champagne hardware and silver steel bracelet"><span>Ink champagne</span></button>
+    </div>
+    <div class="footer-baseline"><p class="footer-signature"><img src="assets/branding/kimi-script-ink.png" alt="Kimi"><span>OPEN HEART</span></p><p>A STUDY IN PRECISION</p><button type="button" data-section-go="Intro">Back to the beginning <span aria-hidden="true">↗</span></button></div>
+  </div>
+
+  <div class="reference-progress" aria-hidden="true"><span id="reference-progress"></span></div>
+  <p id="reference-scroll-percent" class="reference-scroll-percent" aria-hidden="true">0%</p>
+
+  <div id="loading" role="status" aria-live="polite" aria-busy="true">
+    <svg class="loading-ring" viewBox="0 0 700 700" fill="none" aria-hidden="true"><circle cx="350" cy="350" r="345"></circle><circle class="loading-arc" cx="350" cy="350" r="345"></circle></svg>
+    <div class="loading-content"><p id="load-status"><span>Now</span> loading</p><button id="retry-load" type="button" hidden>Try again</button></div>
+  </div>
+  <noscript><p class="noscript-note">Enable JavaScript to explore Kimi Open Heart in three dimensions.</p></noscript>
+  <script>addEventListener('error',function(e){var t=document.getElementById('load-status');if(!document.body.classList.contains('watch-ready')&&t){t.textContent='The 3D experience could not load.';document.getElementById('retry-load').hidden=false;}});</script>
+  <script src="reference-scroll/configurator.js"></script>
+  <script type="module" src="reference-scroll/runtime.js"></script>
+</body>
+</html>

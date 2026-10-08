@@ -1,0 +1,422 @@
+{
+  "sourceBlend": "/Users/user/Documents/Projects/k3-3d-atlas/attempts/omega-321-b3d/checkpoints/checkpoint_212_hero.blend",
+  "sourceUnmodified": true,
+  "method": "Cycles source-shader tangent-normal bake; source-node weighted baseColor and roughness emission bake",
+  "limitation": "The silver source combines two metallic BSDFs. Its baked baseColor and roughness are factor-weighted equivalents; a single web Principled material cannot exactly reproduce two separate specular lobes. Source normals are baked from the original unmodified shader closure.",
+  "coordinates": {
+    "source": "Blender millimetres, Z up",
+    "glTF": "(x, z, -y)",
+    "uv": "u=(gltfWorldX-minX)/(maxX-minX); v=(-gltfWorldZ-minY)/(maxY-minY)",
+    "applyWhen": "Generate UV using original imported world position before page normalisation or exploded transforms.",
+    "textureLoaderFlipY": true,
+    "normal": "OpenGL tangent-space +X +Y +Z; THREE.TangentSpaceNormalMap; normalScale=(1,1)"
+  },
+  "materials": [
+    {
+      "id": "r46-silver-engraving",
+      "sourceMaterial": "R46_HandEngraved_Silver",
+      "sourceObjects": [
+        "Y_clutch_bridge"
+      ],
+      "sourceWorldXYBounds": {
+        "min": [
+          -12,
+          -7
+        ],
+        "max": [
+          2,
+          7
+        ]
+      },
+      "sourceWorldZ": 3.55,
+      "uvScale": [
+        0.07142857142857142,
+        0.07142857142857142
+      ],
+      "uvOffset": [
+        0.8571428571428571,
+        0.5
+      ],
+      "resolution": [
+        4200,
+        4200
+      ],
+      "metalness": 1.0,
+      "maps": {
+        "normal": {
+          "file": "r46-silver-engraving-normal.webp",
+          "colorSpace": "NoColorSpace",
+          "sha256": "2fae105e535fd874182076d52f1ff173368964177bdb70c9a8f521589f53f961",
+          "bytes": 1405220,
+          "sourcePNG": "r46-silver-engraving-normal.png",
+          "stats": {
+            "minRGB": [
+              38,
+              38,
+              218
+            ],
+            "maxRGB": [
+              217,
+              217,
+              255
+            ],
+            "meanRGB": [
+              127.97017,
+              127.98176,
+              254.35933
+            ],
+            "stdRGB": [
+              8.67016,
+              8.61233,
+              3.69912
+            ],
+            "constant": false
+          },
+          "losslessVerified": true,
+          "resolution2k": {
+            "file": "r46-silver-engraving-normal-2k.webp",
+            "size": [
+              2048,
+              2048
+            ],
+            "bytes": 427444,
+            "note": "Optional resampled runtime tier; the full-resolution source bake above is lossless."
+          },
+          "useInWeb": true
+        },
+        "baseColor": {
+          "file": "r46-silver-engraving-baseColor.webp",
+          "colorSpace": "SRGBColorSpace",
+          "sha256": "6fdba018bd7cc9e5a3f5a534008ec717963eee7bbfbbbdee42148f039f5f0953",
+          "bytes": 7204852,
+          "sourcePNG": "r46-silver-engraving-baseColor.png",
+          "stats": {
+            "minRGB": [
+              126,
+              133,
+              138
+            ],
+            "maxRGB": [
+              206,
+              212,
+              216
+            ],
+            "meanRGB": [
+              192.74637,
+              190.62327,
+              185.24007
+            ],
+            "stdRGB": [
+              9.53686,
+              8.44014,
+              7.38775
+            ],
+            "constant": false
+          },
+          "losslessVerified": true,
+          "resolution2k": {
+            "file": "r46-silver-engraving-baseColor-2k.webp",
+            "size": [
+              2048,
+              2048
+            ],
+            "bytes": 1730752,
+            "note": "Optional resampled runtime tier; the full-resolution source bake above is lossless."
+          },
+          "useInWeb": true
+        },
+        "roughness": {
+          "file": "r46-silver-engraving-roughness.webp",
+          "colorSpace": "NoColorSpace",
+          "sha256": "4ba3bb0a0457cd96baede8f661b483232205d05fb6aecf80f3a9daa7d32d7336",
+          "bytes": 3587848,
+          "sourcePNG": "r46-silver-engraving-roughness.png",
+          "stats": {
+            "minRGB": [
+              19,
+              19,
+              19
+            ],
+            "maxRGB": [
+              102,
+              102,
+              102
+            ],
+            "meanRGB": [
+              71.42832,
+              71.42832,
+              71.42832
+            ],
+            "stdRGB": [
+              6.96956,
+              6.96956,
+              6.96956
+            ],
+            "constant": false
+          },
+          "losslessVerified": true,
+          "resolution2k": {
+            "file": "r46-silver-engraving-roughness-2k.webp",
+            "size": [
+              2048,
+              2048
+            ],
+            "bytes": 772442,
+            "note": "Optional resampled runtime tier; the full-resolution source bake above is lossless."
+          },
+          "useInWeb": true
+        }
+      }
+    },
+    {
+      "id": "r43-sedna-perlage",
+      "sourceMaterial": "R43_SednaPerlage",
+      "sourceObjects": [
+        "321.1000_mainplate"
+      ],
+      "sourceWorldXYBounds": {
+        "min": [
+          -13.35,
+          -13.35
+        ],
+        "max": [
+          13.35,
+          13.35
+        ]
+      },
+      "sourceWorldZ": 1.2,
+      "uvScale": [
+        0.03745318352059925,
+        0.03745318352059925
+      ],
+      "uvOffset": [
+        0.5,
+        0.5
+      ],
+      "resolution": [
+        4096,
+        4096
+      ],
+      "metalness": 1.0,
+      "maps": {
+        "normal": {
+          "file": "r43-sedna-perlage-normal.webp",
+          "colorSpace": "NoColorSpace",
+          "sha256": "9eb586e736ed3c5d0ad8e4282b1ebd10f2ecf94b89553e086102f46e1801e4e4",
+          "bytes": 903054,
+          "sourcePNG": "r43-sedna-perlage-normal.png",
+          "stats": {
+            "minRGB": [
+              118,
+              118,
+              255
+            ],
+            "maxRGB": [
+              137,
+              137,
+              255
+            ],
+            "meanRGB": [
+              128.0089,
+              127.92407,
+              255.0
+            ],
+            "stdRGB": [
+              0.57185,
+              0.70072,
+              0.0
+            ],
+            "constant": false
+          },
+          "losslessVerified": true,
+          "resolution2k": {
+            "file": "r43-sedna-perlage-normal-2k.webp",
+            "size": [
+              2048,
+              2048
+            ],
+            "bytes": 350414,
+            "note": "Optional resampled runtime tier; the full-resolution source bake above is lossless."
+          },
+          "useInWeb": true
+        },
+        "roughness": {
+          "file": "r43-sedna-perlage-roughness.webp",
+          "colorSpace": "NoColorSpace",
+          "sha256": "0265c56e66ca5d3931987e99663585c6ce385f04ac89987f6addfa9565eaf000",
+          "bytes": 4669074,
+          "sourcePNG": "r43-sedna-perlage-roughness.png",
+          "stats": {
+            "minRGB": [
+              50,
+              50,
+              50
+            ],
+            "maxRGB": [
+              106,
+              106,
+              106
+            ],
+            "meanRGB": [
+              73.76819,
+              73.76819,
+              73.76819
+            ],
+            "stdRGB": [
+              10.08702,
+              10.08702,
+              10.08702
+            ],
+            "constant": false
+          },
+          "losslessVerified": true,
+          "resolution2k": {
+            "file": "r43-sedna-perlage-roughness-2k.webp",
+            "size": [
+              2048,
+              2048
+            ],
+            "bytes": 1763700,
+            "note": "Optional resampled runtime tier; the full-resolution source bake above is lossless."
+          },
+          "useInWeb": true
+        }
+      },
+      "baseColorLinear": [
+        0.5199999809265137,
+        0.25999999046325684,
+        0.13500000536441803,
+        1.0
+      ],
+      "anisotropy": 0.0
+    },
+    {
+      "id": "r43-sedna-cutgrain",
+      "sourceMaterial": "R43_SednaCutGrain",
+      "sourceObjects": [
+        "321.1006_balance_cock"
+      ],
+      "sourceWorldXYBounds": {
+        "min": [
+          5.8,
+          -5.4
+        ],
+        "max": [
+          13.2,
+          7.5
+        ]
+      },
+      "sourceWorldZ": 3.98,
+      "uvScale": [
+        0.13513513513513514,
+        0.07751937984496124
+      ],
+      "uvOffset": [
+        -0.7837837837837838,
+        0.4186046511627907
+      ],
+      "resolution": [
+        2048,
+        2048
+      ],
+      "metalness": 1.0,
+      "maps": {
+        "normal": {
+          "file": "r43-sedna-cutgrain-normal.webp",
+          "colorSpace": "NoColorSpace",
+          "sha256": "4c1683d51d557ef77fe246a89b1a2dd6997a7353e24726b7776e2dab33f0980b",
+          "bytes": 220,
+          "sourcePNG": "r43-sedna-cutgrain-normal.png",
+          "stats": {
+            "minRGB": [
+              128,
+              128,
+              255
+            ],
+            "maxRGB": [
+              128,
+              128,
+              255
+            ],
+            "meanRGB": [
+              128.0,
+              128.0,
+              255.0
+            ],
+            "stdRGB": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "constant": true
+          },
+          "losslessVerified": true,
+          "resolution2k": {
+            "file": "r43-sedna-cutgrain-normal-2k.webp",
+            "size": [
+              2048,
+              2048
+            ],
+            "bytes": 220,
+            "note": "Optional resampled runtime tier; the full-resolution source bake above is lossless."
+          },
+          "useInWeb": false,
+          "note": "Original source bump is below 8-bit normal quantisation. Keep original source intensity; use roughness for visible cut grain. Omit this flat normal map."
+        },
+        "roughness": {
+          "file": "r43-sedna-cutgrain-roughness.webp",
+          "colorSpace": "NoColorSpace",
+          "sha256": "94590ba5462b63d3391757665745b1aa74b1698e3f21b2abf299e05b4fa0b70f",
+          "bytes": 338108,
+          "sourcePNG": "r43-sedna-cutgrain-roughness.png",
+          "stats": {
+            "minRGB": [
+              56,
+              56,
+              56
+            ],
+            "maxRGB": [
+              89,
+              89,
+              89
+            ],
+            "meanRGB": [
+              72.62855,
+              72.62855,
+              72.62855
+            ],
+            "stdRGB": [
+              11.72459,
+              11.72459,
+              11.72459
+            ],
+            "constant": false
+          },
+          "losslessVerified": true,
+          "resolution2k": {
+            "file": "r43-sedna-cutgrain-roughness-2k.webp",
+            "size": [
+              2048,
+              2048
+            ],
+            "bytes": 338108,
+            "note": "Optional resampled runtime tier; the full-resolution source bake above is lossless."
+          },
+          "useInWeb": true
+        }
+      },
+      "baseColorLinear": [
+        0.7200000286102295,
+        0.550000011920929,
+        0.3799999952316284,
+        1.0
+      ],
+      "anisotropy": 0.6000000238418579
+    }
+  ],
+  "packaging": {
+    "primary": "Full-resolution lossless WebP, pixel-identical to 8-bit PNG bake.",
+    "optional2k": "2k resampled tier is included for lower GPU memory. Prefer full-resolution normal for engraving micro shots.",
+    "normalQuantisation": "Cut-grain Bump Distance .0003 mm and Strength .075 produces slopes below 8-bit normal precision; no fake intensity multiplier is applied."
+  }
+}

@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b0b0c">
+  <meta name="description" content="Africa Watch Week — an invite-only evening of horology, culture and African luxury. Cape Town, South Africa · November 2026.">
+  <title>Africa Watch Week</title>
+  <link rel="stylesheet" href="reference-scroll/style.css">
+  <script type="importmap">{"imports":{"three":"./vendor/three/0.160.0/build/three.module.js","three/addons/":"./vendor/three/0.160.0/examples/jsm/"}}</script>
+</head>
+<body data-section="Intro" data-phase="0">
+  <div id="entry-gate" role="dialog" aria-modal="true" aria-labelledby="gate-title" hidden>
+    <div class="gate-card">
+      <p class="micro-label">Cape Town · Nov 2026</p>
+      <h2 id="gate-title">Africa Watch Week</h2>
+      <p class="gate-sub">An invite-only evening of horology, culture and African luxury.</p>
+      <button id="gate-3d" type="button"><span>Enter 3D experience</span><small>~18MB · best on desktop / Wi-Fi</small></button>
+      <button id="gate-quick" type="button"><span>Quick view</span><small>Lite static site · no 3D download</small></button>
+      <div id="gate-error" hidden></div>
+    </div>
+  </div>
+  <button id="switch-3d" type="button" hidden>Switch to 3D <span aria-hidden="true">↗</span></button>
+  <header class="reference-header">
+    <a class="reference-brand" href="#section-intro" data-section-go="Intro" aria-label="Africa Watch Week, return to the beginning"><span class="brand-wordmark">AFRICA WATCH WEEK</span><span>CAPE TOWN · NOV 2026</span></a>
+    <div class="header-actions">
+      <button id="reference-play" type="button" aria-label="Play the watch story" aria-pressed="false"><span class="play-mark" aria-hidden="true"></span><span class="play-label">Play</span></button>
+      <button id="reference-menu" type="button" aria-expanded="false" aria-controls="reference-navigation"><span>Index</span><span class="menu-mark" aria-hidden="true"><i></i><i></i></span></button>
+    </div>
+  </header>
+
+  <nav id="reference-navigation" aria-label="Story index" hidden>
+    <p class="index-caption">EXPLORE THE EVENING</p>
+    <a href="#section-intro" data-section-go="Intro"><span>01</span>Introduction</a>
+    <a href="#section-disassembly" data-section-go="Disassembly"><span>02</span>Inside the watch</a>
+    <a href="#section-particles" data-section-go="Particles"><span>03</span>The event</a>
+    <a href="#section-presentation" data-section-go="Presentation"><span>04</span>The world</a>
+    <a href="#section-straps" data-section-go="Straps"><span>05</span>The experience</a>
+    <a href="#section-images" data-section-go="Images"><span>06</span>The setting</a>
+    <a href="#section-colors" data-section-go="Colors"><span>07</span>The partnership</a>
+    <a href="#section-parts" data-section-go="Parts"><span>08</span>One evening</a>
+    <a href="#section-footer" data-section-go="Footer"><span>09</span>Highlights</a>
+  </nav>
+
+  <main id="reference-story" aria-label="Africa Watch Week — an invite-only evening of horology, culture and African luxury">
+    <section id="section-intro" data-webgl="Intro" aria-label="Introduction"></section>
+    <section id="section-disassembly" data-webgl="Disassembly" aria-label="Inside the watch"></section>
+    <section id="section-particles" data-webgl="Particles" aria-label="The event"></section>
+    <section id="section-presentation" data-webgl="Presentation" aria-label="The world"></section>
+    <section id="section-straps" data-webgl="Straps" aria-label="The experience"></section>
+    <section id="section-images" data-webgl="Images" aria-label="The setting"></section>
+    <section id="section-colors" data-webgl="Colors" aria-label="The partnership"></section>
+    <section id="section-parts" data-webgl="Parts" aria-label="One evening"></section>
+    <div class="footer-spacer" aria-hidden="true"></div>
+    <section id="section-footer" data-webgl="Footer" aria-label="Highlights"></section>
+  </main>
+
+  <div class="overlay overlay-back intro-back" data-scene="Intro" aria-hidden="true">
+    <div class="hero-circle"></div>
+    <div class="hero-word"><span class="hero-word-line">AFRICA</span><span class="hero-word-line">WATCH WEEK</span></div>
+    <div class="scroll-manifesto"><span class="manifesto-signature">AFRICA WATCH WEEK · CAPE TOWN</span><span>A NEW</span><span>VANTAGE POINT</span><span>ON HOROLOGY,</span><span>CULTURE &amp;</span><span>AFRICAN LUXURY</span></div>
+  </div>
+  <div class="overlay intro-overlay" data-scene="Intro">
+    <h1 class="sr-only">Africa Watch Week</h1>
+    <div class="intro-color"><span class="micro-label">Guests</span><p><i class="steel-dot" aria-hidden="true"></i>Invite only · 80 guests</p></div>
+    <div class="intro-model"><span class="micro-label">Cape Town · South Africa</span><p>NOV<span>2026</span></p></div>
+    <p class="intro-edition">AFRICA<br>WATCH WEEK</p>
+    <picture class="intro-poster">
+      <source type="image/webp" srcset="assets/posters/aww2k26-hero-640.webp 640w, assets/posters/aww2k26-hero-1024.webp 1024w, assets/posters/aww2k26-hero-1600.webp 1600w" sizes="100vw">
+      <img src="assets/editorial/venue.jpg" alt="" aria-hidden="true" loading="eager" fetchpriority="high">
+    </picture>
+    <p class="intro-scroll"><span class="scroll-arrow" aria-hidden="true">↓</span>Scroll to discover</p>
+  </div>
+
+  <div class="overlay overlay-back disassembly-back" data-scene="Disassembly" aria-hidden="true"><div class="disassembly-word">AWW</div></div>
+  <div class="overlay disassembly-overlay" data-scene="Disassembly">
+    <p class="explore-instruction">Click to <span>explore</span></p>
+    <div id="layer-labels" aria-label="Watch components"></div>
+    <div id="component-detail" class="component-detail" hidden><button id="component-close" type="button" aria-label="Close component detail">Close <span aria-hidden="true">×</span></button><p class="micro-label">Component</p><h2 id="component-name"></h2><p id="component-description"></p></div>
+    <p class="disassembly-hold">HOLD TO<br>EXPLORE <span aria-hidden="true">+</span></p>
+  </div>
+
+  <div class="overlay mechanism-overlay" data-scene="Particles">
+    <div class="mechanism-heading"><p>The</p><h2>Event</h2></div>
+    <div class="mechanism-note"><p class="micro-label">An invite-only gathering</p><p>Horology, culture and African luxury.<br>One evening for the people who shape them.</p></div>
+    <div class="mechanism-rate"><strong>80</strong><p>INVITED GUESTS</p></div>
+  </div>
+
+  <div class="overlay presentation-overlay" data-scene="Presentation">
+    <div class="presentation-heading"><p class="micro-label">THE WORLD OF AFRICA WATCH WEEK</p><h2 id="presentation-title">Four<br>Worlds</h2></div>
+    <p id="presentation-copy">Horology, automotive, art and private clients — one circle, one evening.</p>
+    <p class="presentation-caption">AFRICA WATCH WEEK <span>—</span> CAPE TOWN</p>
+  </div>
+
+  <div class="overlay overlay-back straps-back" data-scene="Straps" aria-hidden="true"><div class="strap-word">EXPERIENCE</div></div>
+  <div class="overlay straps-overlay" data-scene="Straps"><h2 class="sr-only">The experience</h2><p class="strap-caption">Dinner, reveals and conversation.<br><span>One venue. One night. A continuous line of moments.</span></p><p class="strap-detail">NOVEMBER 2026<br>V&amp;A WATERFRONT, CAPE TOWN<br>BLACK TIE</p></div>
+
+  <div class="overlay images-overlay" data-scene="Images">
+    <p class="editorial-title">The setting.</p>
+    <figure id="editorial-one"><picture><source type="image/webp" srcset="assets/editorial/webp/venue-640.webp 640w, assets/editorial/webp/venue-1024.webp 1024w, assets/editorial/webp/venue-1600.webp 1600w" sizes="(max-width: 767px) 92vw, 42vw"><img class="editorial-image" src="assets/editorial/venue.jpg" alt="The private venue at the V&A Waterfront, Cape Town, lit warm gold at night" loading="lazy"></picture><figcaption><span>01 / THE VENUE</span><span>V&amp;A WATERFRONT · CAPE TOWN</span></figcaption></figure>
+    <figure id="editorial-two"><picture><source type="image/webp" srcset="assets/editorial/webp/city-640.webp 640w, assets/editorial/webp/city-1024.webp 1024w, assets/editorial/webp/city-1600.webp 1600w" sizes="(max-width: 767px) 92vw, 42vw"><img class="editorial-image" src="assets/editorial/city.jpg" alt="The Cape Town skyline at dusk, city lights coming on" loading="lazy"></picture><figcaption><span>02 / THE CITY</span><span>CAPE TOWN · SOUTH AFRICA</span></figcaption></figure>
+  </div>
+
+  <div class="overlay overlay-back colors-back" data-scene="Colors" aria-hidden="true"><span class="finish-number partnership-number">07</span></div>
+  <div class="overlay colors-overlay" data-scene="Colors">
+    <div class="partnership">
+      <p class="micro-label">THE PARTNERSHIP</p>
+      <h2>More than a sponsor.<br>A strategic partnership.</h2>
+      <div class="partner-cards" aria-label="Partnership benefits">
+        <article class="partner-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" aria-hidden="true"><path d="M12 3l2.2 4.9L19 9l-3.6 3.4.9 5.1L12 15l-4.3 2.5.9-5.1L5 9l4.8-1.1z"/></svg>
+          <h3>Client Experience</h3>
+          <p>Private-client hospitality and curated relationship opportunities.</p>
+        </article>
+        <article class="partner-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="1.5"/><path d="M3 10.5h18M7 15h4"/></svg>
+          <h3>Financial Infrastructure</h3>
+          <p>Payments, merchant services and transactional enablement.</p>
+        </article>
+        <article class="partner-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v3M12 17.5v3M3.5 12h3M17.5 12h3"/></svg>
+          <h3>Brand Positioning</h3>
+          <p>Association with an emerging African luxury platform.</p>
+        </article>
+        <article class="partner-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" aria-hidden="true"><circle cx="6" cy="7" r="2.4"/><circle cx="18" cy="7" r="2.4"/><circle cx="12" cy="17" r="2.4"/><path d="M8 8.6l2.6 6M16 8.6l-2.6 6M8.4 7h7.2"/></svg>
+          <h3>Relationship Building</h3>
+          <p>Access to collectors, founders and affluent audiences.</p>
+        </article>
+      </div>
+      <a class="partner-cta" href="mailto:partnerships@africawatchweek.africa">Partner with us <span aria-hidden="true">↗</span></a>
+    </div>
+    <p class="colors-caption">A considered platform.<br>A shared ambition.</p>
+  </div>
+
+  <div class="overlay parts-overlay" data-scene="Parts">
+    <div class="parts-heading"><p class="micro-label">COMING TOGETHER</p><h2>Every world.<br>One evening.</h2></div>
+    <p class="reassembly-caption"><span id="reassembly-step">01 / THE GUESTS</span><span id="reassembly-copy">Scroll to bring the evening together.</span></p>
+    <div class="reassembly-meter" aria-label="Assembly progress"><span id="reassembly-progress">0%</span><span class="reassembly-track" aria-hidden="true"><i id="reassembly-progress-bar"></i></span></div>
+  </div>
+
+  <div class="overlay overlay-back footer-back" data-scene="Footer" aria-hidden="true"><div class="footer-word"><span>AWW</span></div></div>
+  <div class="overlay footer-overlay" data-scene="Footer">
+    <p class="footer-instruction">Highlights.</p>
+    <div class="footer-studies" aria-label="Event highlights">
+      <figure><picture><source type="image/webp" srcset="assets/gallery/webp/venue-640.webp 640w, assets/gallery/webp/venue-1024.webp 1024w, assets/gallery/webp/venue-1600.webp 1600w" sizes="(max-width: 767px) 44vw, 22vw"><img src="assets/gallery/venue.jpg" alt="The candlelit venue prepared for the evening" loading="lazy"></picture><span>The venue</span></figure>
+      <figure><picture><source type="image/webp" srcset="assets/gallery/webp/guests-640.webp 640w, assets/gallery/webp/guests-1024.webp 1024w, assets/gallery/webp/guests-1600.webp 1600w" sizes="(max-width: 767px) 44vw, 22vw"><img src="assets/gallery/guests.jpg" alt="Guests in evening dress gathering over champagne" loading="lazy"></picture><span>The guests</span></figure>
+      <figure><picture><source type="image/webp" srcset="assets/gallery/webp/atmosphere-640.webp 640w, assets/gallery/webp/atmosphere-1024.webp 1024w, assets/gallery/webp/atmosphere-1600.webp 1600w" sizes="(max-width: 767px) 44vw, 22vw"><img src="assets/gallery/atmosphere.jpg" alt="Warm gold light and atmosphere on the night" loading="lazy"></picture><span>The atmosphere</span></figure>
+      <figure><picture><source type="image/webp" srcset="assets/gallery/webp/details-640.webp 640w, assets/gallery/webp/details-1024.webp 1024w, assets/gallery/webp/details-1600.webp 1600w" sizes="(max-width: 767px) 44vw, 22vw"><img src="assets/gallery/details.jpg" alt="Table details with gold accents and horological objects" loading="lazy"></picture><span>The details</span></figure>
+    </div>
+    <div class="footer-baseline"><p class="footer-signature"><span class="brand-wordmark">AFRICA WATCH WEEK</span><span>CAPE TOWN · NOV 2026</span></p><p>INVITE ONLY · 80 GUESTS</p><button type="button" data-section-go="Intro">Back to the beginning <span aria-hidden="true">↗</span></button></div>
+  </div>
+
+  <div class="reference-progress" aria-hidden="true"><span id="reference-progress"></span></div>
+  <p id="reference-scroll-percent" class="reference-scroll-percent" aria-hidden="true">0%</p>
+
+  <div id="loading" role="status" aria-live="polite" aria-busy="true">
+    <svg class="loading-ring" viewBox="0 0 700 700" fill="none" aria-hidden="true"><circle cx="350" cy="350" r="345"></circle><circle class="loading-arc" cx="350" cy="350" r="345"></circle></svg>
+    <div class="loading-content"><p id="load-status"><span>Now</span> loading</p><button id="retry-load" type="button" hidden>Try again</button><button id="loading-quick" type="button" hidden>Taking too long? Quick view instead</button></div>
+  </div>
+  <noscript><p class="noscript-note">Enable JavaScript to explore Africa Watch Week in three dimensions.</p></noscript>
+  <script>window.__AWW_HIDE_FOOTER_WATCHES=true;</script>
+  <script>addEventListener('error',function(e){var t=document.getElementById('load-status');if(!document.body.classList.contains('watch-ready')&&t){t.textContent='The 3D experience could not load.';document.getElementById('retry-load').hidden=false;}});</script>
+  <script src="reference-scroll/configurator.js"></script>
+  <script type="module" src="reference-scroll/entry-gate.js"></script>
+</body>
+</html>
