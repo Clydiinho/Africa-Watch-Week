@@ -45,3 +45,11 @@ export function awwChunkMB() {
     + AWW_ASSET_BYTES.env + AWW_ASSET_BYTES.finishes;
   return Math.floor(total / 1048576);
 }
+
+// Measured 2026-10-13 (tools/lite/build-report.json). Shown in the ?qa=1
+// timings summary so lite-vs-original can be compared on a real device.
+export const AWW_LITE_BYTES = Object.freeze({
+  movement: 16379968,
+  exterior: 1059880,
+  tourbillon: 167740,
+});

@@ -3,14 +3,14 @@ import * as T from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {EXRLoader} from 'three/addons/loaders/EXRLoader.js';
 import {DRACOLoader} from 'three/addons/loaders/DRACOLoader.js';
-import {AWW_ASSETS} from './asset-config.js';
+import {AWW_ASSETS, AWW_LITE_BYTES} from './asset-config.js';
 // AWW_TIMINGS: always-on boot instrumentation. Marks only (cheap); no DOM writes.
 // Summary via window.__AWW_TIMINGS.print(), auto-printed with ?qa=1.
 const AWW_TIMES=[];
 function awwMark(name){try{performance.mark('aww:'+name);}catch(e){}AWW_TIMES.push({name,t:Math.round(performance.now())});}
 function awwShort(url){url=String(url||'');if(url.includes('aww2k26-movement')||url.includes('omega_321'))return 'movement';if(url.includes('aww2k26-exterior')||url.includes('openheart_exterior')||url.includes('machining_exterior'))return 'exterior';if(url.includes('tourbillon'))return 'tourbillon';if(url.includes('manifest.json')&&!url.includes('finish'))return 'manifest';if(url.includes('finish'))return 'finishes';if(url.includes('.exr'))return 'env';return url.split('/').pop();}
 window.__AWW_TIMINGS={events:AWW_TIMES,
- summary(){const m={quality:(typeof AWW_QUALITY!=='undefined'?AWW_QUALITY:'?')};for(const e of AWW_TIMES){if(!(e.name in m))m[e.name]=e.t;}return m;},
+ summary(){const m={quality:(typeof AWW_QUALITY!=='undefined'?AWW_QUALITY:'?'),model:(typeof LITE_MODEL!=='undefined'&&LITE_MODEL?'lite':'original'),liteModelsKB:{movement:Math.round(AWW_LITE_BYTES.movement/1024),exterior:Math.round(AWW_LITE_BYTES.exterior/1024),tourbillon:Math.round(AWW_LITE_BYTES.tourbillon/1024)}};for(const e of AWW_TIMES){if(!(e.name in m))m[e.name]=e.t;}return m;},
  print(){try{const s=this.summary();console.log('%cAWW boot timings (ms since navigation)','font-weight:bold');console.table(s);}catch(e){}}
 };
 // Weighted download progress. Totals prefer FileLoader byte counts, falling back
@@ -3133,9 +3133,10 @@ let scrollSections=[],scrollMax=1,scrollTarget=0,scrollValue=0,domScrollValue=0,
 let currentSection='Intro',sectionProgress=0,selectedLayer=null,selectionValue=0,hoverLayer=null,holdValue=0,holdDown=false;
 let rendererDirty=true,resizeFlag=false,frameTimes=[],actualFrames=0,modelThumbnails={},chosenFinish='steel',holdStarted=0,lastColorStep=-1,footerWatches=[],finishLocked=false,referenceContactLight=null,kimiConfiguration=null,conceptTourbillonAsset=null,partsReassembly=null;
 let frameTimingSection=null,previousRenderedFrameTime=null;
-const exteriorAssetPath=Q.get('asset')==='machining'?'assets/kimi_machining_exterior_v3.glb':AWW_ASSETS.exterior;
-const movementAssetPath=Q.get('movement')==='refined'?'assets/kimi_movement_refined_v1.glb':AWW_ASSETS.movement;
-const tourbillonAssetPath=AWW_ASSETS.tourbillon;
+const LITE_MODEL=Q.get('model')==='lite';
+const exteriorAssetPath=Q.get('asset')==='machining'?'assets/kimi_machining_exterior_v3.glb':(LITE_MODEL?'assets/models-lite/exterior-lite.glb':AWW_ASSETS.exterior);
+const movementAssetPath=Q.get('movement')==='refined'?'assets/kimi_movement_refined_v1.glb':(LITE_MODEL?'assets/models-lite/movement-lite.glb':AWW_ASSETS.movement);
+const tourbillonAssetPath=LITE_MODEL?'assets/models-lite/tourbillon-lite.glb':AWW_ASSETS.tourbillon;
 if(Q.has('chapter')||Q.has('p'))history.scrollRestoration='manual';
 const pointerRef={x:0,y:0,dx:0,dy:0},reducedMotionQuery=matchMedia('(prefers-reduced-motion: reduce)');
 let reduced=reducedMotionQuery.matches;

@@ -1,0 +1,574 @@
+{
+ "movement": {
+  "file": "omega_321_r46f.glb",
+  "bytes": 19879792,
+  "meshCount": 283,
+  "primitives": 469,
+  "totalVerts": 6580777,
+  "totalTris": 11880874,
+  "top25": [
+   {
+    "name": "321.1200_barrel_teeth_R40_explicit",
+    "verts": 675332,
+    "pct": 10.26
+   },
+   {
+    "name": "321.1224_center_wheel_R40_explicit",
+    "verts": 491134,
+    "pct": 7.46
+   },
+   {
+    "name": "ratchet_wheel_R40_explicit",
+    "verts": 391664,
+    "pct": 5.95
+   },
+   {
+    "name": "321.1243_fourth_wheel_R40_explicit",
+    "verts": 373646,
+    "pct": 5.68
+   },
+   {
+    "name": "321.1705_chrono_runner_R40_explicit",
+    "verts": 346738,
+    "pct": 5.27
+   },
+   {
+    "name": "third_wheel_R40_explicit",
+    "verts": 282758,
+    "pct": 4.3
+   },
+   {
+    "name": "t35_automatic_bridge_wheel_004_R40_explicit",
+    "verts": 269136,
+    "pct": 4.09
+   },
+   {
+    "name": "hr_runner_R40_explicit",
+    "verts": 260386,
+    "pct": 3.96
+   },
+   {
+    "name": "321.1002_bridge34_R40_explicit",
+    "verts": 247023,
+    "pct": 3.75
+   },
+   {
+    "name": "t35_automatic_bridge_wheel_1_R40_explicit",
+    "verts": 232232,
+    "pct": 3.53
+   },
+   {
+    "name": "t35_wheel_1_R40_explicit",
+    "verts": 206360,
+    "pct": 3.14
+   },
+   {
+    "name": "recorder_teeth_band_R40_explicit",
+    "verts": 182490,
+    "pct": 2.77
+   },
+   {
+    "name": "t35_automatic_bridge_wheel_2_R40_explicit",
+    "verts": 171220,
+    "pct": 2.6
+   },
+   {
+    "name": "t35_automatic_bridge_wheel_3_R40_explicit",
+    "verts": 168980,
+    "pct": 2.57
+   },
+   {
+    "name": "t35_wheel_3_R40_explicit",
+    "verts": 152572,
+    "pct": 2.32
+   },
+   {
+    "name": "t35_automatic_bridge_wheel_006_R40_explicit",
+    "verts": 141372,
+    "pct": 2.15
+   },
+   {
+    "name": "t35_wheel_2_R40_explicit",
+    "verts": 141288,
+    "pct": 2.15
+   },
+   {
+    "name": "upper_fourth_wheel_R40_explicit",
+    "verts": 139132,
+    "pct": 2.11
+   },
+   {
+    "name": "321.1224_center_wheel_pinion_R40_explicit",
+    "verts": 120764,
+    "pct": 1.84
+   },
+   {
+    "name": "t35_automatic_bridge_wheel_005_R40_explicit",
+    "verts": 117152,
+    "pct": 1.78
+   },
+   {
+    "name": "crown_wheel_R40_explicit",
+    "verts": 112028,
+    "pct": 1.7
+   },
+   {
+    "name": "R35_hairspring_11turn",
+    "verts": 106466,
+    "pct": 1.62
+   },
+   {
+    "name": "clutch_inter_wheel_R40_explicit",
+    "verts": 76468,
+    "pct": 1.16
+   },
+   {
+    "name": "321.1243_fourth_wheel_pinion_R40_explicit",
+    "verts": 53564,
+    "pct": 0.81
+   },
+   {
+    "name": "third_wheel_pinion_R40_explicit",
+    "verts": 53564,
+    "pct": 0.81
+   }
+  ],
+  "identicalGroups": [
+   {
+    "count": 9,
+    "names": [
+     "Cylinder.024",
+     "Cylinder.026",
+     "Cylinder.028",
+     "Cylinder.030",
+     "Cylinder.031",
+     "Cylinder.032",
+     "Cylinder.033",
+     "Cylinder.034"
+    ]
+   },
+   {
+    "count": 9,
+    "names": [
+     "Cylinder.095",
+     "Cylinder.096",
+     "Cylinder.102",
+     "Cylinder.103",
+     "Cylinder.104",
+     "Cylinder.105",
+     "Cylinder.106",
+     "Cylinder.107"
+    ]
+   },
+   {
+    "count": 7,
+    "names": [
+     "Cylinder.117",
+     "Cylinder.118",
+     "Cylinder.119",
+     "Cylinder.120",
+     "Cylinder.121",
+     "Cylinder.122",
+     "Cylinder.123"
+    ]
+   },
+   {
+    "count": 4,
+    "names": [
+     "Cube.015",
+     "Cube.016",
+     "Cube.017",
+     "Cube.018"
+    ]
+   },
+   {
+    "count": 4,
+    "names": [
+     "Cylinder.114",
+     "Cylinder.116",
+     "Cylinder.125",
+     "Cylinder.127"
+    ]
+   },
+   {
+    "count": 4,
+    "names": [
+     "Cylinder.115",
+     "Cylinder.124",
+     "Cylinder.126",
+     "Cylinder.128"
+    ]
+   },
+   {
+    "count": 2,
+    "names": [
+     "Cylinder.012",
+     "Cylinder.013"
+    ]
+   },
+   {
+    "count": 2,
+    "names": [
+     "banking_pin1_collar",
+     "banking_pin2_collar"
+    ]
+   },
+   {
+    "count": 2,
+    "names": [
+     "scr_spr_2_R41_flat",
+     "scr_r45_hs"
+    ]
+   },
+   {
+    "count": 2,
+    "names": [
+     "scr_spr_2_csk",
+     "scr_r45_hs_csk"
+    ]
+   }
+  ],
+  "textures": [
+   {
+    "texture": 0,
+    "image": "perlage_r15_r",
+    "mime": "image/webp",
+    "bytes": 147032,
+    "mb": 0.14,
+    "dims": "undefinedxundefined",
+    "usedBy": [
+     "R43_SednaPerlage.metalRough"
+    ]
+   },
+   {
+    "texture": 1,
+    "image": "perlage_r15_r",
+    "mime": "image/webp",
+    "bytes": 147032,
+    "mb": 0.14,
+    "dims": "undefinedxundefined",
+    "usedBy": [
+     "M_SednaPerlage.metalRough"
+    ]
+   }
+  ]
+ },
+ "exterior": {
+  "file": "kimi_openheart_exterior_v2.glb",
+  "bytes": 10715276,
+  "meshCount": 124,
+  "primitives": 223,
+  "totalVerts": 218752,
+  "totalTris": 338064,
+  "top25": [
+   {
+    "name": "ext_case_mid",
+    "verts": 17112,
+    "pct": 7.82
+   },
+   {
+    "name": "ext_caseback_ring",
+    "verts": 14282,
+    "pct": 6.53
+   },
+   {
+    "name": "Cylinder.003",
+    "verts": 12306,
+    "pct": 5.63
+   },
+   {
+    "name": "ext_clasp_fold_frameMesh",
+    "verts": 5824,
+    "pct": 2.66
+   },
+   {
+    "name": "ext_crown",
+    "verts": 5234,
+    "pct": 2.39
+   },
+   {
+    "name": "ext_clasp_coverMesh",
+    "verts": 4309,
+    "pct": 1.97
+   },
+   {
+    "name": "ext_endlink_1Mesh",
+    "verts": 4252,
+    "pct": 1.94
+   },
+   {
+    "name": "ext_endlink_-1Mesh",
+    "verts": 4249,
+    "pct": 1.94
+   },
+   {
+    "name": "Cylinder.002",
+    "verts": 4228,
+    "pct": 1.93
+   },
+   {
+    "name": "bezel_steel",
+    "verts": 4224,
+    "pct": 1.93
+   },
+   {
+    "name": "ext_clasp_catchMesh",
+    "verts": 2913,
+    "pct": 1.33
+   },
+   {
+    "name": "ext_front_crystal",
+    "verts": 2496,
+    "pct": 1.14
+   },
+   {
+    "name": "ext_front_gasket",
+    "verts": 2304,
+    "pct": 1.05
+   },
+   {
+    "name": "ext_movement_spacer",
+    "verts": 2304,
+    "pct": 1.05
+   },
+   {
+    "name": "ext_back_gasket",
+    "verts": 2304,
+    "pct": 1.05
+   },
+   {
+    "name": "ext_link_-1_00_-1Mesh",
+    "verts": 1461,
+    "pct": 0.67
+   },
+   {
+    "name": "ext_link_-1_00_0Mesh",
+    "verts": 1461,
+    "pct": 0.67
+   },
+   {
+    "name": "ext_link_-1_00_1Mesh",
+    "verts": 1461,
+    "pct": 0.67
+   },
+   {
+    "name": "ext_link_-1_01_-1Mesh",
+    "verts": 1461,
+    "pct": 0.67
+   },
+   {
+    "name": "ext_link_-1_01_1Mesh",
+    "verts": 1461,
+    "pct": 0.67
+   },
+   {
+    "name": "ext_link_-1_02_-1Mesh",
+    "verts": 1461,
+    "pct": 0.67
+   },
+   {
+    "name": "ext_link_-1_02_1Mesh",
+    "verts": 1461,
+    "pct": 0.67
+   },
+   {
+    "name": "ext_link_-1_03_-1Mesh",
+    "verts": 1461,
+    "pct": 0.67
+   },
+   {
+    "name": "ext_link_-1_03_1Mesh",
+    "verts": 1461,
+    "pct": 0.67
+   },
+   {
+    "name": "ext_link_-1_04_-1Mesh",
+    "verts": 1461,
+    "pct": 0.67
+   }
+  ],
+  "identicalGroups": [
+   {
+    "count": 12,
+    "names": [
+     "ext_link_-1_09_-1Mesh",
+     "ext_link_-1_09_1Mesh",
+     "ext_link_-1_10_-1Mesh",
+     "ext_link_-1_10_1Mesh",
+     "ext_link_-1_11_-1Mesh",
+     "ext_link_-1_11_1Mesh",
+     "ext_link_1_09_-1Mesh",
+     "ext_link_1_09_1Mesh"
+    ]
+   },
+   {
+    "count": 6,
+    "names": [
+     "ext_link_-1_09_0Mesh",
+     "ext_link_-1_10_0Mesh",
+     "ext_link_-1_11_0Mesh",
+     "ext_link_1_09_0Mesh",
+     "ext_link_1_10_0Mesh",
+     "ext_link_1_11_0Mesh"
+    ]
+   },
+   {
+    "count": 6,
+    "names": [
+     "ext_link_pin_-1_09Mesh",
+     "ext_link_pin_-1_10Mesh",
+     "ext_link_pin_-1_11Mesh",
+     "ext_link_pin_1_09Mesh",
+     "ext_link_pin_1_10Mesh",
+     "ext_link_pin_1_11Mesh"
+    ]
+   },
+   {
+    "count": 4,
+    "names": [
+     "ext_link_-1_00_-1Mesh",
+     "ext_link_-1_00_1Mesh",
+     "ext_link_1_00_-1Mesh",
+     "ext_link_1_00_1Mesh"
+    ]
+   },
+   {
+    "count": 4,
+    "names": [
+     "ext_link_-1_01_-1Mesh",
+     "ext_link_-1_01_1Mesh",
+     "ext_link_1_01_-1Mesh",
+     "ext_link_1_01_1Mesh"
+    ]
+   },
+   {
+    "count": 4,
+    "names": [
+     "ext_link_-1_02_-1Mesh",
+     "ext_link_-1_02_1Mesh",
+     "ext_link_1_02_-1Mesh",
+     "ext_link_1_02_1Mesh"
+    ]
+   },
+   {
+    "count": 4,
+    "names": [
+     "ext_link_-1_03_-1Mesh",
+     "ext_link_-1_03_1Mesh",
+     "ext_link_1_03_-1Mesh",
+     "ext_link_1_03_1Mesh"
+    ]
+   },
+   {
+    "count": 4,
+    "names": [
+     "ext_link_-1_04_-1Mesh",
+     "ext_link_-1_04_1Mesh",
+     "ext_link_1_04_-1Mesh",
+     "ext_link_1_04_1Mesh"
+    ]
+   },
+   {
+    "count": 4,
+    "names": [
+     "ext_link_-1_05_-1Mesh",
+     "ext_link_-1_05_1Mesh",
+     "ext_link_1_05_-1Mesh",
+     "ext_link_1_05_1Mesh"
+    ]
+   },
+   {
+    "count": 4,
+    "names": [
+     "ext_link_-1_06_-1Mesh",
+     "ext_link_-1_06_1Mesh",
+     "ext_link_1_06_-1Mesh",
+     "ext_link_1_06_1Mesh"
+    ]
+   }
+  ],
+  "textures": [
+   {
+    "texture": 0,
+    "image": "steel-brush-roughness",
+    "mime": "image/png",
+    "bytes": 826137,
+    "mb": 0.788,
+    "dims": "1024x1024",
+    "usedBy": [
+     "steel_brushed.metalRough"
+    ]
+   },
+   {
+    "texture": 1,
+    "image": "bezel",
+    "mime": "image/png",
+    "bytes": 118737,
+    "mb": 0.113,
+    "dims": "2048x2048",
+    "usedBy": [
+     "ceramic_enamel_scale_2048.baseColor"
+    ]
+   },
+   {
+    "texture": 2,
+    "image": "dial",
+    "mime": "image/png",
+    "bytes": 1669077,
+    "mb": 1.592,
+    "dims": "2048x2048",
+    "usedBy": [
+     "dial_print_2048.baseColor"
+    ]
+   },
+   {
+    "texture": 3,
+    "image": "subdial-60",
+    "mime": "image/png",
+    "bytes": 104250,
+    "mb": 0.099,
+    "dims": "1024x1024",
+    "usedBy": [
+     "recessed_subdial_60.baseColor"
+    ]
+   },
+   {
+    "texture": 4,
+    "image": "subdial-30",
+    "mime": "image/png",
+    "bytes": 103136,
+    "mb": 0.098,
+    "dims": "1024x1024",
+    "usedBy": [
+     "recessed_subdial_30.baseColor"
+    ]
+   }
+  ]
+ },
+ "manifestGroups": {
+  "Hairspring": 9,
+  "Mainplate": 1,
+  "Chronograph Works": 140,
+  "Screws": 77,
+  "Winding System": 10,
+  "Gear Train": 13,
+  "Escapement": 2,
+  "Balance Wheel": 14,
+  "Jewel Bearings": 4,
+  "Springs": 1,
+  "Plates & Bridges": 6,
+  "Dial Indication": 1,
+  "Studio Props": 5
+ },
+ "exteriorRoles": {
+  "case": 2,
+  "ring": 4,
+  "glass": 2,
+  "dial": 1,
+  "hand": 6,
+  "crown": 3,
+  "link": 74,
+  "pin": 26,
+  "clasp": 6
+ }
+}
