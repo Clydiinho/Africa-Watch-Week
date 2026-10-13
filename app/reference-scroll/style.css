@@ -205,13 +205,13 @@ body[data-section="Particles"] #reference-progress { background: #797979; }
 #loading.is-complete, #loading.is-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
 .loading-ring { position: absolute; width: min(80vw,96vh); height: min(80vw,96vh); }
 .loading-ring circle { stroke: #dcdcdc; stroke-width: 1; }
-.loading-ring .loading-arc { stroke: #d3d3d3; stroke-width: 3; stroke-dasharray: 2168; stroke-dashoffset: 2168; transform: rotate(-90deg); transform-origin: center; animation: load-circle 2s ease-in-out infinite; }
+.loading-ring .loading-arc { stroke: #d3d3d3; stroke-width: 3; stroke-dasharray: 2168; stroke-dashoffset: 1400; transform: rotate(-90deg); transform-origin: center; animation: load-spin 1.6s linear infinite; }
 .loading-content { position: relative; text-align: center; }
 #load-status { font-size: 11px; color: #222; }
 #load-status span { color: #999; margin-right: 4px; }
 #retry-load { display: block; margin: 22px auto 0; font-size: 10px; padding-bottom: 5px; border-bottom: 1px solid #aaa; }
 .noscript-note { position: fixed; z-index: 110; inset: 0; padding: 30px; display: grid; place-items: center; text-align: center; background: #ebebeb; font-size: 15px; }
-@keyframes load-circle { 0% { stroke-dashoffset: 2168; } 80%,100% { stroke-dashoffset: 0; } }
+@keyframes load-spin { to { transform: rotate(270deg); } }
 
 @media (min-width: 1600px) {
   .reference-header { top: 38px; }

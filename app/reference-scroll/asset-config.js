@@ -31,6 +31,8 @@ export const AWW_BUDGETS = Object.freeze({
 
 // Measured disk bytes (identity, no gzip) from tools/baseline.json, 2026-10-13.
 // Gate download-size text is computed from these, never hardcoded.
+// NOTE (Task 6): move these totals into finish-manifest.json / manifest.json
+// instead of hardcoding them here.
 export const AWW_ASSET_BYTES = Object.freeze({
   threeJs: 2026496, // three.module.js + loaders + draco wasm/wrapper
   models: 31563776, // live movement + exterior + tourbillon GLBs
