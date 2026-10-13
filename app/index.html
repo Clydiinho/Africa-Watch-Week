@@ -7,7 +7,16 @@
   <meta name="theme-color" content="#0b0b0c">
   <meta name="description" content="Africa Watch Week — an invite-only evening of horology, culture and African luxury. Cape Town, South Africa · November 2026.">
   <title>Africa Watch Week</title>
+  <link rel="icon" type="image/svg+xml" href="assets/branding/aww-icon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Africa Watch Week">
+  <meta property="og:description" content="Africa Watch Week — an invite-only evening of horology, culture and African luxury. Cape Town, South Africa · November 2026.">
+  <meta property="og:image" content="https://africa-watch-week.vercel.app/assets/og/aww-1200x630.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Africa Watch Week">
+  <meta name="twitter:description" content="Africa Watch Week — an invite-only evening of horology, culture and African luxury. Cape Town, South Africa · November 2026.">
   <link rel="stylesheet" href="reference-scroll/style.css">
+  <link rel="preload" as="image" imagesrcset="assets/posters/aww2k26-hero-640.webp 640w, assets/posters/aww2k26-hero-1024.webp 1024w, assets/posters/aww2k26-hero-1600.webp 1600w" imagesizes="100vw">
   <script type="importmap">{"imports":{"three":"./vendor/three/0.160.0/build/three.module.js","three/addons/":"./vendor/three/0.160.0/examples/jsm/"}}</script>
 </head>
 <body data-section="Intro" data-phase="0">
@@ -44,16 +53,16 @@
   </nav>
 
   <main id="reference-story" aria-label="Africa Watch Week — an invite-only evening of horology, culture and African luxury">
-    <section id="section-intro" data-webgl="Intro" aria-label="Introduction"></section>
-    <section id="section-disassembly" data-webgl="Disassembly" aria-label="Inside the watch"></section>
-    <section id="section-particles" data-webgl="Particles" aria-label="The event"></section>
-    <section id="section-presentation" data-webgl="Presentation" aria-label="The world"></section>
-    <section id="section-straps" data-webgl="Straps" aria-label="The experience"></section>
-    <section id="section-images" data-webgl="Images" aria-label="The setting"></section>
-    <section id="section-colors" data-webgl="Colors" aria-label="The partnership"></section>
-    <section id="section-parts" data-webgl="Parts" aria-label="One evening"></section>
+    <section id="section-intro" data-webgl="Intro"></section>
+    <section id="section-disassembly" data-webgl="Disassembly"></section>
+    <section id="section-particles" data-webgl="Particles"></section>
+    <section id="section-presentation" data-webgl="Presentation"></section>
+    <section id="section-straps" data-webgl="Straps"></section>
+    <section id="section-images" data-webgl="Images"></section>
+    <section id="section-colors" data-webgl="Colors"></section>
+    <section id="section-parts" data-webgl="Parts"></section>
     <div class="footer-spacer" aria-hidden="true"></div>
-    <section id="section-footer" data-webgl="Footer" aria-label="Highlights"></section>
+    <section id="section-footer" data-webgl="Footer"></section>
   </main>
 
   <div class="overlay overlay-back intro-back" data-scene="Intro" aria-hidden="true">
@@ -68,7 +77,7 @@
     <p class="intro-edition">AFRICA<br>WATCH WEEK</p>
     <picture class="intro-poster">
       <source type="image/webp" srcset="assets/posters/aww2k26-hero-640.webp 640w, assets/posters/aww2k26-hero-1024.webp 1024w, assets/posters/aww2k26-hero-1600.webp 1600w" sizes="100vw">
-      <img src="assets/editorial/venue.jpg" alt="" aria-hidden="true" loading="eager" fetchpriority="high">
+      <img src="assets/editorial/venue.jpg" width="1536" height="1024" alt="" aria-hidden="true" loading="eager" fetchpriority="high">
     </picture>
     <p class="intro-scroll"><span class="scroll-arrow" aria-hidden="true">↓</span>Scroll to discover</p>
   </div>
@@ -76,7 +85,7 @@
   <div class="overlay overlay-back disassembly-back" data-scene="Disassembly" aria-hidden="true"><div class="disassembly-word">AWW</div></div>
   <div class="overlay disassembly-overlay" data-scene="Disassembly">
     <p class="explore-instruction">Click to <span>explore</span></p>
-    <div id="layer-labels" aria-label="Watch components"></div>
+    <div id="layer-labels" role="group" aria-label="Watch components"></div>
     <div id="component-detail" class="component-detail" hidden><button id="component-close" type="button" aria-label="Close component detail">Close <span aria-hidden="true">×</span></button><p class="micro-label">Component</p><h2 id="component-name"></h2><p id="component-description"></p></div>
     <p class="disassembly-hold">HOLD TO<br>EXPLORE <span aria-hidden="true">+</span></p>
   </div>
@@ -97,9 +106,9 @@
   <div class="overlay straps-overlay" data-scene="Straps"><h2 class="sr-only">The experience</h2><p class="strap-caption">Dinner, reveals and conversation.<br><span>One venue. One night. A continuous line of moments.</span></p><p class="strap-detail">NOVEMBER 2026<br>V&amp;A WATERFRONT, CAPE TOWN<br>BLACK TIE</p></div>
 
   <div class="overlay images-overlay" data-scene="Images">
-    <p class="editorial-title">The setting.</p>
-    <figure id="editorial-one"><picture><source type="image/webp" srcset="assets/editorial/webp/venue-640.webp 640w, assets/editorial/webp/venue-1024.webp 1024w, assets/editorial/webp/venue-1600.webp 1600w" sizes="(max-width: 767px) 92vw, 42vw"><img class="editorial-image" src="assets/editorial/venue.jpg" alt="The private venue at the V&A Waterfront, Cape Town, lit warm gold at night" loading="lazy"></picture><figcaption><span>01 / THE VENUE</span><span>V&amp;A WATERFRONT · CAPE TOWN</span></figcaption></figure>
-    <figure id="editorial-two"><picture><source type="image/webp" srcset="assets/editorial/webp/city-640.webp 640w, assets/editorial/webp/city-1024.webp 1024w, assets/editorial/webp/city-1600.webp 1600w" sizes="(max-width: 767px) 92vw, 42vw"><img class="editorial-image" src="assets/editorial/city.jpg" alt="The Cape Town skyline at dusk, city lights coming on" loading="lazy"></picture><figcaption><span>02 / THE CITY</span><span>CAPE TOWN · SOUTH AFRICA</span></figcaption></figure>
+    <h2 class="editorial-title">The setting.</h2>
+    <figure id="editorial-one"><picture><source type="image/webp" srcset="assets/editorial/webp/venue-640.webp 640w, assets/editorial/webp/venue-1024.webp 1024w, assets/editorial/webp/venue-1600.webp 1600w" sizes="(max-width: 767px) 92vw, 42vw"><img class="editorial-image" src="assets/editorial/venue.jpg" width="1536" height="1024" alt="The private venue at the V&A Waterfront, Cape Town, lit warm gold at night" loading="lazy"></picture><figcaption><span>01 / THE VENUE</span><span>V&amp;A WATERFRONT · CAPE TOWN</span></figcaption></figure>
+    <figure id="editorial-two"><picture><source type="image/webp" srcset="assets/editorial/webp/city-640.webp 640w, assets/editorial/webp/city-1024.webp 1024w, assets/editorial/webp/city-1600.webp 1600w" sizes="(max-width: 767px) 92vw, 42vw"><img class="editorial-image" src="assets/editorial/city.jpg" width="1536" height="1024" alt="The Cape Town skyline at dusk, city lights coming on" loading="lazy"></picture><figcaption><span>02 / THE CITY</span><span>CAPE TOWN · SOUTH AFRICA</span></figcaption></figure>
   </div>
 
   <div class="overlay overlay-back colors-back" data-scene="Colors" aria-hidden="true"><span class="finish-number partnership-number">07</span></div>
@@ -107,7 +116,7 @@
     <div class="partnership">
       <p class="micro-label">THE PARTNERSHIP</p>
       <h2>More than a sponsor.<br>A strategic partnership.</h2>
-      <div class="partner-cards" aria-label="Partnership benefits">
+      <div class="partner-cards" role="group" aria-label="Partnership benefits">
         <article class="partner-card">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" aria-hidden="true"><path d="M12 3l2.2 4.9L19 9l-3.6 3.4.9 5.1L12 15l-4.3 2.5.9-5.1L5 9l4.8-1.1z"/></svg>
           <h3>Client Experience</h3>
@@ -137,17 +146,17 @@
   <div class="overlay parts-overlay" data-scene="Parts">
     <div class="parts-heading"><p class="micro-label">COMING TOGETHER</p><h2>Every world.<br>One evening.</h2></div>
     <p class="reassembly-caption"><span id="reassembly-step">01 / THE GUESTS</span><span id="reassembly-copy">Scroll to bring the evening together.</span></p>
-    <div class="reassembly-meter" aria-label="Assembly progress"><span id="reassembly-progress">0%</span><span class="reassembly-track" aria-hidden="true"><i id="reassembly-progress-bar"></i></span></div>
+    <div class="reassembly-meter" role="progressbar" aria-label="Assembly progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="reassembly-progress">0%</span><span class="reassembly-track" aria-hidden="true"><i id="reassembly-progress-bar"></i></span></div>
   </div>
 
   <div class="overlay overlay-back footer-back" data-scene="Footer" aria-hidden="true"><div class="footer-word"><span>AWW</span></div></div>
   <div class="overlay footer-overlay" data-scene="Footer">
-    <p class="footer-instruction">Highlights.</p>
-    <div class="footer-studies" aria-label="Event highlights">
-      <figure><picture><source type="image/webp" srcset="assets/gallery/webp/venue-640.webp 640w, assets/gallery/webp/venue-1024.webp 1024w, assets/gallery/webp/venue-1600.webp 1600w" sizes="(max-width: 767px) 44vw, 22vw"><img src="assets/gallery/venue.jpg" alt="The candlelit venue prepared for the evening" loading="lazy"></picture><span>The venue</span></figure>
-      <figure><picture><source type="image/webp" srcset="assets/gallery/webp/guests-640.webp 640w, assets/gallery/webp/guests-1024.webp 1024w, assets/gallery/webp/guests-1600.webp 1600w" sizes="(max-width: 767px) 44vw, 22vw"><img src="assets/gallery/guests.jpg" alt="Guests in evening dress gathering over champagne" loading="lazy"></picture><span>The guests</span></figure>
-      <figure><picture><source type="image/webp" srcset="assets/gallery/webp/atmosphere-640.webp 640w, assets/gallery/webp/atmosphere-1024.webp 1024w, assets/gallery/webp/atmosphere-1600.webp 1600w" sizes="(max-width: 767px) 44vw, 22vw"><img src="assets/gallery/atmosphere.jpg" alt="Warm gold light and atmosphere on the night" loading="lazy"></picture><span>The atmosphere</span></figure>
-      <figure><picture><source type="image/webp" srcset="assets/gallery/webp/details-640.webp 640w, assets/gallery/webp/details-1024.webp 1024w, assets/gallery/webp/details-1600.webp 1600w" sizes="(max-width: 767px) 44vw, 22vw"><img src="assets/gallery/details.jpg" alt="Table details with gold accents and horological objects" loading="lazy"></picture><span>The details</span></figure>
+    <h2 class="footer-instruction">Highlights.</h2>
+    <div class="footer-studies" role="group" aria-label="Event highlights">
+      <figure><picture><source type="image/webp" srcset="assets/gallery/webp/venue-640.webp 640w, assets/gallery/webp/venue-1024.webp 1024w, assets/gallery/webp/venue-1600.webp 1600w" sizes="(max-width: 767px) 44vw, 22vw"><img src="assets/gallery/venue.jpg" width="1024" height="1536" alt="The candlelit venue prepared for the evening" loading="lazy"></picture><span>The venue</span></figure>
+      <figure><picture><source type="image/webp" srcset="assets/gallery/webp/guests-640.webp 640w, assets/gallery/webp/guests-1024.webp 1024w, assets/gallery/webp/guests-1600.webp 1600w" sizes="(max-width: 767px) 44vw, 22vw"><img src="assets/gallery/guests.jpg" width="1024" height="1536" alt="Guests in evening dress gathering over champagne" loading="lazy"></picture><span>The guests</span></figure>
+      <figure><picture><source type="image/webp" srcset="assets/gallery/webp/atmosphere-640.webp 640w, assets/gallery/webp/atmosphere-1024.webp 1024w, assets/gallery/webp/atmosphere-1600.webp 1600w" sizes="(max-width: 767px) 44vw, 22vw"><img src="assets/gallery/atmosphere.jpg" width="1024" height="1536" alt="Warm gold light and atmosphere on the night" loading="lazy"></picture><span>The atmosphere</span></figure>
+      <figure><picture><source type="image/webp" srcset="assets/gallery/webp/details-640.webp 640w, assets/gallery/webp/details-1024.webp 1024w, assets/gallery/webp/details-1600.webp 1600w" sizes="(max-width: 767px) 44vw, 22vw"><img src="assets/gallery/details.jpg" width="505" height="1320" alt="Table details with gold accents and horological objects" loading="lazy"></picture><span>The details</span></figure>
     </div>
     <div class="footer-baseline"><p class="footer-signature"><span class="brand-wordmark">AFRICA WATCH WEEK</span><span>CAPE TOWN · NOV 2026</span></p><p>INVITE ONLY · 80 GUESTS</p><button type="button" data-section-go="Intro">Back to the beginning <span aria-hidden="true">↗</span></button></div>
   </div>
@@ -162,7 +171,7 @@
   <noscript><p class="noscript-note">Enable JavaScript to explore Africa Watch Week in three dimensions.</p></noscript>
   <script>window.__AWW_HIDE_FOOTER_WATCHES=true;</script>
   <script>(function awwBootGuard(){var started=Date.now();function $(id){return document.getElementById(id);}function loadingEl(){return $('loading');}function settled(){return document.body.classList.contains('watch-ready')||document.body.dataset.mode==='quick';}function showFailure(msg){var t=$('load-status');if(settled())return;if(t)t.textContent=msg||'The 3D experience could not load.';var r=$('retry-load');if(r)r.hidden=false;var q=$('loading-quick');if(q)q.hidden=false;var l=loadingEl();if(l)l.setAttribute('aria-busy','false');}function autoQuick(){if(settled())return;try{var ev=(window.__AWW_TIMINGS&&window.__AWW_TIMINGS.events)||[];var last=ev.length?ev[ev.length-1].t:0;var elapsed=Date.now()-started;var idle=ev.length?(function(){try{return performance.now()-ev[ev.length-1].t;}catch(e){return 1e9;}})():1e9;var sinceBoot=ev.length?(function(){try{return performance.now()-ev[0].t;}catch(e){return 0;}})():0;if((elapsed>15000&&(ev.length===0||idle>5000))||sinceBoot>60000){if(!window.__AWW_SWITCHING){window.__AWW_SWITCHING=true;var t=$('load-status');if(t)t.textContent='Loading is slow on this connection – switching to the lite version';var l2=loadingEl();if(l2){l2.classList.remove('is-complete');l2.setAttribute('aria-hidden','false');}setTimeout(function(){try{sessionStorage.setItem('aww2k26-mode','quick');}catch(e){}document.body.dataset.mode='quick';var l=loadingEl();if(l){l.classList.add('is-complete');l.setAttribute('aria-hidden','true');l.setAttribute('aria-busy','false');}var g=$('entry-gate');if(g)g.hidden=true;var s=$('switch-3d');if(s)s.hidden=false;},2500);}return;}}catch(e){}setTimeout(autoQuick,5000);}addEventListener('error',function(e){if(e&&e.target&&(e.target.tagName==='SCRIPT'||e.target.tagName==='LINK'))showFailure();},true);addEventListener('unhandledrejection',function(){showFailure();});setTimeout(function(){if(settled())return;var q=$('loading-quick');if(q)q.hidden=false;},8000);setTimeout(autoQuick,15000);})();</script>
-  <script src="reference-scroll/configurator.js"></script>
+  <script src="reference-scroll/configurator.js" defer></script>
   <script type="module" src="reference-scroll/entry-gate.js"></script>
 </body>
 </html>

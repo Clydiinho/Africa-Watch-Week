@@ -42,7 +42,7 @@ body > canvas, #reference-canvas, #canvas-wrapper { position: fixed; inset: 0; w
 .overlay button, .overlay a { pointer-events: auto; }
 .overlay[aria-hidden="true"] button, .overlay[aria-hidden="true"] a { pointer-events: none; }
 
-.reference-header { position: fixed; z-index: 20; left: var(--edge); right: var(--edge); top: 29px; display: flex; align-items: center; justify-content: space-between; pointer-events: none; }
+.reference-header { position: fixed; z-index: 20; left: calc(var(--edge) + env(safe-area-inset-left)); right: calc(var(--edge) + env(safe-area-inset-right)); top: calc(29px + env(safe-area-inset-top)); display: flex; align-items: center; justify-content: space-between; pointer-events: none; }
 .reference-brand { display: flex; align-items: baseline; gap: 19px; font-size: 11px; font-weight: 500; letter-spacing: .015em; pointer-events: auto; }
 .reference-brand span { font-size: 8px; letter-spacing: .02em; opacity: .5; font-weight: 400; }
 .header-actions { display: flex; align-items: center; gap: 35px; pointer-events: auto; }
@@ -200,7 +200,7 @@ body[data-section="Particles"] #reference-progress { background: #797979; }
 
 .reference-progress { position: fixed; z-index: 15; right: 15px; top: 42%; width: 1px; height: 16vh; background: #d5d5d5; pointer-events: none; }
 #reference-progress { display: block; width: 100%; height: 100%; transform: scaleY(0); transform-origin: center top; background: #707070; }
-.reference-scroll-percent { position: fixed; z-index: 15; right: 22px; bottom: 22px; color: #a3a3a3; font-size: 7px; font-variant-numeric: tabular-nums; pointer-events: none; }
+.reference-scroll-percent { position: fixed; z-index: 15; right: calc(22px + env(safe-area-inset-right)); bottom: calc(22px + env(safe-area-inset-bottom)); color: #a3a3a3; font-size: 7px; font-variant-numeric: tabular-nums; pointer-events: none; }
 #loading { position: fixed; z-index: 100; inset: 0; background: #ebebeb; display: grid; place-items: center; transition: opacity .65s ease, visibility .65s ease; }
 #loading.is-complete, #loading.is-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
 .loading-ring { position: absolute; width: min(80vw,96vh); height: min(80vw,96vh); animation: load-spin 1.6s linear infinite; }
@@ -584,7 +584,7 @@ body[data-presentation="3"] #presentation-copy { max-width: 260px; left: 8%; bot
 #gate-3d.is-suggested small, #gate-quick.is-suggested small { color: #0b0b0c; opacity: .7; }
 #gate-error { margin-top: 20px; font-size: 11px; line-height: 1.7; color: #d98a7e; }
 #gate-error .gate-fallback { margin-top: 12px; padding: 12px 20px; font-size: 9px; letter-spacing: .24em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--gold-line); }
-#switch-3d { position: fixed; z-index: 60; left: var(--edge); bottom: 20px; font-size: 8px; letter-spacing: .24em; text-transform: uppercase; color: var(--accent); border-bottom: 1px solid var(--accent); padding-bottom: 4px; }
+#switch-3d { position: fixed; z-index: 60; left: calc(var(--edge) + env(safe-area-inset-left)); bottom: calc(20px + env(safe-area-inset-bottom)); font-size: 8px; letter-spacing: .24em; text-transform: uppercase; color: var(--accent); border-bottom: 1px solid var(--accent); padding-bottom: 4px; }
 #switch-3d[hidden] { display: none; }
 
 /* Play is disabled until the 3D runtime signals readiness */
