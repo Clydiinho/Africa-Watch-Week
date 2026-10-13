@@ -22,11 +22,47 @@ let AWW_PHASE=null;
 function setLoadPhase(label){AWW_PHASE=label;const el=$('load-status');if(el&&label)el.textContent=label;}
 function awwProgressUpdate(){if(AWW_PHASE)return;let L=0,T=0;for(const k of Object.keys(AWW_PROG)){const e=AWW_PROG[k];if(e.total>0){T+=e.total;L+=Math.min(e.loaded,e.total);}}const el=$('load-status');if(el&&T>0)el.textContent='Now loading · '+Math.round(L/T*100)+'%';}
 function awwPaintedFrame(){return new Promise(r=>requestAnimationFrame(()=>setTimeout(r,0)));}
-function awwTimingsPanel(){try{if(document.getElementById('aww-timings'))return;const d=document.createElement('div');d.id='aww-timings';d.style.cssText='position:fixed;right:10px;bottom:10px;z-index:400;max-width:min(92vw,420px);max-height:40vh;overflow:auto;background:rgba(0,0,0,.85);color:#0f0;font:11px/1.5 monospace;white-space:pre-wrap;padding:10px 12px;border:1px solid #333;';const pre=document.createElement('pre');pre.style.margin='0 0 8px';pre.textContent=JSON.stringify(window.__AWW_TIMINGS.summary(),null,1);const b=document.createElement('button');b.type='button';b.textContent='Copy';b.style.cssText='font:inherit;color:#fff;background:#333;border:1px solid #666;padding:4px 12px;cursor:pointer;';b.onclick=()=>{const s=JSON.stringify({quality:AWW_QUALITY,overlayEvery:AWW_OVERLAY_EVERY,stats:awwFrameStats(),canvas:awwCanvasInfo(),renderer:awwRendererInfo(),events:window.__AWW_TIMINGS.events});if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(s).then(()=>{b.textContent='Copied';});else{b.textContent='Select+copy manually';pre.textContent=s;}};d.appendChild(pre);d.appendChild(b);document.body.appendChild(d);}catch(e){}}
+
+const AWW_HITCHES=[];window.__AWW_HITCHES=AWW_HITCHES;
+// Warm-up: compile every shader variant and upload every texture behind the
+// loader, rendering one hidden frame per section with the same pose math as
+// referenceFrame (DOM writes skipped). Scroll state is re-synced from the live
+// scroll position afterwards, so the first visible frame is never a stale pose.
+async function awwWarmup(){
+ awwMark('warmup-start');
+ setLoadPhase('Preparing scene');await awwPaintedFrame();
+ const yieldStep=()=>(globalThis.scheduler&&globalThis.scheduler.yield)?globalThis.scheduler.yield():awwPaintedFrame();
+ try{await renderer.compileAsync(scene,camera);}catch(e){awwMark('warmup-compile-failed');}
+ await yieldStep();
+ const textures=new Set();
+ scene.traverse(o=>{if(!o.isMesh)return;const mats=Array.isArray(o.material)?o.material:[o.material];for(const m of mats){if(!m)continue;for(const k of ['map','normalMap','roughnessMap','metalnessMap','emissiveMap','aoMap','envMap'])if(m[k]&&m[k].isTexture)textures.add(m[k]);}});
+ let ti=0;for(const tex of textures){try{renderer.initTexture(tex);}catch(e){}if(++ti%20===0)await yieldStep();}
+ awwMark('warmup-textures-done');
+ const frozenTime=0;
+ for(const name of sectionOrder){
+  const phase={name,p:0.5};
+  const cfg=blendReference(phase);
+  poseReference(cfg.state);
+  poseReferenceMotion({time:frozenTime,section:phase.name,phase:phase.p,reduced});
+  const reassemblyPhase=phase.name==='Parts'?phase:null;
+  if(reassemblyPhase&&partsReassembly){const assembly=partsReassembly.pose({phase:reassemblyPhase.p,time:frozenTime,reduced,config:cfg,compact:innerWidth<768,visibility:1,exiting:false});framePartsReassembly(cfg,assembly,1);}else if(partsReassembly&&partsReassembly.deactivate)partsReassembly.deactivate();
+  referenceCamera(cfg);updateFooterWatches(phase);
+  if(window.updateEditorialWatches)window.updateEditorialWatches({time:frozenTime,phase,reduced});
+  if(window.poseConceptTourbillon)window.poseConceptTourbillon({time:frozenTime,config:cfg,section:phase.name,phase:phase.p,reduced});
+  applyFrontOcclusion(cfg,phase);if(referenceContactLight&&referenceContactLight.update)referenceContactLight.update(cfg);
+  renderer.render(scene,camera);
+  awwMark('warmup-frame:'+name);
+  await yieldStep();
+ }
+ if(partsReassembly&&partsReassembly.deactivate)partsReassembly.deactivate();
+ scrollTarget=scrollValue=domScrollValue=scrollY;rendererDirty=true;
+ awwMark('warmup-end');
+}
+function awwTimingsPanel(){try{if(document.getElementById('aww-timings'))return;const d=document.createElement('div');d.id='aww-timings';d.style.cssText='position:fixed;right:10px;bottom:10px;z-index:400;max-width:min(92vw,420px);max-height:40vh;overflow:auto;background:rgba(0,0,0,.85);color:#0f0;font:11px/1.5 monospace;white-space:pre-wrap;padding:10px 12px;border:1px solid #333;';const pre=document.createElement('pre');pre.style.margin='0 0 8px';pre.textContent=JSON.stringify(window.__AWW_TIMINGS.summary(),null,1);const b=document.createElement('button');b.type='button';b.textContent='Copy';b.style.cssText='font:inherit;color:#fff;background:#333;border:1px solid #666;padding:4px 12px;cursor:pointer;';b.onclick=()=>{const s=JSON.stringify({quality:AWW_QUALITY,overlayEvery:AWW_OVERLAY_EVERY,stats:awwFrameStats(),canvas:awwCanvasInfo(),renderer:awwRendererInfo(),hitches:AWW_HITCHES,events:window.__AWW_TIMINGS.events});if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(s).then(()=>{b.textContent='Copied';});else{b.textContent='Select+copy manually';pre.textContent=s;}};d.appendChild(pre);d.appendChild(b);document.body.appendChild(d);}catch(e){}}
 function awwFrameStats(){try{const s=frameTimes.slice().sort((a,b)=>a-b);if(!s.length)return null;const q=p=>s[Math.min(s.length-1,Math.ceil(s.length*p)-1)];const mean=s.reduce((a,b)=>a+b,0)/s.length;return{n:s.length,p50:+q(.5).toFixed(2),p95:+q(.95).toFixed(2),max:+s[s.length-1].toFixed(2),fps:+(1000/mean).toFixed(1)};}catch(e){return null;}}
 function awwCanvasInfo(){try{const c=renderer.domElement;return{dpr:+renderer.getPixelRatio().toFixed(2),bufW:c.width,bufH:c.height,cssW:c.clientWidth,cssH:c.clientHeight};}catch(e){return null;}}
 function awwRendererInfo(){try{const r=renderer.info.render;return{calls:r.calls,triangles:r.triangles,points:r.points};}catch(e){return null;}}
-function awwPanelUpdate(){try{const pre=document.querySelector('#aww-timings pre');if(!pre)return;pre.textContent=JSON.stringify({quality:AWW_QUALITY,overlayEvery:AWW_OVERLAY_EVERY,stats:awwFrameStats(),canvas:awwCanvasInfo(),renderer:awwRendererInfo()},null,1);}catch(e){}}
+function awwPanelUpdate(){try{const pre=document.querySelector('#aww-timings pre');if(!pre)return;pre.textContent=JSON.stringify({quality:AWW_QUALITY,overlayEvery:AWW_OVERLAY_EVERY,stats:awwFrameStats(),canvas:awwCanvasInfo(),renderer:awwRendererInfo(),hitches:AWW_HITCHES},null,1);}catch(e){}}
 const Q=new URLSearchParams(location.search), RECORD=false;
 // Task 3: quality tiers. Default 'medium' (the allowed trades). ?quality=low|medium|high
 // overrides for device comparison. 'high' preserves pre-Task-3 values exactly.
@@ -3157,6 +3193,7 @@ async function onAssetsReady(){
  }
  window.initializeEditorialWatches?.({T,scene,camera,units:active,braceletSet:referenceRig.braceletSet,configuration:kimiConfiguration?.state,rearLOD:editorialLOD,onChange:()=>{rendererDirty=true;}});
  partsReassembly=window.initPartsReassembly?.({T,scene,displayRoot,active,renderer});
+ await awwWarmup();
  ready=true;window.__READY=true;awwMark('watch-ready');setLoadPhase(null);if(Q.get('qa')==='1'){window.__AWW_TIMINGS.print();awwTimingsPanel();}
  $('loading')?.classList.add('is-complete');$('loading')?.setAttribute('aria-hidden','true');$('loading')?.setAttribute('aria-busy','false');document.body.classList.add('watch-ready');
  if(location.origin==='http://127.0.0.1:8971'&&Q.get('qaCapture')==='1'){
@@ -3315,7 +3352,7 @@ function applyFrontOcclusion(config,phase){
 function recordReferenceFrameTiming(now,rawFrameMs,section){
  if(section!==frameTimingSection){frameTimes.length=0;frameTimingSection=section;previousRenderedFrameTime=null;}
  const interval=now-previousRenderedFrameTime;
- if(previousRenderedFrameTime!==null&&Number.isFinite(rawFrameMs)&&rawFrameMs>0&&rawFrameMs<=500&&Number.isFinite(interval)&&interval>0&&interval<=500){frameTimes.push(interval);if(frameTimes.length>300)frameTimes.shift();}
+ if(previousRenderedFrameTime!==null&&Number.isFinite(rawFrameMs)&&rawFrameMs>0&&rawFrameMs<=500&&Number.isFinite(interval)&&interval>0&&interval<=500){frameTimes.push(interval);if(frameTimes.length>300)frameTimes.shift();if(Q.get('qa')==='1'&&interval>40){AWW_HITCHES.push({ms:+interval.toFixed(1),progress:+((scrollValue/scrollMax)||0).toFixed(4),section:currentSection,tMs:Math.round(performance.now())});if(AWW_HITCHES.length>50)AWW_HITCHES.shift();}}
  previousRenderedFrameTime=now;
  const sampleCount=frameTimes.length,ordered=frameTimes.slice().sort((a,b)=>a-b);
  // RAF cadence includes scheduling, main-thread work and GPU backpressure.
