@@ -1,0 +1,41 @@
+{
+  "generated": "2026-10-13T09:30:00Z",
+  "note": "Disk bytes are identity (no gzip). Sandbox headless Chrome cannot run timers/RAF or complete large-asset processing; anything marked unmeasured needs a real-GPU machine.",
+  "bytesKB": {
+    "initial": 110,
+    "quickMobile640": 421,
+    "quickDesktop1600": 1208,
+    "threeJs": 1979,
+    "modelsLive": 30824,
+    "modelsStaged": 17807,
+    "env": 1120,
+    "finishes": 7574,
+    "chunk3dLive": 41496,
+    "gateClaimedMB": 18,
+    "gateActualMB": 40.5
+  },
+  "geometryMeasured20261007": {
+    "movement": { "renderVertices": 8398197, "uploadVertices": 2867928 },
+    "exterior": { "renderVertices": 357057, "uploadVertices": 83010 },
+    "tourbillon": { "renderVertices": 111804, "uploadVertices": 30960 },
+    "parts": { "total": 283, "active": 278, "auditUnits": 359 }
+  },
+  "bootObservedSandbox": {
+    "downloads": "all 3D assets completed in ~2s on localhost (movement 19.9MB in 581ms)",
+    "afterDownload": "no EXR, no draco-wasm, no further finish requests within 100s; loader stuck with generic text, no watch-ready",
+    "interpretation": "stall inside GLB parse / Draco decode / 283-part build on the main thread under SwiftShader; matches the reported frozen-after-100% symptom"
+  },
+  "renderProof": {
+    "gateDesktop": "shots/base-gate.png",
+    "quickMobile390": "shots/base-quick-mobile.png",
+    "loader100s": "shots/base-3d.png"
+  },
+  "unmeasured": {
+    "timeToFirstPaint": "needs real browser + GPU",
+    "timeToWatchReady": "needs real browser + GPU",
+    "gap100PercentToFirstFrame": "needs real browser + GPU; capture via Performance panel from boot to watch-ready class",
+    "datasetMotion": "triangles/calls/frame-ms at 0/mid/100% scroll; read document.body.dataset.motion after boot",
+    "longestMainThreadTasks": "needs Performance trace during boot on target hardware",
+    "throttledMidPhone": "needs CDP throttling (4x CPU, Fast 3G) on a real machine"
+  }
+}
