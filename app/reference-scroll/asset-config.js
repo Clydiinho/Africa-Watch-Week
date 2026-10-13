@@ -28,3 +28,18 @@ export const AWW_BUDGETS = Object.freeze({
   initialMB: 2, // HTML + CSS + JS + fonts + poster, excl. 3D chunk
   chunk3DMB: 5, // movement + exterior + tourbillon + env + finishes
 });
+
+// Measured disk bytes (identity, no gzip) from tools/baseline.json, 2026-10-13.
+// Gate download-size text is computed from these, never hardcoded.
+export const AWW_ASSET_BYTES = Object.freeze({
+  threeJs: 2026496, // three.module.js + loaders + draco wasm/wrapper
+  models: 31563776, // live movement + exterior + tourbillon GLBs
+  env: 1146880, // reference-studio + reference-metal EXRs
+  finishes: 7755776, // finish-manifest + textures actually on disk
+});
+
+export function awwChunkMB() {
+  const total = AWW_ASSET_BYTES.threeJs + AWW_ASSET_BYTES.models
+    + AWW_ASSET_BYTES.env + AWW_ASSET_BYTES.finishes;
+  return Math.floor(total / 1048576);
+}

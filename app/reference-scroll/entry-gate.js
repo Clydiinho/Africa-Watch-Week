@@ -172,6 +172,15 @@
   }
 
   wireChrome();
+  // Gate size text comes from measured byte counts, never hardcoded.
+  import('./asset-config.js').then(function (cfg) {
+    try {
+      var el = document.getElementById('gate-3d-size');
+      if (el && cfg && typeof cfg.awwChunkMB === 'function') {
+        el.textContent = '~' + cfg.awwChunkMB() + 'MB · best on desktop / Wi-Fi';
+      }
+    } catch (e) {}
+  }).catch(function () {});
   var small = false;
   try { small = matchMedia('(max-width: 767px)').matches; } catch (e) {}
   if (btn3d) btn3d.classList.toggle('is-suggested', !small);

@@ -536,6 +536,7 @@ body[data-presentation="3"] #presentation-copy { max-width: 260px; left: 8%; bot
 #loading-quick { display: block; margin: 14px auto 0; font-size: 9px; letter-spacing: .18em; text-transform: uppercase; color: var(--soft); border-bottom: 1px solid var(--line); padding-bottom: 4px; }
 #loading-quick[hidden] { display: none; }
 .noscript-note { background: #0b0b0c; color: #ece5d3; }
+.no-js #loading { display: none; }
 
 /* Tablet */
 @media (max-width: 1023px) and (min-width: 768px) {
