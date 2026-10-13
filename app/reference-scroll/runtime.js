@@ -10,7 +10,7 @@ const AWW_TIMES=[];
 function awwMark(name){try{performance.mark('aww:'+name);}catch(e){}AWW_TIMES.push({name,t:Math.round(performance.now())});}
 function awwShort(url){url=String(url||'');if(url.includes('aww2k26-movement')||url.includes('omega_321'))return 'movement';if(url.includes('aww2k26-exterior')||url.includes('openheart_exterior')||url.includes('machining_exterior'))return 'exterior';if(url.includes('tourbillon'))return 'tourbillon';if(url.includes('manifest.json')&&!url.includes('finish'))return 'manifest';if(url.includes('finish'))return 'finishes';if(url.includes('.exr'))return 'env';return url.split('/').pop();}
 window.__AWW_TIMINGS={events:AWW_TIMES,
- summary(){const m={};for(const e of AWW_TIMES){if(!(e.name in m))m[e.name]=e.t;}return m;},
+ summary(){const m={quality:(typeof AWW_QUALITY!=='undefined'?AWW_QUALITY:'?')};for(const e of AWW_TIMES){if(!(e.name in m))m[e.name]=e.t;}return m;},
  print(){try{const s=this.summary();console.log('%cAWW boot timings (ms since navigation)','font-weight:bold');console.table(s);}catch(e){}}
 };
 // Weighted download progress. Totals prefer FileLoader byte counts, falling back
@@ -24,12 +24,20 @@ function awwProgressUpdate(){if(AWW_PHASE)return;let L=0,T=0;for(const k of Obje
 function awwPaintedFrame(){return new Promise(r=>requestAnimationFrame(()=>setTimeout(r,0)));}
 function awwTimingsPanel(){try{if(document.getElementById('aww-timings'))return;const d=document.createElement('div');d.id='aww-timings';d.style.cssText='position:fixed;right:10px;bottom:10px;z-index:400;max-width:min(92vw,420px);max-height:40vh;overflow:auto;background:rgba(0,0,0,.85);color:#0f0;font:11px/1.5 monospace;white-space:pre-wrap;padding:10px 12px;border:1px solid #333;';const pre=document.createElement('pre');pre.style.margin='0 0 8px';pre.textContent=JSON.stringify(window.__AWW_TIMINGS.summary(),null,1);const b=document.createElement('button');b.type='button';b.textContent='Copy';b.style.cssText='font:inherit;color:#fff;background:#333;border:1px solid #666;padding:4px 12px;cursor:pointer;';b.onclick=()=>{const s=JSON.stringify(window.__AWW_TIMINGS.events);if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(s).then(()=>{b.textContent='Copied';});else{b.textContent='Select+copy manually';pre.textContent=s;}};d.appendChild(pre);d.appendChild(b);document.body.appendChild(d);}catch(e){}}
 const Q=new URLSearchParams(location.search), RECORD=false;
+// Task 3: quality tiers. Default 'medium' (the allowed trades). ?quality=low|medium|high
+// overrides for device comparison. 'high' preserves pre-Task-3 values exactly.
+const AWW_QUALITY=(()=>{const q=Q.get('quality');return q==='low'||q==='medium'||q==='high'?q:'medium';})();
+if(Q.get('qa')==='1'){try{console.log('AWW quality tier: '+AWW_QUALITY);}catch(e){}}
+// Task 3: scroll-smoothing constants in one place. Values unchanged (2/4/5/3/2);
+// retune only against measured fps on real hardware.
+const AWW_SMOOTH=Object.freeze({scroll:2,dom:4,select:5,pointer:3,hold:2});
 const $=id=>document.getElementById(id),clamp=x=>Math.max(0,Math.min(1,x)),ease=x=>(x=clamp(x),x*x*(3-2*x)),seg=(a,b,x)=>ease((x-a)/(b-a)),hash=s=>{let h=2166136261;for(const c of s)h=Math.imul(h^c.charCodeAt(0),16777619);return(h>>>0)/4294967296};
 const units=[],active=[],pickMeshes=[],UP=new T.Vector3(0,1,0),V=new T.Vector3(),errors=[];
 let ready=false,S=0,mode='manual',knollSize=[1,1],packStats=[],photoLight=null;
 const dark=false;
 const renderer=new T.WebGLRenderer({antialias:true,alpha:true,powerPreference:'high-performance'});
-renderer.setPixelRatio(Math.min(devicePixelRatio,innerWidth<768?1.25:1.5));renderer.setSize(innerWidth,innerHeight);
+const AWW_DPR_CAP=AWW_QUALITY==='high'?(innerWidth<768?1.25:1.5):AWW_QUALITY==='low'?(innerWidth<768?0.85:1.0):(innerWidth<768?1.0:1.25);
+renderer.setPixelRatio(Math.min(devicePixelRatio,AWW_DPR_CAP));renderer.setSize(innerWidth,innerHeight);
 renderer.outputColorSpace=T.SRGBColorSpace;renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=.94;
 renderer.setClearColor(0x000000,0);renderer.domElement.id='watch-canvas';renderer.domElement.setAttribute('aria-hidden','true');document.body.prepend(renderer.domElement);
 const scene=new T.Scene();scene.background=new T.Color(0x0b0b0c);const camera=new T.PerspectiveCamera(32,innerWidth/innerHeight,.1,400);
@@ -850,7 +858,7 @@ async function loadSourceFinishes(){
    const version=item.resolution2k&&!(spec.id==='r46-silver-engraving'&&kind==='normal'&&innerWidth>700)?item.resolution2k:item;
    const texture=await loader.loadAsync(base+version.file);texture.flipY=true;
    texture.colorSpace=kind==='baseColor'?T.SRGBColorSpace:T.NoColorSpace;
-   texture.anisotropy=Math.min(8,renderer.capabilities.getMaxAnisotropy());texture.needsUpdate=true;maps[kind]=texture;
+   texture.anisotropy=Math.min(AWW_QUALITY==='high'?8:(AWW_QUALITY==='low'?2:((typeof innerWidth!=='undefined'&&innerWidth<768)?4:8)),renderer.capabilities.getMaxAnisotropy());texture.needsUpdate=true;maps[kind]=texture;
   }));finishLibrary.set(spec.sourceMaterial,{spec,maps});
  }));
 }
@@ -1314,8 +1322,8 @@ function restoreSourceFinish(original,geometry,sourceMatrix,name){
               mask.colorSpace = Three.NoColorSpace; mask.flipY = true;
               mask.minFilter = Three.LinearMipmapLinearFilter;
               mask.magFilter = Three.LinearFilter;
-              mask.anisotropy = Math.min(options.renderer?.capabilities?.getMaxAnisotropy?.() || 8,
-                Math.max(1, material.normalMap.anisotropy || 1));
+              const AWW_ANISO_CAP=AWW_QUALITY==='high'?16:(AWW_QUALITY==='low'?2:(((typeof innerWidth!=='undefined')&&innerWidth<768)?4:8));mask.anisotropy = Math.min(options.renderer?.capabilities?.getMaxAnisotropy?.() || 8,
+                Math.max(1, Math.min(material.normalMap.anisotropy || 1, AWW_ANISO_CAP)));
               mask.needsUpdate = true;
             }
             const uniforms = { kimiOriginalToolpaths: { value: mask },
@@ -1541,7 +1549,7 @@ function poseReference(config){
  const layerRotation=new T.Quaternion().setFromAxisAngle(REFERENCE_Z,-Math.PI*.1*explode),childOffset=new T.Vector3(),strapTarget=new T.Vector3();
  if(knoll>0)poseAssemblyV5(.7+.3*knoll,0,'manual');
  for(const u of active){
-  if(!u.on){u.root.visible=false;continue;}
+  if(!u.on){if(u.root.visible)u.root.visible=false;continue;}
   if(knoll===0){u.pos.copy(u.referencePosition);u.quat.copy(u.referenceQuaternion);}else if(knoll<1){u.pos.lerp(u.referencePosition,1-knoll);u.quat.slerp(u.referenceQuaternion,1-knoll);}
   if(openStrap>0&&referenceRig.braceletSet.has(u)){u.pos.lerp(u.center,openStrap);u.quat.slerp(u.baseQuat||new T.Quaternion(),openStrap);}
   let alpha=1;
@@ -1617,7 +1625,7 @@ function poseReference(config){
       const width = Math.max(1, global.innerWidth || document.documentElement.clientWidth || 1);
       const height = Math.max(1, global.innerHeight || document.documentElement.clientHeight || 1);
       state.mobile = width < 768 || coarse.matches || (navigator.hardwareConcurrency || 8) <= 4;
-      const budget = state.mobile ? 520000 : 1250000;
+      const budget = AWW_QUALITY==='high' ? (state.mobile?520000:1250000) : AWW_QUALITY==='low' ? (state.mobile?250000:500000) : (state.mobile?350000:900000);
       const pixelScale = Math.min(global.devicePixelRatio || 1, state.mobile ? 1.25 : 1.5, Math.sqrt(budget / (width * height)));
       state.width = width;
       state.height = height;
@@ -2039,7 +2047,7 @@ function installReferenceContactLight({T,scene,renderer,active=[]}={}){
  const previous={enabled:renderer.shadowMap.enabled,autoUpdate:renderer.shadowMap.autoUpdate,type:renderer.shadowMap.type,keyCastShadow:key.castShadow};
  renderer.shadowMap.enabled=true;renderer.shadowMap.autoUpdate=false;renderer.shadowMap.type=T.PCFSoftShadowMap;
  key.castShadow=true;
- key.shadow.mapSize.set(2048,2048);
+ const AWW_SHADOW=AWW_QUALITY==='high'?2048:AWW_QUALITY==='low'?(innerWidth<768?512:1024):(innerWidth<768?1024:2048);key.shadow.mapSize.set(AWW_SHADOW,AWW_SHADOW);
  key.shadow.radius=1.15;
  key.shadow.bias=-0.00007;
  key.shadow.normalBias=0.006;
@@ -3240,31 +3248,37 @@ function setReferenceFinish(value){
  document.querySelectorAll('[data-finish]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.finish===chosenFinish)));rendererDirty=true;
  const label=$('finish-name');if(label)label.textContent={steel:'Stainless steel',black:'Black study',gold:'Gold study',rose:'Rose study'}[chosenFinish];
 }
+let awwDomTick=0,awwDomLastSection=null;const awwDomCache={};
 function updateReferenceDOM(phase,config){
  document.body.dataset.section=phase.name;document.body.dataset.phase=phase.p.toFixed(5);document.body.dataset.detail=(config.state.detail||0).toFixed(4);document.body.dataset.progress=(scrollValue/scrollMax).toFixed(5);
  document.body.style.setProperty('--dark-stage',config.darkStage);document.body.classList.toggle('dark-stage',config.darkStage>.5);
+ awwDomTick++;const awwSectionChanged=phase.name!==awwDomLastSection;awwDomLastSection=phase.name;
+ {const pct=Math.round(scrollValue/scrollMax*100);if(awwDomCache.pct!==pct){awwDomCache.pct=pct;const readout=$('reference-progress');if(readout)readout.style.transform='scaleY('+(pct/100)+')';const pctEl=$('reference-scroll-percent');if(pctEl)pctEl.textContent=pct+'%';}
+ if(phase.name==='Parts'){const rpct=Math.round(seg(.10,.75,phase.p)*100);if(awwDomCache.rpct!==rpct){awwDomCache.rpct=rpct;const rp=$('reassembly-progress');if(rp)rp.textContent=rpct+'%';const rb=$('reassembly-progress-bar');if(rb)rb.style.transform='scaleX('+(rpct/100)+')';}}}
+ if(!awwSectionChanged&&(awwDomTick%3!==0))return;
  const overlays=[...document.querySelectorAll('.overlay[data-scene]')];
  for(const el of overlays){const mix=phase.name==='Footer'?seg(0,.55,phase.mix??1):phase.mix??1;const opacity=el.dataset.scene===phase.name?mix:el.dataset.scene===phase.previous?.name?1-mix:0;el.style.opacity=String(opacity);el.style.visibility=opacity>.001?'visible':'hidden';el.setAttribute('aria-hidden',String(opacity<.1));}
  const hero=document.querySelector('.hero-word'),manifesto=document.querySelector('.scroll-manifesto');if(hero){hero.style.opacity=String(1-seg(.1,.2,phase.p));hero.style.transform=`translateY(${-phase.p*140}vh)`;}
  if(manifesto){manifesto.style.opacity=phase.name==='Intro'?String(seg(.10,.21,phase.p)*(1-seg(.70,.85,phase.p))):'0';manifesto.style.transform=`translateY(${100-seg(.1,.84,phase.p)*210}vh)`;}
  const introVisible=1-seg(.06,.14,phase.p);document.querySelector('.intro-overlay').style.opacity=phase.name==='Intro'?String(introVisible):'0';document.querySelector('.hero-circle').style.opacity=String(1-seg(.06,.18,phase.p));
  const labels=$('layer-labels');labels.style.opacity=phase.name==='Disassembly'?String(seg(.24,.40,phase.p)*(1-seg(.83,.89,phase.p))):'0';labels.style.pointerEvents=phase.name==='Disassembly'?'auto':'none';
- for(const layer of REFERENCE_LAYERS){const b=labels.querySelector(`[data-layer="${layer.index}"]`),point=referenceLayerPosition(layer,config.state);point.project(camera);const projected=point.x*.5+.5;const fallback=.08+layer.index*.168; b.style.left=(clamp(projected*.7+fallback*.3)*100)+'%';b.style.top=(innerWidth<768?clamp(-point.y*.5+.5)*100:75)+'%';if(innerWidth<768)b.style.left='86%';b.style.setProperty('--leader-height',innerWidth<768?'10vh':'18vh');b.classList.toggle('is-selected',selectedLayer===layer.index);b.style.opacity=selectedLayer===null||selectedLayer===layer.index?'1':'0';b.style.pointerEvents=selectedLayer===null?'auto':'none';b.classList.toggle('is-hovered',hoverLayer===layer.index);b.setAttribute('aria-pressed',String(selectedLayer===layer.index));}
+ if(phase.name==='Disassembly')for(const layer of REFERENCE_LAYERS){const b=labels.querySelector(`[data-layer="${layer.index}"]`),point=referenceLayerPosition(layer,config.state);point.project(camera);const projected=point.x*.5+.5;const fallback=.08+layer.index*.168; b.style.left=(clamp(projected*.7+fallback*.3)*100)+'%';b.style.top=(innerWidth<768?clamp(-point.y*.5+.5)*100:75)+'%';if(innerWidth<768)b.style.left='86%';b.style.setProperty('--leader-height',innerWidth<768?'10vh':'18vh');b.classList.toggle('is-selected',selectedLayer===layer.index);b.style.opacity=selectedLayer===null||selectedLayer===layer.index?'1':'0';b.style.pointerEvents=selectedLayer===null?'auto':'none';b.classList.toggle('is-hovered',hoverLayer===layer.index);b.setAttribute('aria-pressed',String(selectedLayer===layer.index));}
  if(phase.name==='Presentation'){
   const i=phase.p<.24?0:phase.p<.46?1:phase.p<.70?2:3;
+  if(awwDomCache.presI!==i){awwDomCache.presI=i;
   $('presentation-title').innerHTML=['HOROLOGY','AUTOMOTIVE','ART &amp;<br>CULTURE','PRIVATE<br>CLIENTS'][i];
   $('presentation-copy').textContent=['Rare independents and heritage maisons, experienced up close.','Coachbuilt cars and the culture of the drive.','Artists, designers and patrons shaping the scene.','A private circle of collectors and founders.'][i];
-  document.body.dataset.presentation=String(i);
+  document.body.dataset.presentation=String(i);}
  }
  const mechanismTitle=document.querySelector('.mechanism-heading');mechanismTitle.style.opacity=String(1-seg(.37,.46,phase.p));document.querySelector('.mechanism-note').style.opacity=String(1-seg(.37,.46,phase.p));document.querySelector('.mechanism-rate').style.opacity=String(seg(.12,.22,phase.p)*(1-seg(.46,.57,phase.p)));
- if(phase.name==='Colors'){const finishNumber=$('finish-number');if(finishNumber)finishNumber.textContent='0'+({ink:1,blue:2,silver:3}[kimiConfiguration?.state.dial]||1);}
+ if(phase.name==='Colors'){const finishNumber=$('finish-number');if(finishNumber){const dv='0'+({ink:1,blue:2,silver:3}[kimiConfiguration?.state.dial]||1);if(awwDomCache.dialVal!==dv){awwDomCache.dialVal=dv;finishNumber.textContent=dv;}}}
  if(phase.name==='Parts'){
   const p=phase.p,progress=seg(.10,.75,p),steps=['01 / THE GUESTS','02 / THE WORLDS','03 / THE VENUE','04 / ONE EVENING'];
-  const index=p<.20?0:p<.43?1:p<.75?2:3;$('reassembly-step').textContent=steps[index];$('reassembly-copy').textContent=['Scroll to bring the evening together.','Horology, automotive, art and private clients take their places.','Each world finds its place in the whole.','Africa Watch Week. One complete evening.'][index];$('reassembly-progress').textContent=Math.round(progress*100)+'%';$('reassembly-progress-bar').style.transform='scaleX('+progress+')';document.querySelector('.parts-heading').style.opacity=String(1-.65*seg(.75,.85,p));
+  const index=p<.20?0:p<.43?1:p<.75?2:3;if(awwDomCache.partsIdx!==index){awwDomCache.partsIdx=index;$('reassembly-step').textContent=steps[index];$('reassembly-copy').textContent=['Scroll to bring the evening together.','Horology, automotive, art and private clients take their places.','Each world finds its place in the whole.','Africa Watch Week. One complete evening.'][index];}document.querySelector('.parts-heading').style.opacity=String(1-.65*seg(.75,.85,p));
  }
- const readout=$('reference-progress');if(readout)readout.style.transform='scaleY('+clamp(scrollValue/scrollMax)+')';$('reference-scroll-percent').textContent=Math.round(scrollValue/scrollMax*100)+'%';
- if(phase.name==='Disassembly'){const stage=phase.p<.30?0:phase.p<.56?1:phase.p<.76?2:3;document.querySelector('.explore-instruction').textContent=['01 / THE ASSEMBLIES','02 / BRIDGES & RETAINERS','03 / WHEELS & HANDS','04 / THE FINER DETAILS'][stage];document.querySelector('.disassembly-hold').innerHTML='SCROLL TO UNFOLD<br><span style="font-size:9px;margin:8px 0 0">'+(stage===0?'Six assemblies':stage===1?'Independent service modules':stage===2?'Wheels, escapement & indicators':'Bridgework, bearings & escapement')+'</span>';}
- const detail=$('component-detail');if(detail){detail.hidden=selectedLayer===null;if(selectedLayer!==null){$('component-name').textContent=REFERENCE_LAYERS[selectedLayer].label;$('component-description').textContent=partDescriptions[REFERENCE_LAYERS[selectedLayer].label];}}
+ // Scroll progress counters update pre-throttle above, only when the rounded value changes.
+ if(phase.name==='Disassembly'){const stage=phase.p<.30?0:phase.p<.56?1:phase.p<.76?2:3;if(awwDomCache.disStage!==stage){awwDomCache.disStage=stage;document.querySelector('.explore-instruction').textContent=['01 / THE ASSEMBLIES','02 / BRIDGES & RETAINERS','03 / WHEELS & HANDS','04 / THE FINER DETAILS'][stage];document.querySelector('.disassembly-hold').innerHTML='SCROLL TO UNFOLD<br><span style="font-size:9px;margin:8px 0 0">'+(stage===0?'Six assemblies':stage===1?'Independent service modules':stage===2?'Wheels, escapement & indicators':'Bridgework, bearings & escapement')+'</span>';}}
+ const detail=$('component-detail');if(detail){detail.hidden=selectedLayer===null;if(selectedLayer!==null&&awwDomCache.compSel!==selectedLayer){awwDomCache.compSel=selectedLayer;$('component-name').textContent=REFERENCE_LAYERS[selectedLayer].label;$('component-description').textContent=partDescriptions[REFERENCE_LAYERS[selectedLayer].label];}if(selectedLayer===null)awwDomCache.compSel=null;}
 }
 function runReferenceAudit(){
  const q={ok:true,total:359,deep:deepDisassemblyStats,layers:referenceRig.counts,bracelet:106,crystal:2,checks:{unique:true,finite:true,reversible:true,allParts:true},failures:[]};
@@ -3308,9 +3322,9 @@ function referenceFrame(now){
  requestAnimationFrame(referenceFrame);const rawFrameMs=now-previousTime,dt=Math.min(.08,rawFrameMs/1000||.016);previousTime=now;if(!ready||document.hidden){previousRenderedFrameTime=null;return;}
  if(resizeFlag){resizeFlag=false;camera.aspect=innerWidth/innerHeight;renderer.setSize(innerWidth,innerHeight);measureReference();planKnoll();planKnollAssemblyV5();rendererDirty=true;}
  if(isPlaying){scrollTarget=Math.min(scrollMax,scrollTarget+dt*scrollMax/140);scrollTo({top:scrollTarget,behavior:'instant'});if(scrollTarget>=scrollMax)stopReference();}
- const diff=scrollTarget-scrollValue;scrollValue+=diff*(reduced?1:1-Math.exp(-dt*2));if(Math.abs(diff)<.02)scrollValue=scrollTarget;domScrollValue+=(scrollTarget-domScrollValue)*(reduced?1:1-Math.exp(-dt*4));
- const oldSelect=selectionValue;selectionValue+=((selectedLayer!==null?1:0)-selectionValue)*(1-Math.exp(-dt*5));
- pointerRef.dx+=(pointerRef.x-pointerRef.dx)*(1-Math.exp(-dt*3));pointerRef.dy+=(pointerRef.y-pointerRef.dy)*(1-Math.exp(-dt*3));holdValue+=((holdDown&&now-holdStarted>500?1:0)-holdValue)*(1-Math.exp(-dt*2));
+ const diff=scrollTarget-scrollValue;scrollValue+=diff*(reduced?1:1-Math.exp(-dt*AWW_SMOOTH.scroll));if(Math.abs(diff)<.02)scrollValue=scrollTarget;domScrollValue+=(scrollTarget-domScrollValue)*(reduced?1:1-Math.exp(-dt*AWW_SMOOTH.dom));
+ const oldSelect=selectionValue;selectionValue+=((selectedLayer!==null?1:0)-selectionValue)*(1-Math.exp(-dt*AWW_SMOOTH.select));
+ pointerRef.dx+=(pointerRef.x-pointerRef.dx)*(1-Math.exp(-dt*AWW_SMOOTH.pointer));pointerRef.dy+=(pointerRef.y-pointerRef.dy)*(1-Math.exp(-dt*AWW_SMOOTH.pointer));holdValue+=((holdDown&&now-holdStarted>500?1:0)-holdValue)*(1-Math.exp(-dt*AWW_SMOOTH.hold));
  if(Math.abs(diff)>.02||isPlaying||Math.abs(oldSelect-selectionValue)>.0001||holdDown||holdValue>.001||Math.abs(scrollTarget-domScrollValue)>.1||Math.abs(pointerRef.x-pointerRef.dx)>.0001||Math.abs(pointerRef.y-pointerRef.dy)>.0001)rendererDirty=true;
  if(!reduced&&window.isConceptTourbillonActive?.({section:currentSection,phase:sectionProgress}))rendererDirty=true;
  if(!reduced&&window.isEditorialWatchesActive?.())rendererDirty=true;
