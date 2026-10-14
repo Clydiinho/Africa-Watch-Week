@@ -535,6 +535,12 @@ body[data-presentation="3"] #presentation-copy { max-width: 260px; left: 8%; bot
 #retry-load { color: var(--accent); border-bottom-color: var(--accent); }
 #loading-quick { display: block; margin: 14px auto 0; font-size: 9px; letter-spacing: .18em; text-transform: uppercase; color: var(--soft); border-bottom: 1px solid var(--line); padding-bottom: 4px; }
 #loading-quick[hidden] { display: none; }
+#slow-prompt { position: fixed; z-index: 250; left: 50%; bottom: calc(28px + env(safe-area-inset-bottom)); transform: translateX(-50%); max-width: min(92vw, 420px); text-align: center; background: rgba(11,11,12,.94); border: 1px solid var(--gold-line); padding: 18px 22px; }
+#slow-prompt[hidden] { display: none; }
+#slow-prompt p { font-size: 11px; line-height: 1.6; color: var(--ink); margin-bottom: 12px; }
+#slow-switch, #slow-keep { font-size: 9px; letter-spacing: .2em; text-transform: uppercase; padding: 10px 14px; margin: 0 6px; }
+#slow-switch { color: #0b0b0c; background: var(--accent); }
+#slow-keep { color: var(--accent); border: 1px solid var(--gold-line); }
 .noscript-note { background: #0b0b0c; color: #ece5d3; }
 .no-js #loading { display: none; }
 

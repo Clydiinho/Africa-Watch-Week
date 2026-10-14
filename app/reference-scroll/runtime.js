@@ -10,7 +10,7 @@ const AWW_TIMES=[];
 function awwMark(name){try{performance.mark('aww:'+name);}catch(e){}AWW_TIMES.push({name,t:Math.round(performance.now())});}
 function awwShort(url){url=String(url||'');if(url.includes('aww2k26-movement')||url.includes('omega_321'))return 'movement';if(url.includes('aww2k26-exterior')||url.includes('openheart_exterior')||url.includes('machining_exterior'))return 'exterior';if(url.includes('tourbillon'))return 'tourbillon';if(url.includes('manifest.json')&&!url.includes('finish'))return 'manifest';if(url.includes('finish'))return 'finishes';if(url.includes('.exr'))return 'env';return url.split('/').pop();}
 window.__AWW_TIMINGS={events:AWW_TIMES,
- summary(){const m={quality:(typeof AWW_QUALITY!=='undefined'?AWW_QUALITY:'?'),model:(typeof LITE_MODEL!=='undefined'&&LITE_MODEL?'lite':'original'),liteModelsKB:{movement:Math.round(AWW_LITE_BYTES.movement/1024),exterior:Math.round(AWW_LITE_BYTES.exterior/1024),tourbillon:Math.round(AWW_LITE_BYTES.tourbillon/1024)}};for(const e of AWW_TIMES){if(!(e.name in m))m[e.name]=e.t;}return m;},
+ summary(){const m={quality:(typeof AWW_QUALITY!=='undefined'?AWW_QUALITY:'?'),model:(typeof LITE_MODEL!=='undefined'&&LITE_MODEL?'lite':'original'),net:((typeof window!=='undefined'&&window.__AWW_NET)||null),liteModelsKB:{movement:Math.round(AWW_LITE_BYTES.movement/1024),exterior:Math.round(AWW_LITE_BYTES.exterior/1024),tourbillon:Math.round(AWW_LITE_BYTES.tourbillon/1024)}};for(const e of AWW_TIMES){if(!(e.name in m))m[e.name]=e.t;}return m;},
  print(){try{const s=this.summary();console.log('%cAWW boot timings (ms since navigation)','font-weight:bold');console.table(s);}catch(e){}}
 };
 // Weighted download progress. Totals prefer FileLoader byte counts, falling back
@@ -20,7 +20,7 @@ const AWW_KNOWN_BYTES={movement:19879792,exterior:10715276,tourbillon:968432,man
 const AWW_PROG={manifest:{loaded:0,total:43053},finishes:{loaded:0,total:7755776},movement:{loaded:0,total:19879792},exterior:{loaded:0,total:10715276},tourbillon:{loaded:0,total:968432}};
 let AWW_PHASE=null;
 function setLoadPhase(label){AWW_PHASE=label;const el=$('load-status');if(el&&label)el.textContent=label;}
-function awwProgressUpdate(){if(AWW_PHASE)return;let L=0,T=0;for(const k of Object.keys(AWW_PROG)){const e=AWW_PROG[k];if(e.total>0){T+=e.total;L+=Math.min(e.loaded,e.total);}}const el=$('load-status');if(el&&T>0)el.textContent='Now loading · '+Math.round(L/T*100)+'%';}
+function awwProgressUpdate(){let L=0,T=0;for(const k of Object.keys(AWW_PROG)){const e=AWW_PROG[k];if(e.total>0){T+=e.total;L+=Math.min(e.loaded,e.total);}}try{window.__AWW_PROGRESS={loaded:L,total:T};}catch(e){}if(AWW_PHASE)return;const el=$('load-status');if(el&&T>0)el.textContent='Now loading · '+Math.round(L/T*100)+'%';}
 function awwPaintedFrame(){return new Promise(r=>requestAnimationFrame(()=>setTimeout(r,0)));}
 
 const AWW_HITCHES=[];window.__AWW_HITCHES=AWW_HITCHES;

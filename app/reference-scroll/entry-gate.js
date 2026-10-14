@@ -138,8 +138,9 @@
     clearWatchdog();
     watchdog = setTimeout(function () {
       watchdog = 0;
+      if (document.body.dataset.mode === 'quick') return;
       if (!document.body.classList.contains('watch-ready')) {
-        fail('Loading is taking too long — the connection may be too slow for the ~18MB download.');
+        fail('Loading is taking too long — the connection may be too slow for the ~' + CHUNK_MB + 'MB download.');
       }
     }, WATCHDOG_MS);
     // Resolve the watchdog the moment the runtime signals readiness.
@@ -172,15 +173,80 @@
   }
 
   wireChrome();
-  // Gate size text comes from measured byte counts, never hardcoded.
-  import('./asset-config.js').then(function (cfg) {
+  // Connection-aware gate. Estimates Mbps from Resource Timing (zero extra
+  // bytes) with a cache-busted probe-fetch fallback. Slow/saveData users get
+  // Quick view recommended plus an honest size/time estimate. Choice stays free.
+  var CHUNK_MB = 40;
+  var MODEL_LITE = false;
+  try { MODEL_LITE = new URLSearchParams(location.search).get('model') === 'lite'; } catch (e) {}
+  function chunkMB(cfg) {
     try {
-      var el = document.getElementById('gate-3d-size');
-      if (el && cfg && typeof cfg.awwChunkMB === 'function') {
-        el.textContent = '~' + cfg.awwChunkMB() + 'MB · best on desktop / Wi-Fi';
+      var b = cfg.AWW_ASSET_BYTES, total = b.threeJs + b.models + b.env + b.finishes;
+      if (MODEL_LITE && cfg.AWW_LITE_BYTES) {
+        var l = cfg.AWW_LITE_BYTES;
+        total = b.threeJs + l.movement + l.exterior + l.tourbillon + b.env + b.finishes;
       }
+      return Math.max(1, Math.floor(total / 1048576));
+    } catch (e) { return 40; }
+  }
+  function fmtETA(mbps, mb) {
+    if (!(mbps > 0) || !isFinite(mbps)) return null;
+    var s = Math.round(mb * 8 / mbps);
+    if (s < 45) return 'under a minute';
+    if (s < 90) return 'about a minute';
+    return 'roughly ' + Math.round(s / 60) + ' min';
+  }
+  function applyNetRecommendation(net) {
+    net.decision = (net.saveData || net.effectiveType === '2g' || net.effectiveType === '3g' || (net.mbps !== null && net.mbps < 5)) ? 'quick-recommended' : '3d-default';
+    window.__AWW_NET = net;
+    if (net.decision !== 'quick-recommended') return;
+    if (btnQuick) btnQuick.classList.add('is-suggested');
+    if (btn3d) btn3d.classList.remove('is-suggested');
+    var el = document.getElementById('gate-3d-size');
+    if (el) {
+      var eta = fmtETA(net.mbps, CHUNK_MB);
+      el.textContent = 'about ' + CHUNK_MB + 'MB' + (eta ? ' · ' + eta + ' on your connection' : ' · large download on this connection');
+    }
+  }
+  function assessConnection(cfg) {
+    try { CHUNK_MB = chunkMB(cfg); } catch (e) {}
+    var el = document.getElementById('gate-3d-size');
+    if (el) {
+      if (cfg && typeof cfg.awwChunkMB === 'function' && !MODEL_LITE) el.textContent = '~' + cfg.awwChunkMB() + 'MB · best on desktop / Wi-Fi';
+      else el.textContent = '~' + CHUNK_MB + 'MB · best on desktop / Wi-Fi';
+    }
+    var conn = null;
+    try { conn = navigator.connection || null; } catch (e) {}
+    var net = { mbps: null, effectiveType: (conn && conn.effectiveType) || null, saveData: !!(conn && conn.saveData), method: 'none' };
+    function done() { applyNetRecommendation(net); }
+    try {
+      var entries = performance.getEntriesByType ? performance.getEntriesByType('resource') : [];
+      var best = null, i, en, m;
+      for (i = 0; i < entries.length; i++) {
+        en = entries[i];
+        if (en.transferSize > 20000 && en.duration > 0) {
+          m = en.transferSize * 8 / (en.duration / 1000) / 1e6;
+          if (m > 0 && isFinite(m) && (!best || en.transferSize > best.bytes)) best = { mbps: m, bytes: en.transferSize };
+        }
+      }
+      if (best) { net.mbps = +best.mbps.toFixed(1); net.method = 'resource-timing'; done(); return; }
     } catch (e) {}
-  }).catch(function () {});
+    try {
+      var t0 = performance.now();
+      fetch('assets/gallery/webp/details-640.webp?probe=' + Date.now(), { cache: 'no-store' }).then(function (r) {
+        if (!r.ok) throw new Error('probe ' + r.status);
+        return r.arrayBuffer();
+      }).then(function (buf) {
+        var dt = (performance.now() - t0) / 1000;
+        if (dt > 0 && buf.byteLength > 0) net.mbps = +((buf.byteLength * 8 / dt) / 1e6).toFixed(1);
+        net.method = 'probe-fetch';
+        done();
+      }).catch(function () { net.method = 'probe-failed'; done(); });
+    } catch (e) { net.method = 'unavailable'; done(); }
+  }
+  import('./asset-config.js').then(assessConnection).catch(function () {
+    applyNetRecommendation({ mbps: null, effectiveType: null, saveData: false, method: 'unavailable' });
+  });
   var small = false;
   try { small = matchMedia('(max-width: 767px)').matches; } catch (e) {}
   if (btn3d) btn3d.classList.toggle('is-suggested', !small);
