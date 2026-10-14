@@ -427,7 +427,7 @@ body[data-section="Particles"] .reference-brand .kimi-signature{filter:invert(1)
 #reference-navigation { background: rgba(11,11,12,.97); color: var(--ink); }
 body.dark-stage #reference-navigation { color: var(--ink); }
 #reference-navigation a:hover { color: var(--accent); }
-#reference-navigation a span { color: #6f6552; }
+#reference-navigation a span { color: #8d8065; }
 .index-caption { color: var(--gold-dim); }
 
 /* Shared type */
@@ -517,7 +517,7 @@ body[data-presentation="3"] #presentation-copy { max-width: 260px; left: 8%; bot
 .footer-studies figure > span { font-size: 9px; letter-spacing: .08em; color: #a2957b; }
 .footer-baseline { color: #d9cfb4; }
 .footer-baseline p:first-child span { color: #8d8065; }
-.footer-baseline p:nth-child(2) { color: #6f6552; }
+.footer-baseline p:nth-child(2) { color: #8d8065; }
 .footer-signature .brand-wordmark { font-size: 10px; font-weight: 500; letter-spacing: .24em; color: var(--accent); }
 .footer-baseline button:hover { color: var(--accent); }
 
@@ -554,7 +554,7 @@ body[data-presentation="3"] #presentation-copy { max-width: 260px; left: 8%; bot
 @media (max-width: 767px) {
   .reference-brand .brand-wordmark { display: inline; font-size: 9px; letter-spacing: .22em; }
   .footer-signature .brand-wordmark { display: inline !important; }
-  .hero-word { top: 30vh; font-size: 12.5vw; }
+  .hero-word { top: 30vh; font-size: 9vw; }
   .manifesto-signature { font-size: 8px; letter-spacing: .3em; margin-bottom: 3vh; }
   .disassembly-word { font-size: 30vw; }
   body[data-presentation="3"] .presentation-heading { top: 16%; left: 7%; width: 75%; }
@@ -595,6 +595,94 @@ body[data-presentation="3"] #presentation-copy { max-width: 260px; left: 8%; bot
 
 /* Play is disabled until the 3D runtime signals readiness */
 #reference-play[disabled] { opacity: .35; cursor: default; }
+
+/* ============================================================
+   AWW TYPE SYSTEM (Step 3: Playfair Display + Outfit)
+   Serif = display/headings. Sans = everything else.
+   Families/weights live in :root; no hard-coded type values below.
+   ============================================================ */
+@font-face {
+  font-family: "Playfair Display"; font-style: normal; font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/playfair-display-400-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Playfair Display"; font-style: normal; font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/playfair-display-400-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1E00-1E9F, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Outfit"; font-style: normal; font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/outfit-400-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Outfit"; font-style: normal; font-weight: 500;
+  font-display: swap;
+  src: url("../assets/fonts/outfit-500-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* Metric-matched fallbacks: mute swap shock. Ratios computed from published
+   tables (Playfair x-height .514 vs Georgia ~.481; Outfit .460 vs Arial .519). */
+@font-face {
+  font-family: "Playfair Fallback"; src: local("Georgia");
+  size-adjust: 106.9%; ascent-override: 108.2%; descent-override: 25.1%; line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Outfit Fallback"; src: local("Arial");
+  size-adjust: 88.6%; ascent-override: 100%; descent-override: 26%; line-gap-override: 0%;
+}
+
+:root {
+  --font-display: "Playfair Display", "Playfair Fallback", Georgia, "Times New Roman", serif;
+  --font-body: "Outfit", "Outfit Fallback", "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --fs-hero: clamp(40px, 9.8vw, 96px);
+  --fs-section: clamp(40px, 7vw, 96px);
+  --fs-h3: clamp(28px, 3.4vw, 52px);
+  --fs-h4: clamp(30px, 3.8vw, 58px);
+  --fs-nav: clamp(20px, 2.9vw, 48px);
+  --fs-body: 11px;
+  --fs-caption: 8px;
+  --lh-display: 1.04;
+  --lh-body: 1.7;
+  --ls-display: .01em;
+  --ls-section: 0em;
+}
+
+/* Base flips to the sans; display roles opt into the serif. */
+:root { font-family: var(--font-body); }
+.hero-word, .scroll-manifesto, .mechanism-heading p, .mechanism-heading h2,
+.disassembly-word, .strap-word, .finish-number, .footer-word,
+#presentation-title, .partnership h2, .parts-heading h2, .component-detail h2,
+#gate-title, .kimi-configurator h2, .finish-select h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+}
+.hero-word, .scroll-manifesto, .mechanism-heading p, .mechanism-heading h2,
+#presentation-title, .partnership h2, .disassembly-word, .strap-word,
+.finish-number, .footer-word { letter-spacing: 0em; }
+@media (min-width: 768px) {
+  .hero-word { font-size: var(--fs-hero); line-height: var(--lh-display); letter-spacing: var(--ls-display); }
+  #presentation-title { font-size: var(--fs-section); letter-spacing: var(--ls-section); }
+  .mechanism-heading h2 { font-size: clamp(44px, 9vw, 96px); }
+  .mechanism-heading p { font-size: clamp(20px, 4.5vw, 64px); }
+  body[data-presentation="1"] #presentation-title,
+  body[data-presentation="2"] #presentation-title,
+  body[data-presentation="0"] #presentation-title { font-size: min(5vw, 96px); }
+}
+.partnership h2 { font-family: var(--font-display); }
+.parts-heading h2, .component-detail h2, #gate-title, .kimi-configurator h2, .finish-select h2 { text-wrap: balance; }
+.hero-word, #presentation-title, .mechanism-heading h2 { text-wrap: balance; }
+.partnership p, .mechanism-note > p:last-child, #presentation-copy, #component-description,
+.strap-caption, .gate-sub, .reassembly-caption { text-wrap: pretty; }
+
+/* Text over imagery/canvas: keep contrast without scrims. */
+.intro-overlay > :not(.intro-poster),
+.images-overlay figcaption, .footer-studies figure > span,
+.strap-caption, .strap-detail { text-shadow: 0 1px 14px rgba(0,0,0,.5); }
 
 /* Quick view: lite static page — overlays stack in normal flow, no canvas */
 body[data-mode="quick"] #loading { display: none; }

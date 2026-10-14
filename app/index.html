@@ -5,17 +5,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#0b0b0c">
-  <meta name="description" content="Africa Watch Week — an invite-only evening of horology, culture and African luxury. Cape Town, South Africa · November 2026.">
+  <meta name="description" content="Africa Watch Week - an invite-only evening of horology, culture and African luxury. Cape Town, South Africa · November 2026.">
   <title>Africa Watch Week</title>
   <link rel="icon" type="image/svg+xml" href="assets/branding/aww-icon.svg">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Africa Watch Week">
-  <meta property="og:description" content="Africa Watch Week — an invite-only evening of horology, culture and African luxury. Cape Town, South Africa · November 2026.">
+  <meta property="og:description" content="Africa Watch Week - an invite-only evening of horology, culture and African luxury. Cape Town, South Africa · November 2026.">
   <meta property="og:image" content="https://africa-watch-week.vercel.app/assets/og/aww-1200x630.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Africa Watch Week">
-  <meta name="twitter:description" content="Africa Watch Week — an invite-only evening of horology, culture and African luxury. Cape Town, South Africa · November 2026.">
+  <meta name="twitter:description" content="Africa Watch Week - an invite-only evening of horology, culture and African luxury. Cape Town, South Africa · November 2026.">
   <link rel="stylesheet" href="reference-scroll/style.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/playfair-display-400-latin.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/outfit-400-latin.woff2">
   <link rel="preload" as="image" imagesrcset="assets/posters/aww2k26-hero-640.webp 640w, assets/posters/aww2k26-hero-1024.webp 1024w, assets/posters/aww2k26-hero-1600.webp 1600w" imagesizes="100vw">
   <script type="importmap">{"imports":{"three":"./vendor/three/0.160.0/build/three.module.js","three/addons/":"./vendor/three/0.160.0/examples/jsm/"}}</script>
 </head>
@@ -52,7 +54,7 @@
     <a href="#section-footer" data-section-go="Footer"><span>09</span>Highlights</a>
   </nav>
 
-  <main id="reference-story" aria-label="Africa Watch Week — an invite-only evening of horology, culture and African luxury">
+  <main id="reference-story" aria-label="Africa Watch Week - an invite-only evening of horology, culture and African luxury">
     <section id="section-intro" data-webgl="Intro"></section>
     <section id="section-disassembly" data-webgl="Disassembly"></section>
     <section id="section-particles" data-webgl="Particles"></section>
@@ -98,8 +100,8 @@
 
   <div class="overlay presentation-overlay" data-scene="Presentation">
     <div class="presentation-heading"><p class="micro-label">THE WORLD OF AFRICA WATCH WEEK</p><h2 id="presentation-title">Four<br>Worlds</h2></div>
-    <p id="presentation-copy">Horology, automotive, art and private clients — one circle, one evening.</p>
-    <p class="presentation-caption">AFRICA WATCH WEEK <span>—</span> CAPE TOWN</p>
+    <p id="presentation-copy">Horology, automotive, art and private clients - one circle, one evening.</p>
+    <p class="presentation-caption">AFRICA WATCH WEEK <span>-</span> CAPE TOWN</p>
   </div>
 
   <div class="overlay overlay-back straps-back" data-scene="Straps" aria-hidden="true"><div class="strap-word">EXPERIENCE</div></div>
@@ -177,8 +179,8 @@ var lastMarkCount=0,lastBytes=0,bootSeen=false,promptShown=false,lastProgressAt=
 function fmtClock(s){s=Math.max(0,Math.round(s));var m=Math.floor(s/60);return m+':'+('0'+(s%60)).slice(-2);}
 function ensureEta(){var c=document.querySelector('.loading-content');if(!c||$('load-eta'))return;var s=document.createElement('span');s.id='load-eta';s.style.cssText='display:block;margin-top:8px;font-size:10px;color:#8d8271;';c.appendChild(s);}
 function inlineQuick(reason){if(settled()||window.__AWW_SWITCHING)return;window.__AWW_SWITCHING=true;var t=$('load-status');if(t&&reason)t.textContent=reason;var l2=loadingEl();if(l2){l2.classList.remove('is-complete');l2.setAttribute('aria-hidden','false');}setTimeout(function(){try{sessionStorage.setItem('aww2k26-mode','quick');}catch(e){}document.body.dataset.mode='quick';var l=loadingEl();if(l){l.classList.add('is-complete');l.setAttribute('aria-hidden','true');l.setAttribute('aria-busy','false');}var g=$('entry-gate');if(g)g.hidden=true;var s=$('switch-3d');if(s)s.hidden=false;},2500);}
-function showSlowPrompt(){var sp=$('slow-prompt');if(!sp)return;if(!sp.dataset.wired){sp.dataset.wired='1';var sw=$('slow-switch'),kw=$('slow-keep');if(sw)sw.addEventListener('click',function(){inlineQuick('Taking too long — switching to the quick version');});if(kw)kw.addEventListener('click',function(){sp.hidden=true;promptShown=false;lastProgressAt=Date.now();});}if(!promptShown){promptShown=true;sp.hidden=false;}}
-function pollBoot(){if(settled())return;try{var ev=bootMarks(),b=bootBytes(),now=Date.now();var bytes=b?(b.loaded||0):0;if(!bootSeen){if(ev.length||bytes>0){bootSeen=true;lastProgressAt=now;}else if(now-started>90000){inlineQuick('The 3D download is not starting — switching to the quick version');return;}}else{if(ev.length!==lastMarkCount||bytes!==lastBytes){lastMarkCount=ev.length;lastBytes=bytes;lastProgressAt=now;promptShown=false;var sp0=$('slow-prompt');if(sp0)sp0.hidden=true;}var idle=(now-lastProgressAt)/1000;if(b&&b.total>0){ensureEta();var eta=$('load-eta');if(eta){var pct=Math.round(100*bytes/b.total);var rate=bytes/Math.max(1,(now-started)/1000);var left=rate>0?(b.total-bytes)/rate:Infinity;eta.textContent=isFinite(left)?(pct+'% · about '+fmtClock(left)+' left'):(pct+'%');}}if(idle>=90){inlineQuick('No download progress for 90 seconds — switching to the quick version');return;}if(idle>=20){showSlowPrompt();}}}catch(e){}setTimeout(pollBoot,5000);}setTimeout(pollBoot,5000);})();</script>
+function showSlowPrompt(){var sp=$('slow-prompt');if(!sp)return;if(!sp.dataset.wired){sp.dataset.wired='1';var sw=$('slow-switch'),kw=$('slow-keep');if(sw)sw.addEventListener('click',function(){inlineQuick('Taking too long - switching to the quick version');});if(kw)kw.addEventListener('click',function(){sp.hidden=true;promptShown=false;lastProgressAt=Date.now();});}if(!promptShown){promptShown=true;sp.hidden=false;}}
+function pollBoot(){if(settled())return;try{var ev=bootMarks(),b=bootBytes(),now=Date.now();var bytes=b?(b.loaded||0):0;if(!bootSeen){if(ev.length||bytes>0){bootSeen=true;lastProgressAt=now;}else if(now-started>90000){inlineQuick('The 3D download is not starting - switching to the quick version');return;}}else{if(ev.length!==lastMarkCount||bytes!==lastBytes){lastMarkCount=ev.length;lastBytes=bytes;lastProgressAt=now;promptShown=false;var sp0=$('slow-prompt');if(sp0)sp0.hidden=true;}var idle=(now-lastProgressAt)/1000;if(b&&b.total>0){ensureEta();var eta=$('load-eta');if(eta){var pct=Math.round(100*bytes/b.total);var rate=bytes/Math.max(1,(now-started)/1000);var left=rate>0?(b.total-bytes)/rate:Infinity;eta.textContent=isFinite(left)?(pct+'% · about '+fmtClock(left)+' left'):(pct+'%');}}if(idle>=90){inlineQuick('No download progress for 90 seconds - switching to the quick version');return;}if(idle>=20){showSlowPrompt();}}}catch(e){}setTimeout(pollBoot,5000);}setTimeout(pollBoot,5000);})();</script>
   <script src="reference-scroll/configurator.js" defer></script>
   <script type="module" src="reference-scroll/entry-gate.js"></script>
 </body>

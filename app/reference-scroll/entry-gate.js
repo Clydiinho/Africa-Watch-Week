@@ -134,13 +134,13 @@
     if (!webglOK()) { fail('WebGL is unavailable in this browser, so the 3D experience cannot start.'); return; }
     showLoading('Now loading · 3D experience');
     document.body.dataset.boot3d = 'loading';
-    disablePlay('3D is loading — Play unlocks when it is ready.');
+    disablePlay('3D is loading - Play unlocks when it is ready.');
     clearWatchdog();
     watchdog = setTimeout(function () {
       watchdog = 0;
       if (document.body.dataset.mode === 'quick') return;
       if (!document.body.classList.contains('watch-ready')) {
-        fail('Loading is taking too long — the connection may be too slow for the ~' + CHUNK_MB + 'MB download.');
+        fail('Loading is taking too long - the connection may be too slow for the ~' + CHUNK_MB + 'MB download.');
       }
     }, WATCHDOG_MS);
     // Resolve the watchdog the moment the runtime signals readiness.
