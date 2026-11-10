@@ -33,8 +33,15 @@
   var host = document.getElementById('frames');
   var summary = document.getElementById('summary');
 
-  function captionText(row) {
-    var lines = [
+  function strokeOffset(el) {
+    var v = (getComputedStyle(el).strokeDashoffset || '').replace(/\s/g, '');
+    var n = parseFloat(v);
+    if (isFinite(n)) return n;
+    var m = v.match(/^calc\(([\d.]+)px\)$/);
+    return m ? parseFloat(m[1]) : NaN;
+  }
+
+  function captionText(row) {    var lines = [
       'p ' + row.p,
       'dial ' + row.dial,
       'ghost ' + row.ghost,
@@ -73,7 +80,7 @@
       row.ghost = ghost ? getComputedStyle(ghost).opacity : null;
 
       var arc = d.querySelector('.load-arc');
-      row.arc = arc ? parseFloat(getComputedStyle(arc).strokeDashoffset) : null;
+      row.arc = arc ? strokeOffset(arc) : null;
 
       row.expected = Number((100 - 100 * p).toFixed(2));
 

@@ -203,15 +203,24 @@ body[data-section="Particles"] #reference-progress { background: #797979; }
 .reference-scroll-percent { position: fixed; z-index: 15; right: calc(22px + env(safe-area-inset-right)); bottom: calc(22px + env(safe-area-inset-bottom)); color: #a3a3a3; font-size: 7px; font-variant-numeric: tabular-nums; pointer-events: none; }
 #loading { position: fixed; z-index: 100; inset: 0; background: #ebebeb; display: grid; place-items: center; transition: opacity .65s ease, visibility .65s ease; }
 #loading.is-complete, #loading.is-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
-.loading-ring { position: absolute; width: min(80vw,96vh); height: min(80vw,96vh); animation: load-spin 1.6s linear infinite; }
-.loading-ring circle { stroke: #dcdcdc; stroke-width: 1; }
-.loading-ring .loading-arc { stroke: #d3d3d3; stroke-width: 3; stroke-dasharray: 2168; stroke-dashoffset: 1400; transform: rotate(-90deg); transform-origin: center; }
+.load-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+.load-dial { position: relative; width: min(52vw, 50vh); max-width: 560px; aspect-ratio: 1; --sweep: calc(var(--load-p, 0) * 360deg); }
+.load-dial > div, .load-dial > svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.load-ghost { opacity: .07; }
+.load-reveal {
+  -webkit-mask-image: conic-gradient(from 0deg at 50% 50%, #000 0deg var(--sweep), transparent var(--sweep));
+  mask-image: conic-gradient(from 0deg at 50% 50%, #000 0deg var(--sweep), transparent var(--sweep));
+}
+.load-arc { stroke-dasharray: 100; stroke-dashoffset: calc(100 - var(--load-p, 0) * 100); }
+@supports not ((-webkit-mask-image: conic-gradient(#000, transparent)) or (mask-image: conic-gradient(#000, transparent))) {
+  .load-ghost { opacity: 1; }
+  .load-reveal { display: none; }
+}
 .loading-content { position: relative; text-align: center; }
 #load-status { font-size: 11px; color: #222; }
 #load-status span { color: #999; margin-right: 4px; }
 #retry-load { display: block; margin: 22px auto 0; font-size: 10px; padding-bottom: 5px; border-bottom: 1px solid #aaa; }
 .noscript-note { position: fixed; z-index: 110; inset: 0; padding: 30px; display: grid; place-items: center; text-align: center; background: #ebebeb; font-size: 15px; }
-@keyframes load-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
 @media (min-width: 1600px) {
   .reference-header { top: 38px; }
@@ -325,7 +334,6 @@ body[data-section="Particles"] #reference-progress { background: #797979; }
   .footer-baseline button span { margin-left: 10px; }
   .reference-progress { right: 9px; }
   .reference-scroll-percent { display: none; }
-  .loading-ring { width: 95vw; height: 95vw; }
   #load-status { font-size: 10px; }
 }
 @media (max-height: 620px) and (min-width: 768px) {
@@ -345,7 +353,6 @@ body[data-section="Particles"] #reference-progress { background: #797979; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
-  .loading-ring .loading-arc { stroke-dashoffset: 0; }
 }
 
 /* Camera and DOM share the same reference framing. */
@@ -528,8 +535,6 @@ body[data-presentation="3"] #presentation-copy { max-width: 260px; left: 8%; bot
 
 /* Loader */
 #loading { background: #0b0b0c; }
-.loading-ring circle { stroke: #29241c; }
-.loading-ring .loading-arc { stroke: var(--accent); }
 #load-status { color: #ece5d3; }
 #load-status span { color: #8d8271; }
 #retry-load { color: var(--accent); border-bottom-color: var(--accent); }
