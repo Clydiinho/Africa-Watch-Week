@@ -3291,9 +3291,11 @@ function setReferenceFinish(value){
  document.querySelectorAll('[data-finish]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.finish===chosenFinish)));rendererDirty=true;
  const label=$('finish-name');if(label)label.textContent={steel:'Stainless steel',black:'Black study',gold:'Gold study',rose:'Rose study'}[chosenFinish];
 }
-let awwDomTick=0,awwDomLastSection=null;const awwDomCache={};
+let awwDomTick=0,awwDomLastSection=null,awwIntroP=-1;const awwDomCache={};
 function updateReferenceDOM(phase,config){
  document.body.dataset.section=phase.name;document.body.dataset.phase=phase.p.toFixed(5);document.body.dataset.detail=(config.state.detail||0).toFixed(4);document.body.dataset.progress=(scrollValue/scrollMax).toFixed(5);
+ /* Hero welcome exit: 0-1 across the first 22% of Intro. Text styling only. */
+ {const ip=phase.name==='Intro'?Math.min(1,(phase.p||0)/.22):1;if(Math.abs(ip-awwIntroP)>.0015){awwIntroP=ip;document.body.style.setProperty('--intro-p',ip.toFixed(3));}}
  document.body.style.setProperty('--dark-stage',config.darkStage);document.body.classList.toggle('dark-stage',config.darkStage>.5);
  awwDomTick++;const awwSectionChanged=phase.name!==awwDomLastSection;awwDomLastSection=phase.name;
  {const pct=Math.round(scrollValue/scrollMax*100);if(awwDomCache.pct!==pct){awwDomCache.pct=pct;const readout=$('reference-progress');if(readout)readout.style.transform='scaleY('+(pct/100)+')';const pctEl=$('reference-scroll-percent');if(pctEl)pctEl.textContent=pct+'%';}

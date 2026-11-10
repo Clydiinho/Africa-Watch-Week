@@ -650,6 +650,8 @@ body[data-presentation="3"] #presentation-copy { max-width: 260px; left: 8%; bot
   --lh-body: 1.7;
   --ls-display: .01em;
   --ls-section: 0em;
+  /* Hero exit progress, 0 = fully present. Written by updateReferenceDOM on Intro only. */
+  --intro-p: 0;
 }
 
 /* Base flips to the sans; display roles opt into the serif. */
@@ -694,3 +696,84 @@ body[data-mode="quick"] .overlay-back { min-height: 100svh; z-index: 1; }
 body[data-mode="quick"] .intro-poster { position: absolute; }
 body[data-mode="quick"] #layer-labels, body[data-mode="quick"] .disassembly-hold, body[data-mode="quick"] .explore-instruction, body[data-mode="quick"] .reassembly-meter { display: none; }
 body[data-mode="quick"] .reference-progress, body[data-mode="quick"] .reference-scroll-percent { display: none; }
+
+/* ---------- Hero opening: Zeitz MOCAA poster + welcome title ---------- */
+/* Poster fills the intro frame. The text layers sit above it, so the crop is
+   predictable at every aspect ratio instead of natural-flow image height. */
+.intro-poster { position: absolute; inset: 0; z-index: 0; display: block; }
+.intro-poster img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; }
+.intro-overlay > :not(.intro-poster) { z-index: 1; }
+
+.welcome-overlay { pointer-events: none; }
+/* Three readings of the same photo: a dark crown so the fixed header keeps its
+   contrast against the bright sky, a soft centre pool under the title, and a
+   base so the bottom meta and scroll cue stay legible over the foreground. */
+.welcome-overlay::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background:
+    linear-gradient(to bottom, rgba(8,8,9,.76) 0%, rgba(8,8,9,.68) 5%, rgba(8,8,9,.32) 10%, rgba(8,8,9,.1) 14%, rgba(8,8,9,0) 19%),
+    radial-gradient(58% 40% at 50% 47%, rgba(8,8,9,.46) 0%, rgba(8,8,9,.22) 56%, rgba(8,8,9,0) 100%),
+    linear-gradient(to top, rgba(8,8,9,.86) 0%, rgba(8,8,9,.6) 26%, rgba(8,8,9,.18) 52%, rgba(8,8,9,0) 70%);
+  opacity: calc(1 - var(--intro-p, 0) * 1.6);
+}
+.welcome-block {
+  position: absolute; left: 0; right: 0; top: 50vh;
+  padding: 0 var(--edge);
+  text-align: center;
+  transform: translateY(-50%) scale(calc(1 - var(--intro-p, 0) * .05));
+  transform-origin: 50% 50%;
+}
+.welcome-title {
+  margin: 0;
+  font-family: var(--font-display); font-weight: 400;
+  font-size: clamp(38px, 5.6vw, 96px);
+  line-height: .98; letter-spacing: -.018em;
+  color: #f2ead9;
+  text-wrap: balance;
+  text-shadow: 0 1px 3px rgba(0,0,0,.55), 0 2px 34px rgba(0,0,0,.62);
+}
+.welcome-line {
+  display: block;
+  will-change: transform, opacity;
+  transform: translateY(calc(var(--intro-p, 0) * var(--drift, 0vh)));
+  opacity: calc(1 - var(--intro-p, 0) * var(--fade, 1.4));
+}
+.welcome-line:nth-child(1) { --drift: -16vh; --fade: 1.35; }
+.welcome-line:nth-child(2) { --drift: -5vh;  --fade: 1.5; }
+.welcome-line:nth-child(3) { --drift: 14vh;  --fade: 1.7; }
+.welcome-sub {
+  margin: 24px auto 0; max-width: 36ch;
+  font-family: var(--font-body); font-weight: 400;
+  font-size: clamp(12px, 1.05vw, 16px); line-height: 1.7; letter-spacing: .015em;
+  color: rgba(242,234,217,.84);
+  text-wrap: balance;
+  text-shadow: 0 1px 3px rgba(0,0,0,.5), 0 1px 20px rgba(0,0,0,.7);
+  transform: translateY(calc(var(--intro-p, 0) * 26vh));
+  opacity: calc(1 - var(--intro-p, 0) * 1.15);
+}
+.welcome-rule { display: block; width: 46px; height: 1px; margin: 0 auto 16px; background: rgba(201,168,106,.8); }
+
+@media (max-width: 767px) {
+  .welcome-block { top: 46vh; }
+  .welcome-title { font-size: clamp(32px, 9.2vw, 58px); letter-spacing: -.012em; }
+  .welcome-sub { margin-top: 18px; max-width: 28ch; font-size: 12px; }
+  .welcome-rule { margin-bottom: 12px; width: 34px; }
+  .intro-poster img { object-position: 50% 36%; }
+  .intro-model { left: auto; right: var(--edge); text-align: right; }
+}
+@media (orientation: landscape) and (max-height: 540px) {
+  .welcome-block { top: 48vh; }
+  .welcome-title { font-size: clamp(22px, 4.6vw, 40px); line-height: 1; }
+  .welcome-sub { margin-top: 10px; max-width: 44ch; font-size: 11px; line-height: 1.5; }
+  .welcome-rule { margin-bottom: 8px; }
+}
+/* Quick view has no scroll-driven 3D behind it: the block keeps its centred
+   placement and leaves with the page, no parting motion. */
+body[data-mode="quick"] .intro-back { position: absolute; top: 0; left: 0; right: 0; min-height: 100svh; z-index: 1; }
+body[data-mode="quick"] .welcome-overlay { position: absolute; top: 0; left: 0; right: 0; min-height: 100svh; z-index: 2; opacity: 1 !important; visibility: visible !important; }
+body[data-mode="quick"] .welcome-line,
+body[data-mode="quick"] .welcome-sub { transform: none; opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .welcome-block { transform: translateY(-50%) !important; }
+  .welcome-line, .welcome-sub { transform: none !important; }
+}
