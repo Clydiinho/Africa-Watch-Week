@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Loader dial QA</title>
+<style>
+  :root { color-scheme: dark; }
+  body { margin: 0; padding: 20px; background: #0b0b0c; color: #ece5d3; font: 12px/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+  h1 { margin: 0 0 4px; font-size: 15px; font-weight: 600; letter-spacing: .04em; }
+  .note { margin: 0 0 16px; color: #8d8271; }
+  #frames { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; align-items: start; }
+  figure { margin: 0; background: #141311; border: 1px solid #29241c; }
+  iframe { display: block; width: 100%; height: 420px; border: 0; background: #0b0b0c; }
+  figcaption { padding: 8px 10px; border-top: 1px solid #29241c; white-space: pre-wrap; font-size: 10.5px; line-height: 1.55; }
+  .pass { color: #9fce8f; }
+  .fail { color: #e08b7b; }
+  #summary { margin-top: 16px; font-size: 13px; }
+</style>
+</head>
+<body>
+<h1>Loader dial QA</h1>
+<p class="note">Staged <code>--load-p</code> states rendered from the real <code>index.html</code>. This page is inert and unlinked.</p>
+<main id="frames"></main>
+<p id="summary">running</p>
+<script>
+(function () {
+  'use strict';
+  var STAGES = [0, 0.25, 0.5, 0.75, 1];
+  var rows = [];
+  var done = 0;
+  var host = document.getElementById('frames');
+  var summary = document.getElementById('summary');
+
+  function captionText(row) {
+    var lines = [
+      'p ' + row.p,
+      'dial ' + row.dial,
+      'ghost ' + row.ghost,
+      'arc ' + row.arc + ' (want ' + row.expected + ')',
+      'mask ' + row.maskOk + ' [' + row.maskDegs.join(', ') + ']',
+      row.error ? 'error ' + row.error : (row.pass ? 'PASS' : 'FAIL')
+    ];
+    return lines.join('\n');
+  }
+
+  function finish() {
+    done += 1;
+    if (done < STAGES.length) return;
+    var pass = rows.filter(function (r) { return r.pass; }).length;
+    summary.textContent = pass + '/' + rows.length + (pass === rows.length ? ' PASS' : ' FAIL');
+    summary.className = pass === rows.length ? 'pass' : 'fail';
+    window.__qaResult = { pass: pass, total: rows.length, rows: rows };
+  }
+
+  function run(p, frame, cap, row) {
+    try {
+      var d = frame.contentDocument;
+      var gate = d.getElementById('entry-gate');
+      if (gate) gate.setAttribute('hidden', '');
+      var loading = d.getElementById('loading');
+      if (loading) {
+        loading.classList.remove('is-complete', 'is-hidden');
+        loading.style.display = 'grid';
+      }
+      d.documentElement.style.setProperty('--load-p', String(p));
+
+      var dial = d.querySelector('.load-dial');
+      row.dial = !!dial;
+
+      var ghost = d.querySelector('.load-ghost');
+      row.ghost = ghost ? getComputedStyle(ghost).opacity : null;
+
+      var arc = d.querySelector('.load-arc');
+      row.arc = arc ? parseFloat(getComputedStyle(arc).strokeDashoffset) : null;
+
+      row.expected = Number((100 - 100 * p).toFixed(2));
+
+      var reveal = d.querySelector('.load-reveal');
+      var mask = '';
+      if (reveal) {
+        var cs = getComputedStyle(reveal);
+        mask = cs.maskImage || cs.webkitMaskImage || cs.getPropertyValue('-webkit-mask-image') || '';
+      }
+      row.mask = mask;
+      row.maskDegs = [];
+      var m;
+      var re = /([\d.]+)deg/g;
+      while ((m = re.exec(mask))) row.maskDegs.push(parseFloat(m[1]));
+      row.maskOk = p === 0 ? true : row.maskDegs.some(function (v) {
+        return Math.abs(v - p * 360) <= 1;
+      });
+
+      row.pass = row.dial && row.arc !== null && Math.abs(row.arc - row.expected) < 0.6 && row.maskOk;
+    } catch (err) {
+      row.error = String((err && err.message) || err);
+    }
+    cap.textContent = captionText(row);
+    cap.className = row.pass ? 'pass' : 'fail';
+    finish();
+  }
+
+  STAGES.forEach(function (p) {
+    var row = { p: p, dial: false, ghost: null, arc: null, expected: null, mask: '', maskDegs: [], maskOk: false, pass: false, error: '' };
+    rows.push(row);
+
+    var figure = document.createElement('figure');
+    var frame = document.createElement('iframe');
+    frame.src = '../index.html';
+    frame.title = 'loader at load-p ' + p;
+    frame.loading = 'eager';
+    var cap = document.createElement('figcaption');
+    cap.textContent = 'p ' + p + ' loading';
+    figure.appendChild(frame);
+    figure.appendChild(cap);
+    host.appendChild(figure);
+
+    frame.addEventListener('load', function () {
+      // Let the module, fonts and first layout settle before reading computed styles.
+      setTimeout(function () { run(p, frame, cap, row); }, 300);
+    });
+  });
+})();
+</script>
+</body>
+</html>
