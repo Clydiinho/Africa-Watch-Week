@@ -41,7 +41,8 @@
     return m ? parseFloat(m[1]) : NaN;
   }
 
-  function captionText(row) {    var lines = [
+  function captionText(row) {
+    var lines = [
       'p ' + row.p,
       'dial ' + row.dial,
       'ghost ' + row.ghost,
@@ -54,51 +55,101 @@
 
   function finish() {
     done += 1;
-    if (done < STAGES.length) return;
+    if (done < total) return;
     var pass = rows.filter(function (r) { return r.pass; }).length;
     summary.textContent = pass + '/' + rows.length + (pass === rows.length ? ' PASS' : ' FAIL');
     summary.className = pass === rows.length ? 'pass' : 'fail';
     window.__qaResult = { pass: pass, total: rows.length, rows: rows };
   }
 
-  function run(p, frame, cap, row) {
+  function readBase(d, p, row) {
+    var dial = d.querySelector('.load-dial');
+    row.dial = !!dial;
+    var ghost = d.querySelector('.load-ghost');
+    row.ghost = ghost ? getComputedStyle(ghost).opacity : null;
+    var arc = d.querySelector('.load-arc');
+    row.arc = arc ? strokeOffset(arc) : null;
+    row.expected = Number((100 - 100 * p).toFixed(2));
+    var reveal = d.querySelector('.load-reveal');
+    var mask = '';
+    if (reveal) {
+      var cs = getComputedStyle(reveal);
+      mask = cs.maskImage || cs.webkitMaskImage || cs.getPropertyValue('-webkit-mask-image') || '';
+    }
+    row.mask = mask;
+    row.maskDegs = [];
+    var m;
+    var re = /([\d.]+)deg/g;
+    while ((m = re.exec(mask))) row.maskDegs.push(parseFloat(m[1]));
+    row.maskOk = p === 0 ? true : row.maskDegs.some(function (v) {
+      return Math.abs(v - p * 360) <= 1;
+    });
+  }
+
+  function setupLoading(d) {
+    var gate = d.getElementById('entry-gate');
+    if (gate) gate.setAttribute('hidden', '');
+    var loading = d.getElementById('loading');
+    if (loading) {
+      loading.classList.remove('is-complete', 'is-hidden');
+      loading.style.display = 'grid';
+    }
+    return loading;
+  }
+
+  function run(p, frame, cap, row, edge) {
     try {
       var d = frame.contentDocument;
-      var gate = d.getElementById('entry-gate');
-      if (gate) gate.setAttribute('hidden', '');
-      var loading = d.getElementById('loading');
-      if (loading) {
-        loading.classList.remove('is-complete', 'is-hidden');
-        loading.style.display = 'grid';
-      }
+      var loading = setupLoading(d);
       d.documentElement.style.setProperty('--load-p', String(p));
 
-      var dial = d.querySelector('.load-dial');
-      row.dial = !!dial;
-
-      var ghost = d.querySelector('.load-ghost');
-      row.ghost = ghost ? getComputedStyle(ghost).opacity : null;
-
-      var arc = d.querySelector('.load-arc');
-      row.arc = arc ? strokeOffset(arc) : null;
-
-      row.expected = Number((100 - 100 * p).toFixed(2));
-
-      var reveal = d.querySelector('.load-reveal');
-      var mask = '';
-      if (reveal) {
-        var cs = getComputedStyle(reveal);
-        mask = cs.maskImage || cs.webkitMaskImage || cs.getPropertyValue('-webkit-mask-image') || '';
+      if (edge === 'complete') {
+        loading.classList.add('is-complete');
+        setTimeout(function () {
+          var cs = getComputedStyle(loading);
+          row.ghost = cs.opacity;
+          row.arc = null;
+          row.maskOk = true;
+          row.pass = loading.classList.contains('is-complete') && (cs.opacity === '0' || cs.visibility === 'hidden');
+          row.error = row.pass ? '' : 'opacity=' + cs.opacity + ' visibility=' + cs.visibility;
+          cap.textContent = captionText(row);
+          cap.className = row.pass ? 'pass' : 'fail';
+          finish();
+        }, 1500);
+        return;
       }
-      row.mask = mask;
-      row.maskDegs = [];
-      var m;
-      var re = /([\d.]+)deg/g;
-      while ((m = re.exec(mask))) row.maskDegs.push(parseFloat(m[1]));
-      row.maskOk = p === 0 ? true : row.maskDegs.some(function (v) {
-        return Math.abs(v - p * 360) <= 1;
-      });
 
+      if (edge === 'retry') {
+        var retry = d.getElementById('retry-load');
+        if (retry) retry.hidden = false;
+        readBase(d, p, row);
+        var retryVisible = retry ? !retry.hidden && (retry.offsetParent || retry.getBoundingClientRect().height > 0) : false;
+        var status = d.getElementById('load-status');
+        row.pass = row.dial && retryVisible && !!status && row.arc !== null && Math.abs(row.arc - row.expected) < 0.6;
+        cap.textContent = captionText(row);
+        cap.className = row.pass ? 'pass' : 'fail';
+        finish();
+        return;
+      }
+
+      if (edge === 'nomask') {
+        var style = d.createElement('style');
+        style.textContent = '.load-reveal{display:none !important}.load-ghost{opacity:1 !important}';
+        (d.head || d.documentElement).appendChild(style);
+        readBase(d, p, row);
+        var ghost = d.querySelector('.load-ghost');
+        var reveal = d.querySelector('.load-reveal');
+        var gs = getComputedStyle(ghost);
+        var rs = getComputedStyle(reveal);
+        row.pass = row.dial && gs.opacity === '1' && rs.display === 'none' && row.arc !== null && Math.abs(row.arc - row.expected) < 0.6;
+        row.maskOk = true;
+        cap.textContent = captionText(row);
+        cap.className = row.pass ? 'pass' : 'fail';
+        finish();
+        return;
+      }
+
+      readBase(d, p, row);
       row.pass = row.dial && row.arc !== null && Math.abs(row.arc - row.expected) < 0.6 && row.maskOk;
     } catch (err) {
       row.error = String((err && err.message) || err);
@@ -107,6 +158,12 @@
     cap.className = row.pass ? 'pass' : 'fail';
     finish();
   }
+
+  var EDGES = [
+    { p: 0.5, edge: 'complete', label: 'is-complete exit' },
+    { p: 0.62, edge: 'retry', label: 'retry at 62%' },
+    { p: 0.5, edge: 'nomask', label: 'no-mask fallback' }
+  ];
 
   STAGES.forEach(function (p) {
     var row = { p: p, dial: false, ghost: null, arc: null, expected: null, mask: '', maskDegs: [], maskOk: false, pass: false, error: '' };
@@ -124,10 +181,31 @@
     host.appendChild(figure);
 
     frame.addEventListener('load', function () {
-      // Let the module, fonts and first layout settle before reading computed styles.
       setTimeout(function () { run(p, frame, cap, row); }, 300);
     });
   });
+
+  EDGES.forEach(function (e) {
+    var row = { p: e.p, dial: false, ghost: null, arc: null, expected: null, mask: '', maskDegs: [], maskOk: false, pass: false, error: '' };
+    rows.push(row);
+
+    var figure = document.createElement('figure');
+    var frame = document.createElement('iframe');
+    frame.src = '../index.html';
+    frame.title = 'loader edge: ' + e.label;
+    frame.loading = 'eager';
+    var cap = document.createElement('figcaption');
+    cap.textContent = e.label + ' (p ' + e.p + ') loading';
+    figure.appendChild(frame);
+    figure.appendChild(cap);
+    host.appendChild(figure);
+
+    frame.addEventListener('load', function () {
+      setTimeout(function () { run(e.p, frame, cap, row, e.edge); }, 300);
+    });
+  });
+
+  var total = STAGES.length + EDGES.length;
 })();
 </script>
 </body>
