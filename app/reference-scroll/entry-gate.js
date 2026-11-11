@@ -8,6 +8,12 @@
   'use strict';
   var MODE_KEY = 'aww2k26-mode';
   var WATCHDOG_MS = 90000;
+  // Cache stamp, taken from this module's own URL (?v=...). Chained onto every
+  // file this module loads, so a new release never mixes with a cached older
+  // copy of the runtime. Without this, browsers that cached a previous
+  // entry-gate.js kept running it and never reported progress to the dial.
+  var ASSET_V = '';
+  try { ASSET_V = new URL(import.meta.url).search; } catch (e) {}
 
   var gate = document.getElementById('entry-gate');
   var btn3d = document.getElementById('gate-3d');
@@ -21,7 +27,9 @@
   function setLoadProgress(p) {
     if (typeof p !== 'number' || !isFinite(p)) return;
     p = Math.max(0, Math.min(1, p));
-    if (p <= loadP + 0.002) return;
+    // Monotonic, but always allow the terminal 1 so the rim can close even
+    // when the last step is smaller than the throttle.
+    if (p <= loadP + 0.002 && p < 1) return;
     loadP = p;
     document.documentElement.style.setProperty('--load-p', p.toFixed(3));
   }
@@ -167,9 +175,9 @@
     // Dynamic preload + import: three.js and models download only on this path.
     var link = document.createElement('link');
     link.rel = 'modulepreload';
-    link.href = 'reference-scroll/runtime.js';
+    link.href = 'reference-scroll/runtime.js' + ASSET_V;
     document.head.appendChild(link);
-    import('./runtime.js').catch(function (err) {
+    import('./runtime.js' + ASSET_V).catch(function (err) {
       if (window.console && console.error) console.error(err);
       fail('The 3D experience could not load.');
     });
@@ -256,7 +264,7 @@
       }).catch(function () { net.method = 'probe-failed'; done(); });
     } catch (e) { net.method = 'unavailable'; done(); }
   }
-  import('./asset-config.js').then(assessConnection).catch(function () {
+  import('./asset-config.js' + ASSET_V).then(assessConnection).catch(function () {
     applyNetRecommendation({ mbps: null, effectiveType: null, saveData: false, method: 'unavailable' });
   });
   var small = false;

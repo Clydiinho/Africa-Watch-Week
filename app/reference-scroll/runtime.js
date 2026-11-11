@@ -3196,6 +3196,9 @@ async function onAssetsReady(){
  partsReassembly=window.initPartsReassembly?.({T,scene,displayRoot,active,renderer});
  await awwWarmup();
  ready=true;window.__READY=true;awwMark('watch-ready');setLoadPhase(null);if(Q.get('qa')==='1'){window.__AWW_TIMINGS.print();awwTimingsPanel();}
+ // Asset totals are estimates, so the byte ratio can top out just under 1
+ // (0.999). Close the rim before the loader fades.
+ try{window.__AWW_SET_LOAD_P&&window.__AWW_SET_LOAD_P(1);}catch(e){}
  $('loading')?.classList.add('is-complete');$('loading')?.setAttribute('aria-hidden','true');$('loading')?.setAttribute('aria-busy','false');document.body.classList.add('watch-ready');
  if(location.origin==='http://127.0.0.1:8971'&&Q.get('qaCapture')==='1'){
   import('./qa-capture.js').then(({installQACapture})=>installQACapture({renderer,scene,camera,getState:()=>({chapter:currentSection,phase:sectionProgress,progress:scrollValue/scrollMax,frame:actualFrames})})).catch(()=>console.warn('Local review capture utility could not load.'));
