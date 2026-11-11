@@ -17,6 +17,16 @@
   var loading = document.getElementById('loading');
   var play = document.getElementById('reference-play');
 
+  var loadP = -1;
+  function setLoadProgress(p) {
+    if (typeof p !== 'number' || !isFinite(p)) return;
+    p = Math.max(0, Math.min(1, p));
+    if (p <= loadP + 0.002) return;
+    loadP = p;
+    document.documentElement.style.setProperty('--load-p', p.toFixed(3));
+  }
+  window.__AWW_SET_LOAD_P = setLoadProgress;
+
   function getMode() {
     try {
       var q = new URLSearchParams(location.search).get('mode');
@@ -73,6 +83,8 @@
   function showGate() { if (gate) gate.hidden = false; }
   function hideGate() { if (gate) gate.hidden = true; }
   function showLoading(msg) {
+    loadP = -1;
+    document.documentElement.style.setProperty('--load-p', '0');
     if (loading) {
       loading.classList.remove('is-complete');
       loading.setAttribute('aria-hidden', 'false');

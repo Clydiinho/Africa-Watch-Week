@@ -20,7 +20,7 @@ const AWW_KNOWN_BYTES={movement:19879792,exterior:10715276,tourbillon:968432,man
 const AWW_PROG={manifest:{loaded:0,total:43053},finishes:{loaded:0,total:7755776},movement:{loaded:0,total:19879792},exterior:{loaded:0,total:10715276},tourbillon:{loaded:0,total:968432}};
 let AWW_PHASE=null;
 function setLoadPhase(label){AWW_PHASE=label;const el=$('load-status');if(el&&label)el.textContent=label;}
-function awwProgressUpdate(){let L=0,T=0;for(const k of Object.keys(AWW_PROG)){const e=AWW_PROG[k];if(e.total>0){T+=e.total;L+=Math.min(e.loaded,e.total);}}try{window.__AWW_PROGRESS={loaded:L,total:T};}catch(e){}if(AWW_PHASE)return;const el=$('load-status');if(el&&T>0)el.textContent='Now loading · '+Math.round(L/T*100)+'%';}
+function awwProgressUpdate(){let L=0,T=0;for(const k of Object.keys(AWW_PROG)){const e=AWW_PROG[k];if(e.total>0){T+=e.total;L+=Math.min(e.loaded,e.total);}}try{window.__AWW_PROGRESS={loaded:L,total:T};if(T>0&&window.__AWW_SET_LOAD_P)window.__AWW_SET_LOAD_P(L/T);}catch(e){}if(AWW_PHASE)return;const el=$('load-status');if(el&&T>0)el.textContent='Now loading · '+Math.round(L/T*100)+'%';}
 function awwPaintedFrame(){return new Promise(r=>requestAnimationFrame(()=>setTimeout(r,0)));}
 
 const AWW_HITCHES=[];window.__AWW_HITCHES=AWW_HITCHES;

@@ -149,6 +149,37 @@
         return;
       }
 
+      if (edge === 'writer') {
+        var win = frame.contentWindow;
+        var getP = function () { return d.documentElement.style.getPropertyValue('--load-p'); };
+        var snapshots = [];
+        function snap(tag) {
+          var a = d.querySelector('.load-arc');
+          snapshots.push({ tag: tag, p: getP(), arc: a ? strokeOffset(a) : null });
+        }
+        snap('initial');
+        win.__AWW_SET_LOAD_P(0.42); snap('0.42');
+        win.__AWW_SET_LOAD_P(0.421); snap('0.421');
+        win.__AWW_SET_LOAD_P(1.7); snap('1.7');
+        win.__AWW_SET_LOAD_P(-3); snap('-3');
+        row.writer = snapshots;
+        row.dial = !!d.querySelector('.load-dial');
+        row.ghost = null;
+        row.arc = snapshots[1] ? snapshots[1].arc : null;
+        row.expected = 58;
+        row.maskOk = true;
+        row.maskDegs = [];
+        row.pass = (snapshots[0].p === '' || snapshots[0].p === '0')
+          && snapshots[1].p === '0.420' && Math.abs(snapshots[1].arc - 58) < 0.6
+          && snapshots[2].p === '0.420' && Math.abs(snapshots[2].arc - 58) < 0.6
+          && snapshots[3].p === '1.000' && Math.abs(snapshots[3].arc - 0) < 0.6
+          && snapshots[4].p === '1.000' && Math.abs(snapshots[4].arc - 0) < 0.6;
+        cap.textContent = 'W: ' + JSON.stringify(snapshots) + '\n' + (row.pass ? 'PASS' : 'FAIL');
+        cap.className = row.pass ? 'pass' : 'fail';
+        finish();
+        return;
+      }
+
       readBase(d, p, row);
       row.pass = row.dial && row.arc !== null && Math.abs(row.arc - row.expected) < 0.6 && row.maskOk;
     } catch (err) {
@@ -162,7 +193,8 @@
   var EDGES = [
     { p: 0.5, edge: 'complete', label: 'is-complete exit' },
     { p: 0.62, edge: 'retry', label: 'retry at 62%' },
-    { p: 0.5, edge: 'nomask', label: 'no-mask fallback' }
+    { p: 0.5, edge: 'nomask', label: 'no-mask fallback' },
+    { p: 0, edge: 'writer', label: 'writer contract' }
   ];
 
   STAGES.forEach(function (p) {
