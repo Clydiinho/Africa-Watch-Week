@@ -132,8 +132,48 @@
   <p id="reference-scroll-percent" class="reference-scroll-percent" aria-hidden="true">0%</p>
 
   <div id="loading" role="status" aria-live="polite" aria-busy="true">
-    <svg class="loading-ring" viewBox="0 0 700 700" fill="none" aria-hidden="true"><circle cx="350" cy="350" r="345"></circle><circle class="loading-arc" cx="350" cy="350" r="345"></circle></svg>
-    <div class="loading-content"><p id="load-status"><span>Now</span> loading</p><button id="retry-load" type="button" hidden>Try again</button></div>
+    <svg class="load-defs" aria-hidden="true" focusable="false" width="0" height="0"><defs>
+      <radialGradient id="aww-plate" cx="50%" cy="42%" r="62%">
+        <stop offset="55%" stop-color="#151310"></stop>
+        <stop offset="100%" stop-color="#0a0a0b"></stop>
+      </radialGradient>
+      <linearGradient id="aww-gold" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#f3e3bb"></stop>
+        <stop offset=".45" stop-color="#d8b978"></stop>
+        <stop offset="1" stop-color="#a9834a"></stop>
+      </linearGradient>
+      <g id="aww-dial-art">
+        <circle cx="200" cy="200" r="192" fill="none" stroke="#241f18" stroke-width="6"></circle>
+        <circle cx="200" cy="200" r="186" fill="url(#aww-plate)"></circle>
+        <circle cx="200" cy="200" r="192" pathLength="100" fill="none" stroke="url(#aww-gold)" stroke-width="2" stroke-linecap="round" stroke-dasharray="17 83" stroke-dashoffset="-4" transform="rotate(-90 200 200)"></circle>
+        <g fill="#8a7a5e" fill-opacity=".7">
+          <rect id="aww-idx" x="199" y="24" width="2" height="26" rx="1"></rect>
+          <use href="#aww-idx" transform="rotate(30 200 200)"></use>
+          <use href="#aww-idx" transform="rotate(60 200 200)"></use>
+          <use href="#aww-idx" transform="rotate(90 200 200)"></use>
+          <use href="#aww-idx" transform="rotate(120 200 200)"></use>
+          <use href="#aww-idx" transform="rotate(150 200 200)"></use>
+          <use href="#aww-idx" transform="rotate(180 200 200)"></use>
+          <use href="#aww-idx" transform="rotate(210 200 200)"></use>
+          <use href="#aww-idx" transform="rotate(240 200 200)"></use>
+          <use href="#aww-idx" transform="rotate(270 200 200)"></use>
+          <use href="#aww-idx" transform="rotate(300 200 200)"></use>
+          <use href="#aww-idx" transform="rotate(330 200 200)"></use>
+        </g>
+        <path d="M200 200 L150 171" fill="none" stroke="url(#aww-gold)" stroke-width="4" stroke-linecap="round"></path>
+        <path d="M200 200 L268 161" fill="none" stroke="url(#aww-gold)" stroke-width="2.5" stroke-linecap="round"></path>
+        <circle cx="200" cy="200" r="6" fill="#0a0a0b"></circle>
+        <circle cx="200" cy="200" r="3.4" fill="url(#aww-gold)"></circle>
+      </g>
+    </defs></svg>
+    <div class="load-column">
+      <div class="load-dial" aria-hidden="true">
+        <div class="load-ghost"><svg viewBox="0 0 400 400"><use href="#aww-dial-art"></use></svg></div>
+        <div class="load-reveal"><svg viewBox="0 0 400 400"><use href="#aww-dial-art"></use></svg></div>
+        <svg class="load-gauge" viewBox="0 0 400 400" fill="none"><circle class="load-arc" cx="200" cy="200" r="192" pathLength="100" fill="none" stroke="url(#aww-gold)" stroke-width="2" stroke-linecap="round" transform="rotate(-90 200 200)"></circle></svg>
+      </div>
+      <div class="loading-content"><p id="load-status"><span>Now</span> loading</p><button id="retry-load" type="button" hidden>Try again</button></div>
+    </div>
   </div>
   <noscript><p class="noscript-note">Enable JavaScript to explore Kimi Open Heart in three dimensions.</p></noscript>
   <script>addEventListener('error',function(e){var t=document.getElementById('load-status');if(!document.body.classList.contains('watch-ready')&&t){t.textContent='The 3D experience could not load.';document.getElementById('retry-load').hidden=false;}});</script>
