@@ -15,7 +15,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Africa Watch Week">
   <meta name="twitter:description" content="Africa Watch Week - an invite-only evening of horology, culture and African luxury. Cape Town, South Africa · November 2026.">
-  <link rel="stylesheet" href="reference-scroll/style.css?v=20261111-3">
+  <link rel="stylesheet" href="reference-scroll/style.css?v=20261111-4">
   <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/playfair-display-400-latin.woff2">
   <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/outfit-400-latin.woff2">
   <link rel="preload" as="image" imagesrcset="assets/posters/hero-zeitz-640.webp 640w, assets/posters/hero-zeitz-896.webp 896w, assets/posters/hero-zeitz-1280.webp 1280w" imagesizes="100vw">
@@ -225,7 +225,7 @@ function ensureEta(){var c=document.querySelector('.loading-content');if(!c||$('
 function inlineQuick(reason){if(settled()||window.__AWW_SWITCHING)return;window.__AWW_SWITCHING=true;var t=$('load-status');if(t&&reason)t.textContent=reason;var l2=loadingEl();if(l2){l2.classList.remove('is-complete');l2.setAttribute('aria-hidden','false');}setTimeout(function(){try{sessionStorage.setItem('aww2k26-mode','quick');}catch(e){}document.body.dataset.mode='quick';var l=loadingEl();if(l){l.classList.add('is-complete');l.setAttribute('aria-hidden','true');l.setAttribute('aria-busy','false');}var g=$('entry-gate');if(g)g.hidden=true;var s=$('switch-3d');if(s)s.hidden=false;},2500);}
 function showSlowPrompt(){var sp=$('slow-prompt');if(!sp)return;if(!sp.dataset.wired){sp.dataset.wired='1';var sw=$('slow-switch'),kw=$('slow-keep');if(sw)sw.addEventListener('click',function(){inlineQuick('Taking too long - switching to the quick version');});if(kw)kw.addEventListener('click',function(){sp.hidden=true;promptShown=false;lastProgressAt=Date.now();});}if(!promptShown){promptShown=true;sp.hidden=false;}}
 function pollBoot(){if(settled())return;try{var ev=bootMarks(),b=bootBytes(),now=Date.now();var bytes=b?(b.loaded||0):0;if(!bootSeen){if(ev.length||bytes>0){bootSeen=true;lastProgressAt=now;}else if(now-started>90000){inlineQuick('The 3D download is not starting - switching to the quick version');return;}}else{if(ev.length!==lastMarkCount||bytes!==lastBytes){lastMarkCount=ev.length;lastBytes=bytes;lastProgressAt=now;promptShown=false;var sp0=$('slow-prompt');if(sp0)sp0.hidden=true;}var idle=(now-lastProgressAt)/1000;if(b&&b.total>0){ensureEta();var eta=$('load-eta');if(eta){var pct=Math.round(100*bytes/b.total);var rate=bytes/Math.max(1,(now-started)/1000);var left=rate>0?(b.total-bytes)/rate:Infinity;eta.textContent=isFinite(left)?(pct+'% · about '+fmtClock(left)+' left'):(pct+'%');}}if(idle>=90){inlineQuick('No download progress for 90 seconds - switching to the quick version');return;}if(idle>=20){showSlowPrompt();}}}catch(e){}setTimeout(pollBoot,5000);}setTimeout(pollBoot,5000);})();</script>
-  <script src="reference-scroll/configurator.js?v=20261111-3" defer></script>
-  <script type="module" src="reference-scroll/entry-gate.js?v=20261111-3"></script>
+  <script src="reference-scroll/configurator.js?v=20261111-4" defer></script>
+  <script type="module" src="reference-scroll/entry-gate.js?v=20261111-4"></script>
 </body>
 </html>

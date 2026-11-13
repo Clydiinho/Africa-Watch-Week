@@ -196,7 +196,7 @@
   // Connection-aware gate. Estimates Mbps from Resource Timing (zero extra
   // bytes) with a cache-busted probe-fetch fallback. Slow/saveData users get
   // Quick view recommended plus an honest size/time estimate. Choice stays free.
-  var CHUNK_MB = 40;
+  var CHUNK_MB = 32;
   var MODEL_LITE = false;
   try { MODEL_LITE = new URLSearchParams(location.search).get('model') === 'lite'; } catch (e) {}
   function chunkMB(cfg) {

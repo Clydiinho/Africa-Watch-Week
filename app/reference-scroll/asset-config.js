@@ -5,22 +5,22 @@
 export const AWW_ASSETS = Object.freeze({
   brand: 'AWW2K26',
   calibre: 'Cal.2K26',
-  movement: 'assets/omega_321_r46f.glb',
-  exterior: 'assets/kimi_openheart_exterior_v2.glb',
-  tourbillon: 'assets/kimi_tourbillon_v1.glb',
+  // Live models: Draco re-quantise of the originals below (no decimation,
+  // dedup deliberately OFF: runtime.js resolves parts through gltf.parser.associations,
+  // and merging shared meshes would drop entries for 39 movement + 44 exterior
+  // nodes, breaking the 283-part / 359-unit rig contract). All 283 / 124 / 64
+  // node names and every source attribute preserved. Originals stay on disk as
+  // the rollback path (documented as AWW_ASSETS.original).
+  movement: 'assets/models/aww2k26-movement.glb',
+  exterior: 'assets/models/aww2k26-exterior.glb',
+  tourbillon: 'assets/models/aww2k26-tourbillon.glb',
   manifest: 'assets/manifest.json',
-  // Draco-compressed stand-ins (dedup + draco re-quantize, NO decimation):
-  // models/aww2k26-movement.glb 14.59MB (was 19.88MB; original already Draco)
-  // models/aww2k26-exterior.glb 3.46MB (was 10.72MB)
-  // models/aww2k26-tourbillon.glb 180KB (was 968KB)
-  // Models total ~17.4MB vs ~31.6MB original (-45%, geometry preserved).
-  // NOT live yet — verify part-name association + visual QA first, then
-  // swap the three paths above. Note: 5MB chunk is unreachable at full
-  // fidelity (movement alone is 14.6MB Draco); it needs mesh decimation.
-  compressed: Object.freeze({
-    movement: 'assets/models/aww2k26-movement.glb',
-    exterior: 'assets/models/aww2k26-exterior.glb',
-    tourbillon: 'assets/models/aww2k26-tourbillon.glb',
+  // Source originals stay on disk as the rollback path; ?model=original is not
+  // wired, so switching back means restoring the three paths above.
+  original: Object.freeze({
+    movement: 'assets/omega_321_r46f.glb',
+    exterior: 'assets/kimi_openheart_exterior_v2.glb',
+    tourbillon: 'assets/kimi_tourbillon_v1.glb',
   }),
 });
 
@@ -35,7 +35,7 @@ export const AWW_BUDGETS = Object.freeze({
 // instead of hardcoding them here.
 export const AWW_ASSET_BYTES = Object.freeze({
   threeJs: 2026496, // three.module.js + loaders + draco wasm/wrapper
-  models: 31563776, // live movement + exterior + tourbillon GLBs
+  models: 22885840, // live compressed movement + exterior + tourbillon GLBs
   env: 1146880, // reference-studio + reference-metal EXRs
   finishes: 7755776, // finish-manifest + textures actually on disk
 });

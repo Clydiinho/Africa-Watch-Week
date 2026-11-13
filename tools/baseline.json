@@ -6,13 +6,12 @@
     "quickMobile640": 421,
     "quickDesktop1600": 1208,
     "threeJs": 1979,
-    "modelsLive": 30824,
-    "modelsStaged": 17807,
+    "modelsLive": 22349,
     "env": 1120,
     "finishes": 7574,
-    "chunk3dLive": 41496,
-    "gateClaimedMB": 18,
-    "gateActualMB": 40.5
+    "chunk3dLive": 33022,
+    "gateClaimedMB": 32,
+    "gateActualMB": 32.2
   },
   "geometryMeasured20261007": {
     "movement": { "renderVertices": 8398197, "uploadVertices": 2867928 },

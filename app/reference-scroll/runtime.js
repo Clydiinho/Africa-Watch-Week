@@ -16,8 +16,8 @@ window.__AWW_TIMINGS={events:AWW_TIMES,
 // Weighted download progress. Totals prefer FileLoader byte counts, falling back
 // to measured disk bytes (tools/baseline.json, 2026-10-13) when length is unknown.
 // Finishes stream inside loadSourceFinishes(); its total is the measured estimate.
-const AWW_KNOWN_BYTES={movement:19879792,exterior:10715276,tourbillon:968432,manifest:43053,finishes:7755776};
-const AWW_PROG={manifest:{loaded:0,total:43053},finishes:{loaded:0,total:7755776},movement:{loaded:0,total:19879792},exterior:{loaded:0,total:10715276},tourbillon:{loaded:0,total:968432}};
+const AWW_KNOWN_BYTES={movement:18791372,exterior:3914500,tourbillon:179968,manifest:43053,finishes:7755776};
+const AWW_PROG={manifest:{loaded:0,total:43053},finishes:{loaded:0,total:7755776},movement:{loaded:0,total:18791372},exterior:{loaded:0,total:3914500},tourbillon:{loaded:0,total:179968}};
 let AWW_PHASE=null;
 function setLoadPhase(label){AWW_PHASE=label;const el=$('load-status');if(el&&label)el.textContent=label;}
 function awwProgressUpdate(){let L=0,T=0;for(const k of Object.keys(AWW_PROG)){const e=AWW_PROG[k];if(e.total>0){T+=e.total;L+=Math.min(e.loaded,e.total);}}try{window.__AWW_PROGRESS={loaded:L,total:T};if(T>0&&window.__AWW_SET_LOAD_P)window.__AWW_SET_LOAD_P(L/T);}catch(e){}if(AWW_PHASE)return;const el=$('load-status');if(el&&T>0)el.textContent='Now loading · '+Math.round(L/T*100)+'%';}
@@ -3417,5 +3417,5 @@ function awwFetch(label,url,parse){awwMark('dl-start:'+label);return fetch(url).
 function awwGLB(label,url,withDraco){awwMark('dl-start:'+label);const loader=new GLTFLoader(manager);if(withDraco)loader.setDRACOLoader(draco);let ended=false;return loader.loadAsync(url,e=>{if(!e)return;const t=e.total>0?e.total:(AWW_KNOWN_BYTES[label]||0);AWW_PROG[label]={loaded:e.loaded,total:t};awwProgressUpdate();if(!ended&&e.total>0&&e.loaded>=e.total){ended=true;awwMark('dl-end:'+label);if(label==='movement')setLoadPhase('Unpacking movement');}});}
 function awwFinishes(){awwMark('dl-start:finishes');return loadSourceFinishes().then(f=>{AWW_PROG.finishes={loaded:AWW_KNOWN_BYTES.finishes,total:AWW_KNOWN_BYTES.finishes};awwMark('asset-ready:finishes');awwProgressUpdate();return f;});}
 awwMark('boot-start');
-Promise.all([awwGLB('movement',movementAssetPath,true),awwFetch('manifest',AWW_ASSETS.manifest,true),awwGLB('exterior',exteriorAssetPath,true),awwFinishes(),awwGLB('tourbillon',tourbillonAssetPath,false)]).then(async ([g,m,e,finishes,tb])=>{conceptTourbillonAsset=tb;setLoadPhase('Assembling parts');await awwPaintedFrame();return build(g,m,e);}).catch(refError);
+Promise.all([awwGLB('movement',movementAssetPath,true),awwFetch('manifest',AWW_ASSETS.manifest,true),awwGLB('exterior',exteriorAssetPath,true),awwFinishes(),awwGLB('tourbillon',tourbillonAssetPath,true)]).then(async ([g,m,e,finishes,tb])=>{conceptTourbillonAsset=tb;setLoadPhase('Assembling parts');await awwPaintedFrame();return build(g,m,e);}).catch(refError);
 measureReference();requestAnimationFrame(referenceFrame);
